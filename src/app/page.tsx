@@ -181,7 +181,7 @@ export default function Home() {
       {/* Why This Race Matters + Fundraising */}
       <section className="py-20 sm:py-28 bg-cream">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <ScrollReveal>
               <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-forest mb-6 leading-tight">
                 Your Chancery Court.<br />
