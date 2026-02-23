@@ -1,14 +1,22 @@
 import Link from "next/link";
 import Image from "next/image";
+import EmailSignup from "@/components/EmailSignup";
 
 const FOOTER_LINKS = [
   { href: "/about", label: "About Rhonda" },
   { href: "/why-rhonda", label: "Why Rhonda" },
+  { href: "/know-your-court", label: "Know Your Court" },
+  { href: "/the-record", label: "The Record" },
+  { href: "/our-district", label: "Our District" },
   { href: "/endorsements", label: "Endorsements" },
   { href: "/events", label: "Events" },
+  { href: "/news", label: "News" },
+  { href: "/voter-resources", label: "Voter Resources" },
   { href: "/volunteer", label: "Volunteer" },
+  { href: "/gallery", label: "Gallery" },
   { href: "/contact", label: "Contact" },
   { href: "/donate", label: "Donate" },
+  { href: "/qr", label: "QR Codes" },
   { href: "/privacy", label: "Privacy Policy" },
 ];
 
@@ -41,7 +49,7 @@ export default function Footer() {
             <h4 className="font-body text-sm font-bold text-sage tracking-widest uppercase mb-4">
               Quick Links
             </h4>
-            <nav className="grid grid-cols-2 gap-2">
+            <nav className="grid grid-cols-3 gap-x-4 gap-y-2">
               {FOOTER_LINKS.map((link) => (
                 <Link
                   key={link.href}
@@ -75,6 +83,10 @@ export default function Footer() {
               >
                 Volunteer
               </Link>
+            </div>
+            <div className="mt-5">
+              <p className="text-cream/70 text-xs font-body font-medium mb-2">Campaign Updates:</p>
+              <EmailSignup />
             </div>
             <p className="text-cream/60 text-xs font-body mt-4">
               P.O. Box 74, Tougaloo, MS 39174

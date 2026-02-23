@@ -1,23 +1,37 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
-const NAV_LINKS = [
+const PRIMARY_LINKS = [
   { href: "/about", label: "About" },
   { href: "/why-rhonda", label: "Why Rhonda" },
+  { href: "/the-record", label: "The Record" },
   { href: "/endorsements", label: "Endorsements" },
-  { href: "/events", label: "Events" },
   { href: "/volunteer", label: "Volunteer" },
-  { href: "/contact", label: "Contact" },
 ];
+
+const MORE_LINKS = [
+  { href: "/know-your-court", label: "Know Your Court" },
+  { href: "/our-district", label: "Our District" },
+  { href: "/voter-resources", label: "Voter Resources" },
+  { href: "/events", label: "Events" },
+  { href: "/news", label: "News" },
+  { href: "/gallery", label: "Gallery" },
+  { href: "/contact", label: "Contact" },
+  { href: "/qr", label: "QR Codes" },
+];
+
+const ALL_LINKS = [...PRIMARY_LINKS, ...MORE_LINKS];
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const moreRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -27,6 +41,7 @@ export default function Header() {
 
   useEffect(() => {
     setMobileOpen(false);
+    setMoreOpen(false);
   }, [pathname]);
 
   useEffect(() => {
@@ -39,6 +54,19 @@ export default function Header() {
       document.body.style.overflow = "";
     };
   }, [mobileOpen]);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (moreRef.current && !moreRef.current.contains(e.target as Node)) {
+        setMoreOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const isMoreActive = MORE_LINKS.some((link) => pathname === link.href);
 
   return (
     <header
@@ -65,12 +93,12 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1">
-            {NAV_LINKS.map((link) => (
+          <nav className="hidden lg:flex items-center gap-0.5">
+            {PRIMARY_LINKS.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`px-4 py-2 text-sm font-medium font-body rounded-lg transition-colors duration-300 ${
+                className={`px-3 py-2 text-[13px] font-medium font-body rounded-lg transition-colors duration-300 ${
                   scrolled
                     ? pathname === link.href
                       ? "text-forest bg-sage/30"
@@ -83,9 +111,54 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
+
+            {/* More Dropdown */}
+            <div ref={moreRef} className="relative">
+              <button
+                onClick={() => setMoreOpen(!moreOpen)}
+                className={`flex items-center gap-1 px-3 py-2 text-[13px] font-medium font-body rounded-lg transition-colors duration-300 ${
+                  scrolled
+                    ? isMoreActive
+                      ? "text-forest bg-sage/30"
+                      : "text-charcoal-light hover:text-forest hover:bg-cream-dark"
+                    : isMoreActive
+                      ? "text-white bg-white/15"
+                      : "text-cream/80 hover:text-white hover:bg-white/10"
+                }`}
+              >
+                More
+                <svg
+                  className={`w-3.5 h-3.5 transition-transform ${moreOpen ? "rotate-180" : ""}`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+
+              {moreOpen && (
+                <div className="absolute top-full right-0 mt-2 w-56 bg-white rounded-xl shadow-xl border border-cream-dark py-2 animate-fade-in">
+                  {MORE_LINKS.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className={`block px-4 py-2.5 text-sm font-body transition-colors ${
+                        pathname === link.href
+                          ? "text-forest bg-sage/20 font-semibold"
+                          : "text-charcoal-light hover:text-forest hover:bg-cream"
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
             <Link
               href="/donate"
-              className="ml-3 px-6 py-2.5 bg-amber text-white text-sm font-bold font-body rounded-full shadow-md hover:bg-amber-dark hover:shadow-lg transition-all duration-200 hover:scale-[1.02]"
+              className="ml-2 px-5 py-2.5 bg-amber text-white text-sm font-bold font-body rounded-full shadow-md hover:bg-amber-dark hover:shadow-lg transition-all duration-200 hover:scale-[1.02]"
             >
               DONATE
             </Link>
@@ -122,13 +195,13 @@ export default function Header() {
 
       {/* Mobile Menu Overlay */}
       {mobileOpen && (
-        <div className="fixed inset-0 top-20 z-40 bg-white lg:hidden animate-fade-in">
-          <nav className="flex flex-col p-6 gap-1">
-            {NAV_LINKS.map((link) => (
+        <div className="fixed inset-0 top-20 z-40 bg-white lg:hidden animate-fade-in overflow-y-auto">
+          <nav className="flex flex-col p-6 gap-1 pb-32">
+            {ALL_LINKS.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`px-4 py-4 text-lg font-medium font-body rounded-xl transition-colors ${
+                className={`px-4 py-3.5 text-base font-medium font-body rounded-xl transition-colors ${
                   pathname === link.href
                     ? "text-forest bg-sage/20"
                     : "text-charcoal hover:text-forest hover:bg-cream-dark"
@@ -143,7 +216,7 @@ export default function Header() {
             >
               DONATE NOW
             </Link>
-            <div className="mt-8 pt-6 border-t border-cream-dark">
+            <div className="mt-6 pt-6 border-t border-cream-dark">
               <p className="text-xs text-mauve/60 font-body text-center leading-relaxed">
                 Paid for by RCC for Chancery 2026
               </p>

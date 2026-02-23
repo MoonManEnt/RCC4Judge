@@ -1,6 +1,11 @@
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import CountUpNumber from "@/components/CountUpNumber";
+import ElectionCountdown from "@/components/ElectionCountdown";
+import EmailSignup from "@/components/EmailSignup";
+import FundraisingThermometer from "@/components/FundraisingThermometer";
+import FAQAccordion from "@/components/FAQAccordion";
+import SocialShare from "@/components/SocialShare";
 
 const PILLARS = [
   {
@@ -131,6 +136,16 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Election Countdown Strip */}
+      <section className="py-8 bg-forest-dark">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-sage text-xs font-body font-medium tracking-widest uppercase mb-4">
+            Election Day: November 3, 2026
+          </p>
+          <ElectionCountdown />
+        </div>
+      </section>
+
       {/* Three Pillars */}
       <section className="py-20 sm:py-28 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -146,7 +161,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {PILLARS.map((pillar, i) => (
               <ScrollReveal key={pillar.title} delay={i * 150}>
-                <div className="group p-8 rounded-2xl bg-cream hover:bg-forest transition-all duration-500 hover:shadow-xl cursor-default h-full">
+                <div className="group p-8 rounded-2xl bg-cream hover:bg-forest transition-all duration-500 hover:shadow-xl cursor-default h-full hover-lift">
                   <div className="text-forest group-hover:text-amber transition-colors duration-500 mb-5">
                     {pillar.icon}
                   </div>
@@ -163,10 +178,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why This Race Matters */}
+      {/* Why This Race Matters + Fundraising */}
       <section className="py-20 sm:py-28 bg-cream">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <ScrollReveal>
               <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-forest mb-6 leading-tight">
                 Your Chancery Court.<br />
@@ -182,6 +197,32 @@ export default function Home() {
                 Our community deserves a Chancellor who is accountable, prepared, and committed to serving
                 every family with fairness and efficiency.
               </p>
+
+              <div className="grid grid-cols-2 gap-6 mb-6">
+                <div className="p-6 bg-white rounded-2xl shadow-sm text-center hover-lift">
+                  <div className="font-heading text-4xl font-bold text-forest mb-1">
+                    <CountUpNumber target={25} suffix="+" />
+                  </div>
+                  <p className="text-mauve font-body text-sm">Years of Legal Experience</p>
+                </div>
+                <div className="p-6 bg-white rounded-2xl shadow-sm text-center hover-lift">
+                  <div className="font-heading text-4xl font-bold text-forest mb-1">
+                    <CountUpNumber target={4} />
+                  </div>
+                  <p className="text-mauve font-body text-sm">Counties Served</p>
+                </div>
+                <div className="p-6 bg-white rounded-2xl shadow-sm text-center hover-lift">
+                  <div className="font-heading text-4xl font-bold text-amber mb-1">
+                    <CountUpNumber target={180} suffix="K+" />
+                  </div>
+                  <p className="text-mauve font-body text-sm">Residents in District</p>
+                </div>
+                <div className="p-6 bg-forest rounded-2xl shadow-sm text-center">
+                  <p className="text-amber font-heading text-2xl font-bold mb-1">Nov 3</p>
+                  <p className="text-cream/80 font-body text-sm">Election Day 2026</p>
+                </div>
+              </div>
+
               <Link
                 href="/why-rhonda"
                 className="inline-flex items-center gap-2 text-forest font-body font-semibold hover:text-amber transition-colors"
@@ -193,31 +234,9 @@ export default function Home() {
               </Link>
             </ScrollReveal>
 
+            {/* Fundraising Thermometer */}
             <ScrollReveal delay={200}>
-              <div className="grid grid-cols-2 gap-6">
-                <div className="p-6 bg-white rounded-2xl shadow-sm text-center">
-                  <div className="font-heading text-4xl font-bold text-forest mb-1">
-                    <CountUpNumber target={25} suffix="+" />
-                  </div>
-                  <p className="text-mauve font-body text-sm">Years of Legal Experience</p>
-                </div>
-                <div className="p-6 bg-white rounded-2xl shadow-sm text-center">
-                  <div className="font-heading text-4xl font-bold text-forest mb-1">
-                    <CountUpNumber target={4} />
-                  </div>
-                  <p className="text-mauve font-body text-sm">Counties Served</p>
-                </div>
-                <div className="p-6 bg-white rounded-2xl shadow-sm text-center">
-                  <div className="font-heading text-4xl font-bold text-amber mb-1">
-                    <CountUpNumber target={1} />
-                  </div>
-                  <p className="text-mauve font-body text-sm">Mission: Justice for All</p>
-                </div>
-                <div className="p-6 bg-forest rounded-2xl shadow-sm text-center">
-                  <p className="text-amber font-heading text-2xl font-bold mb-1">Nov 3</p>
-                  <p className="text-cream/80 font-body text-sm">Election Day 2026</p>
-                </div>
-              </div>
+              <FundraisingThermometer raised={0} goal={75000} donorCount={0} />
             </ScrollReveal>
           </div>
         </div>
@@ -229,7 +248,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Photo Placeholder */}
             <ScrollReveal>
-              <div className="aspect-[4/5] bg-gradient-to-br from-forest/10 to-sage/20 rounded-3xl flex items-center justify-center relative overflow-hidden">
+              <div className="aspect-[4/5] bg-gradient-to-br from-forest/10 to-sage/20 rounded-3xl flex items-center justify-center relative overflow-hidden hover-scale">
                 <div className="text-center px-8">
                   <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-forest/10 flex items-center justify-center">
                     <svg className="w-16 h-16 text-forest/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -323,7 +342,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {ENDORSEMENTS_PREVIEW.map((endorsement, i) => (
               <ScrollReveal key={i} delay={i * 150}>
-                <div className="p-8 bg-white rounded-2xl shadow-sm h-full flex flex-col">
+                <div className="p-8 bg-white rounded-2xl shadow-sm h-full flex flex-col hover-lift">
                   <div className="text-amber mb-4">
                     <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
@@ -351,6 +370,39 @@ export default function Home() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </Link>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 sm:py-28 bg-white">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          <ScrollReveal className="text-center mb-12">
+            <h2 className="font-heading text-3xl sm:text-4xl font-bold text-forest mb-4">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-charcoal-light font-body text-lg">
+              Common questions about the campaign, Chancery Court, and how to get involved.
+            </p>
+          </ScrollReveal>
+          <FAQAccordion />
+        </div>
+      </section>
+
+      {/* Email Signup + Social Share */}
+      <section className="py-16 bg-cream-dark">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+          <ScrollReveal>
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-forest mb-3">
+              Stay Connected
+            </h2>
+            <p className="text-charcoal-light font-body mb-6 max-w-md mx-auto">
+              Get campaign updates, event announcements, and news delivered to your inbox.
+            </p>
+            <EmailSignup variant="banner" />
+            <div className="mt-6 flex justify-center">
+              <SocialShare />
+            </div>
           </ScrollReveal>
         </div>
       </section>

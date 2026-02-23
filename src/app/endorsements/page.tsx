@@ -1,4 +1,5 @@
 import ScrollReveal from "@/components/ScrollReveal";
+import EndorsementForm from "@/components/EndorsementForm";
 import Link from "next/link";
 import type { Metadata } from "next";
 
@@ -151,21 +152,37 @@ export default function EndorsementsPage() {
         </div>
       </section>
 
-      {/* Add Your Endorsement CTA */}
+      {/* Endorsement Submission Form */}
+      <section className="py-20 bg-white">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <ScrollReveal className="text-center mb-12">
+            <h2 className="font-heading text-3xl sm:text-4xl font-bold text-forest mb-4">
+              Add Your Endorsement
+            </h2>
+            <p className="text-charcoal-light font-body text-lg max-w-xl mx-auto">
+              If you believe in accountability, fairness, and competency on the Chancery bench,
+              we&apos;d be honored to have your endorsement.
+            </p>
+          </ScrollReveal>
+          <EndorsementForm />
+        </div>
+      </section>
+
+      {/* CTA */}
       <section className="py-16 bg-forest">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-heading text-3xl sm:text-4xl font-bold text-white mb-4">
-            Want to Endorse Rhonda?
+            Every Voice Counts
           </h2>
           <p className="text-cream/80 font-body text-lg mb-8 max-w-xl mx-auto">
-            If you believe in accountability, fairness, and competency on the Chancery bench,
-            we&apos;d be honored to have your endorsement.
+            Your endorsement shows the community that Rhonda Cooper has earned the trust
+            of the people she will serve.
           </p>
           <Link
-            href="/contact"
+            href="/donate"
             className="inline-flex items-center gap-2 px-8 py-4 bg-amber text-white text-lg font-bold font-body rounded-full hover:bg-amber-dark transition-all"
           >
-            Contact the Campaign
+            Support the Campaign
           </Link>
         </div>
       </section>

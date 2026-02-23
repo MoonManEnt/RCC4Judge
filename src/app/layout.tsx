@@ -1,9 +1,10 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Playfair_Display, DM_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MobileDonateBar from "@/components/MobileDonateBar";
+import PageTransition from "@/components/PageTransition";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -18,6 +19,12 @@ const dmSans = DM_Sans({
   display: "swap",
   weight: ["300", "400", "500", "600", "700"],
 });
+
+export const viewport: Viewport = {
+  themeColor: "#285238",
+  width: "device-width",
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
   title: "Rhonda C. Cooper for Chancery Judge | RCC for Chancery 2026",
@@ -35,6 +42,13 @@ export const metadata: Metadata = {
     "judicial election",
     "2026",
   ],
+  manifest: "/manifest.json",
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
   openGraph: {
     title: "Rhonda C. Cooper for Chancery Judge",
     description:
@@ -61,7 +75,9 @@ export default function RootLayout({
     <html lang="en" className={`${playfair.variable} ${dmSans.variable}`}>
       <body className="antialiased">
         <Header />
-        <main className="min-h-screen">{children}</main>
+        <main className="min-h-screen">
+          <PageTransition>{children}</PageTransition>
+        </main>
         <Footer />
         <MobileDonateBar />
       </body>
