@@ -48,11 +48,11 @@ const WHY_IT_MATTERS = [
   },
   {
     stat: "23+",
-    label: "Years the current Place 2 seat has been held by the same judge",
+    label: "Years the current Subdistrict 2 seat has been held by the same judge",
   },
   {
     stat: "4",
-    label: "Counties in the 11th District: Madison, Leake, Holmes, Yazoo",
+    label: "Counties in Subdistrict 11-2: Leake County and Madison County precincts",
   },
 ];
 
@@ -149,7 +149,7 @@ export default function KnowYourCourtPage() {
               </p>
               <p className="font-body text-charcoal-light text-lg leading-relaxed">
                 When you vote for Chancery Judge, you&apos;re choosing the single person who will decide
-                custody battles, estate disputes, and guardianship cases for families across four counties.
+                custody battles, estate disputes, and guardianship cases for families across Leake and Madison counties.
                 That vote deserves your attention.
               </p>
             </div>

@@ -9,7 +9,7 @@ interface SocialShareProps {
 
 export default function SocialShare({
   title = "Support Rhonda C. Cooper for Chancery Judge",
-  description = "Join the movement for fair, accountable justice in Mississippi's 11th Chancery District. Vote November 3, 2026.",
+  description = "Join the movement for fair, accountable justice in Mississippi's 11th Chancery District, Subdistrict 2. Vote November 3, 2026.",
 }: SocialShareProps) {
   const [url, setUrl] = useState("");
   const [copied, setCopied] = useState(false);

@@ -524,7 +524,7 @@ export default function DonationPlatform() {
               <p className="text-sm font-body text-charcoal-light leading-relaxed">
                 This campaign is funded entirely by people like you — community members who believe
                 in fair, accountable justice. Your contribution helps us reach every voter in Madison,
-                Leake, Holmes, and Yazoo counties.
+                Leake and Madison counties.
               </p>
             </div>
 

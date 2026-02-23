@@ -37,7 +37,7 @@ const CAREER_MILESTONES = [
   {
     period: "2026 — Running for Chancery Judge",
     description:
-      "Qualified as a candidate for the 11th Chancery Court District, Place 2 — bringing accountability, compassion, and competency to the bench.",
+      "Qualified as a candidate for the 11th Chancery Court District, Subdistrict 2 — bringing accountability, compassion, and competency to the bench.",
   },
 ];
 
@@ -103,8 +103,8 @@ export default function AboutPage() {
                     Chancery Court does. She has lived it, day in and day out, for over two decades.
                   </p>
                   <p>
-                    Rhonda&apos;s legal career has taken her across Madison, Leake, Holmes, and Yazoo counties —
-                    the four counties that make up the 11th Chancery Court District. She knows the
+                    Rhonda&apos;s legal career has taken her across Leake and Madison counties —
+                    the communities that make up Subdistrict 11-2 of the 11th Chancery Court District. She knows the
                     communities, the families, and the challenges they face. Her roots in this district
                     are not political — they are personal and professional.
                   </p>
@@ -241,7 +241,7 @@ export default function AboutPage() {
             Ready to Stand With Rhonda?
           </h2>
           <p className="text-cream/80 font-body text-lg mb-8 max-w-xl mx-auto">
-            Join the movement for fair, accountable justice across all four counties of the 11th Chancery District.
+            Join the movement for fair, accountable justice across Leake and Madison counties.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

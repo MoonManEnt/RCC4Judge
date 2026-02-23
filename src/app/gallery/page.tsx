@@ -12,7 +12,7 @@ const GALLERY_SECTIONS = [
   },
   {
     title: "Community Events",
-    description: "Moments from across Madison, Leake, Holmes, and Yazoo counties.",
+    description: "Moments from across Leake and Madison counties.",
     placeholders: 4,
     comingSoon: true,
   },

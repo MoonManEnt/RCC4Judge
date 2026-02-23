@@ -29,14 +29,14 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: "Rhonda C. Cooper for Chancery Judge | RCC for Chancery 2026",
   description:
-    "Attorney Rhonda C. Cooper is running for Chancery Judge in Mississippi's 11th Chancery District. 25+ years of legal experience. Responsibility. Compassion. Competency.",
+    "Attorney Rhonda C. Cooper is running for Chancery Judge in Mississippi's 11th Chancery District, Subdistrict 2 (Leake County & Madison County). 25+ years of legal experience. Responsibility. Compassion. Competency.",
   keywords: [
     "Rhonda Cooper",
     "Chancery Judge",
     "Madison County",
     "Leake County",
-    "Holmes County",
-    "Yazoo County",
+    "Subdistrict 2",
+    "SB2768",
     "Mississippi",
     "11th Chancery District",
     "judicial election",

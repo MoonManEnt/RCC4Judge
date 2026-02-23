@@ -39,8 +39,8 @@ export default function Footer() {
               Responsibility. Compassion. Competency.
             </p>
             <p className="text-cream/80 text-sm font-body leading-relaxed mt-2">
-              11th Chancery Court District, Place 2<br />
-              Madison | Leake | Holmes | Yazoo Counties
+              11th Chancery Court District, Subdistrict 2<br />
+              Leake County | Madison County
             </p>
           </div>
 
@@ -102,7 +102,7 @@ export default function Footer() {
             </p>
             <p className="text-cream/40 text-xs font-body leading-relaxed">
               This communication was prepared and distributed by the Committee to Elect Rhonda C. Cooper.
-              Approved by Rhonda C. Cooper, Candidate for Chancery Judge, 11th District, Place 2.
+              Approved by Rhonda C. Cooper, Candidate for Chancery Judge, 11th District, Subdistrict 2.
             </p>
             <p className="text-cream/40 text-xs font-body leading-relaxed">
               Contributions are not tax deductible. Mississippi law limits individual contributions to $2,500 per election cycle

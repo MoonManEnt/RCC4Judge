@@ -14,11 +14,11 @@ const FAQ_ITEMS: FAQItem[] = [
   },
   {
     question: "What district does this election cover?",
-    answer: "The 11th Chancery Court District covers Madison, Leake, Holmes, and Yazoo counties in Mississippi. This election is for Place 2 of that district.",
+    answer: "Under SB2768, the 11th Chancery Court District has been divided into subdistricts. Subdistrict 11-2 covers all of Leake County and specific precincts in Madison County — including the city of Madison, much of Ridgeland, Canton, Highland Colony, Lake Caroline, Gluckstadt, and surrounding communities. This is the seat Rhonda Cooper is running for.",
   },
   {
     question: "When is Election Day?",
-    answer: "Election Day is November 3, 2026. Mississippi judicial elections are nonpartisan — all registered voters in the 11th Chancery District can vote regardless of party affiliation.",
+    answer: "Election Day is November 3, 2026. Mississippi judicial elections are nonpartisan — all registered voters in Subdistrict 11-2 (Leake County and designated Madison County precincts) can vote regardless of party affiliation.",
   },
   {
     question: "How is this race different from a regular political race?",
@@ -26,7 +26,7 @@ const FAQ_ITEMS: FAQItem[] = [
   },
   {
     question: "What are Rhonda Cooper's qualifications?",
-    answer: "Rhonda C. Cooper is a licensed Mississippi attorney with over 25 years of legal experience in the exact areas Chancery Court handles — family law, probate, estates, civil rights, and criminal defense. She has practiced across all four counties in the 11th Chancery District.",
+    answer: "Rhonda C. Cooper is a licensed Mississippi attorney with over 25 years of legal experience in the exact areas Chancery Court handles — family law, probate, estates, civil rights, and criminal defense. She has practiced across Leake and Madison counties throughout her career.",
   },
   {
     question: "How can I contribute to the campaign?",
@@ -42,11 +42,11 @@ const FAQ_ITEMS: FAQItem[] = [
   },
   {
     question: "Who is the current judge in this seat?",
-    answer: "The current occupant of Place 2 on the 11th Chancery Court has held the position for over 23 years. Rhonda Cooper believes that after more than two decades, the families of this district deserve a choice — and accountability on the bench.",
+    answer: "The current occupant of the seat now designated as Subdistrict 2 on the 11th Chancery Court has held the position for over 23 years. Rhonda Cooper believes that after more than two decades, the families of this district deserve a choice — and accountability on the bench.",
   },
   {
     question: "How can I stay updated on the campaign?",
-    answer: "Sign up for email updates on our website, follow the campaign on social media, or visit our events page for upcoming community forums and meet-and-greets across all four counties.",
+    answer: "Sign up for email updates on our website, follow the campaign on social media, or visit our events page for upcoming community forums and meet-and-greets across Leake and Madison counties.",
   },
 ];
 

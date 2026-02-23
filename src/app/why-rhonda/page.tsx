@@ -211,7 +211,7 @@ export default function WhyRhondaPage() {
               who <span className="text-amber">listens</span>.
             </h2>
             <p className="text-cream/80 font-body text-lg max-w-2xl mx-auto mb-8">
-              On November 3, 2026, the families of Madison, Leake, Holmes, and Yazoo counties
+              On November 3, 2026, the families of Leake and Madison counties
               will have the opportunity to choose accountability, compassion, and competency
               on the Chancery bench. Choose Rhonda C. Cooper.
             </p>

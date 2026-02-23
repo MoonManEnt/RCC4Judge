@@ -33,7 +33,7 @@ const UPCOMING_EVENTS = [
     time: "TBA",
     location: "Rotating Locations",
     description:
-      "Informal coffee meetups across all four counties. Come talk to the campaign team, ask questions, and share your concerns about justice in our district.",
+      "Informal coffee meetups across Leake and Madison counties. Come talk to the campaign team, ask questions, and share your concerns about justice in our district.",
     type: "Community",
   },
 ];
@@ -55,8 +55,8 @@ export default function EventsPage() {
             <span className="text-amber">the District</span>
           </h1>
           <p className="text-cream/80 font-body text-lg sm:text-xl max-w-2xl mt-4 leading-relaxed animate-fade-in-up stagger-2">
-            From Madison to Yazoo, Holmes to Leake — we&apos;re showing up in every corner
-            of the 11th Chancery District. Come be part of the movement.
+            From Carthage to Canton, Madison to Ridgeland — we&apos;re showing up across every
+            community in Subdistrict 11-2. Come be part of the movement.
           </p>
         </div>
       </section>

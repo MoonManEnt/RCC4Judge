@@ -90,8 +90,6 @@ export default function EndorsementForm() {
             <option value="">Select county...</option>
             <option value="Madison">Madison County</option>
             <option value="Leake">Leake County</option>
-            <option value="Holmes">Holmes County</option>
-            <option value="Yazoo">Yazoo County</option>
             <option value="Other">Other</option>
           </select>
         </div>

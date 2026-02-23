@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Voter Resources | RCC for Chancery 2026",
   description:
-    "Everything you need to vote in the 2026 Chancery Judge election. Registration info, polling locations, key dates, and more for Madison, Leake, Holmes, and Yazoo counties.",
+    "Everything you need to vote in the 2026 Chancery Judge election. Registration info, polling locations, key dates, and more for Leake and Madison counties (Subdistrict 11-2).",
 };
 
 const KEY_DATES = [
@@ -27,18 +27,6 @@ const COUNTY_INFO = [
     seat: "Carthage, MS",
     circuitClerk: "Office of the Circuit Clerk",
     address: "Courthouse Square, Carthage, MS 39051",
-  },
-  {
-    name: "Holmes County",
-    seat: "Lexington, MS",
-    circuitClerk: "Office of the Circuit Clerk",
-    address: "Court Square, Lexington, MS 39095",
-  },
-  {
-    name: "Yazoo County",
-    seat: "Yazoo City, MS",
-    circuitClerk: "Office of the Circuit Clerk",
-    address: "211 E. Broadway, Yazoo City, MS 39194",
   },
 ];
 
@@ -208,7 +196,7 @@ export default function VoterResourcesPage() {
             </h2>
             <p className="text-cream/80 font-body text-lg mb-8 max-w-xl mx-auto">
               Register today. Mark November 3rd. And help us spread the word across
-              Madison, Leake, Holmes, and Yazoo counties.
+              Leake and Madison counties.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

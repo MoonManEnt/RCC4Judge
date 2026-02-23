@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "The Record | RCC for Chancery 2026",
   description:
-    "The public record of the 11th Chancery Court, Place 2. A fact-based, Canon 5-compliant look at why accountability matters in our judicial system.",
+    "The public record of the 11th Chancery Court, Subdistrict 2. A fact-based, Canon 5-compliant look at why accountability matters in our judicial system.",
 };
 
 const RECORD_POINTS = [
@@ -49,7 +49,7 @@ const CONTRAST_POINTS = [
   {
     category: "Community Connection",
     current: "Documented appearances at partisan political events",
-    cooper: "Deep roots across all four counties — faith, civic, and professional community",
+    cooper: "Deep roots across Leake and Madison counties — faith, civic, and professional community",
   },
   {
     category: "Judicial Temperament",
@@ -131,7 +131,7 @@ export default function TheRecordPage() {
               A Clear Choice
             </h2>
             <p className="text-charcoal-light font-body text-lg max-w-2xl mx-auto">
-              This election gives voters in all four counties a real choice for the first time in over two decades.
+              This election gives voters in Leake and Madison counties a real choice for the first time in over two decades.
             </p>
           </ScrollReveal>
 

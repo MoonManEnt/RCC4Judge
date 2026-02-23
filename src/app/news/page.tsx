@@ -8,11 +8,11 @@ import EmailSignup from "@/components/EmailSignup";
 const NEWS_ITEMS = [
   {
     id: 1,
-    title: "Rhonda C. Cooper Qualifies for Chancery Judge, 11th District, Place 2",
+    title: "Rhonda C. Cooper Qualifies for Chancery Judge, 11th District, Subdistrict 2",
     date: "2026",
     category: "Campaign",
     excerpt:
-      "Attorney Rhonda C. Cooper has officially qualified as a candidate for Chancery Judge in Mississippi's 11th Chancery Court District, Place 2, covering Madison, Leake, Holmes, and Yazoo counties.",
+      "Attorney Rhonda C. Cooper has officially qualified as a candidate for Chancery Judge in Mississippi's 11th Chancery Court District, Subdistrict 2, covering Leake County and designated Madison County precincts under SB2768.",
     content:
       "With over 25 years of legal experience in civil rights, probate, family law, and criminal defense, Cooper brings a depth of experience directly aligned with the jurisdiction of Chancery Court. Her campaign is built on three pillars: Responsibility, Compassion, and Competency.",
   },
@@ -24,15 +24,15 @@ const NEWS_ITEMS = [
     excerpt:
       "RCC for Chancery 2026 is launching a voter education initiative to help residents of the 11th Chancery District understand what Chancery Court does and why their vote matters.",
     content:
-      "Most voters don't know what Chancery Court handles until they need it. This initiative aims to educate voters across all four counties about divorce, custody, estate, and guardianship proceedings — the matters that directly impact families.",
+      "Most voters don't know what Chancery Court handles until they need it. This initiative aims to educate voters across Leake and Madison counties about divorce, custody, estate, and guardianship proceedings — the matters that directly impact families.",
   },
   {
     id: 3,
-    title: "Community Forums Planned Across All Four Counties",
+    title: "Community Forums Planned Across Leake and Madison Counties",
     date: "Coming Soon",
     category: "Events",
     excerpt:
-      "The campaign is planning a series of community forums in Madison, Leake, Holmes, and Yazoo counties to connect with voters and discuss the importance of judicial accountability.",
+      "The campaign is planning a series of community forums in Leake County and across Madison County precincts to connect with voters and discuss the importance of judicial accountability.",
     content:
       "Dates and locations will be announced soon. These forums will be open to all community members and will focus on the role of Chancery Court, voter rights, and the importance of this election.",
   },
