@@ -1,70 +1,27 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
 interface ThermometerProps {
   raised: number;
-  goal: number;
   donorCount: number;
 }
 
-export default function FundraisingThermometer({ raised, goal, donorCount }: ThermometerProps) {
-  const [visible, setVisible] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-
-  const percentage = Math.min((raised / goal) * 100, 100);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.unobserve(el);
-        }
-      },
-      { threshold: 0.3 }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
+export default function FundraisingThermometer({ raised, donorCount }: ThermometerProps) {
   return (
-    <div ref={ref} className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm">
+    <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm">
       <div className="flex items-center justify-between mb-2">
         <h3 className="font-heading text-xl font-bold text-forest">Campaign Progress</h3>
         <span className="text-sm font-body text-mauve">{donorCount} donors</span>
       </div>
 
-      <div className="flex items-baseline gap-2 mb-4">
+      <div className="mb-6">
         <span className="font-heading text-3xl font-bold text-forest">
           ${raised.toLocaleString()}
         </span>
-        <span className="font-body text-sm text-charcoal-light">
-          raised of ${goal.toLocaleString()} goal
+        <span className="font-body text-sm text-charcoal-light ml-2">
+          raised
         </span>
-      </div>
-
-      {/* Progress Bar */}
-      <div className="relative h-6 bg-cream rounded-full overflow-hidden mb-3">
-        <div
-          className={`h-full bg-gradient-to-r from-forest to-sage rounded-full transition-all duration-1000 ease-out ${
-            visible ? "thermometer-fill" : ""
-          }`}
-          style={{ width: visible ? `${percentage}%` : "0%" }}
-        />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-xs font-body font-bold text-white drop-shadow-sm">
-            {Math.round(percentage)}%
-          </span>
-        </div>
-      </div>
-
-      <div className="flex justify-between text-xs font-body text-charcoal-light mb-6">
-        <span>$0</span>
-        <span>${goal.toLocaleString()}</span>
       </div>
 
       <Link

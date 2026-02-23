@@ -236,7 +236,7 @@ export default function Home() {
 
             {/* Fundraising Thermometer */}
             <ScrollReveal delay={200}>
-              <FundraisingThermometer raised={0} goal={75000} donorCount={0} />
+              <FundraisingThermometer raised={0} donorCount={0} />
             </ScrollReveal>
           </div>
         </div>
