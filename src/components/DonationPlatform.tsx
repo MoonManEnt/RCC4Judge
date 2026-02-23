@@ -84,11 +84,33 @@ export default function DonationPlatform() {
   const activeImpacts = IMPACT_MILESTONES.filter((m) => amount >= m.at);
   const nextImpact = IMPACT_MILESTONES.find((m) => amount < m.at);
 
-  const handleSubmit = () => {
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleSubmit = async () => {
+    setSubmitting(true);
+
+    // Record the donation
+    try {
+      await fetch("/api/donors", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          amount,
+          type: contributorType,
+          name: `${formData.firstName} ${formData.lastName}`,
+          email: formData.email,
+          recurring: isRecurring,
+        }),
+      });
+    } catch {
+      // Tracking failure should not block the donation flow
+    }
+
     // Stripe integration will go here
     alert(
       `Thank you for your ${isRecurring ? "monthly " : ""}contribution of $${amount.toLocaleString()} to RCC for Chancery 2026! Stripe payment processing will be integrated here.`
     );
+    setSubmitting(false);
   };
 
   return (
@@ -456,14 +478,14 @@ export default function DonationPlatform() {
                   </button>
                   <button
                     onClick={handleSubmit}
-                    disabled={!allAffirmed}
+                    disabled={!allAffirmed || submitting}
                     className={`flex-1 py-4 rounded-xl font-body font-bold text-lg transition-all ${
-                      allAffirmed
+                      allAffirmed && !submitting
                         ? "bg-amber text-white hover:bg-amber-dark shadow-lg hover:shadow-xl hover:scale-[1.01]"
                         : "bg-cream-dark text-charcoal-light/40 cursor-not-allowed"
                     }`}
                   >
-                    Confirm ${amount.toLocaleString()}{isRecurring ? "/month" : ""} Contribution
+                    {submitting ? "Processing..." : `Confirm $${amount.toLocaleString()}${isRecurring ? "/month" : ""} Contribution`}
                   </button>
                 </div>
               </div>

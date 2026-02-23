@@ -1,12 +1,20 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
-interface ThermometerProps {
-  donorCount: number;
-}
+const BASE_DONORS = 750;
 
-export default function FundraisingThermometer({ donorCount }: ThermometerProps) {
+export default function FundraisingThermometer() {
+  const [count, setCount] = useState<number | null>(null);
+
+  useEffect(() => {
+    fetch("/api/donors")
+      .then((r) => r.json())
+      .then((data) => setCount(data.count))
+      .catch(() => setCount(BASE_DONORS));
+  }, []);
+
   return (
     <div className="relative group">
       {/* Glowing background effect */}
@@ -29,9 +37,15 @@ export default function FundraisingThermometer({ donorCount }: ThermometerProps)
 
         {/* Donor count */}
         <div className="relative bg-cream rounded-2xl p-5 text-center mb-8">
-          <p className="font-heading text-3xl sm:text-4xl font-bold text-amber mb-1">
-            {donorCount}
-          </p>
+          {count === null ? (
+            <div className="h-12 flex items-center justify-center">
+              <div className="w-8 h-8 border-3 border-amber/30 border-t-amber rounded-full animate-spin" />
+            </div>
+          ) : (
+            <p className="font-heading text-3xl sm:text-4xl font-bold text-amber mb-1">
+              {count.toLocaleString()}
+            </p>
+          )}
           <p className="font-body text-xs text-charcoal-light tracking-wide uppercase">
             Supporters &amp; Counting
           </p>
