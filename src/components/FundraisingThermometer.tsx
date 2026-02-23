@@ -3,11 +3,10 @@
 import Link from "next/link";
 
 interface ThermometerProps {
-  raised: number;
   donorCount: number;
 }
 
-export default function FundraisingThermometer({ raised, donorCount }: ThermometerProps) {
+export default function FundraisingThermometer({ donorCount }: ThermometerProps) {
   return (
     <div className="relative group">
       {/* Glowing background effect */}
@@ -28,24 +27,14 @@ export default function FundraisingThermometer({ raised, donorCount }: Thermomet
           </h3>
         </div>
 
-        {/* Stats row */}
-        <div className="relative grid grid-cols-2 gap-4 mb-8">
-          <div className="bg-cream rounded-2xl p-5 text-center">
-            <p className="font-heading text-3xl sm:text-4xl font-bold text-forest mb-1">
-              ${raised.toLocaleString()}
-            </p>
-            <p className="font-body text-xs text-charcoal-light tracking-wide uppercase">
-              Raised
-            </p>
-          </div>
-          <div className="bg-cream rounded-2xl p-5 text-center">
-            <p className="font-heading text-3xl sm:text-4xl font-bold text-amber mb-1">
-              {donorCount}
-            </p>
-            <p className="font-body text-xs text-charcoal-light tracking-wide uppercase">
-              Donors
-            </p>
-          </div>
+        {/* Donor count */}
+        <div className="relative bg-cream rounded-2xl p-5 text-center mb-8">
+          <p className="font-heading text-3xl sm:text-4xl font-bold text-amber mb-1">
+            {donorCount}
+          </p>
+          <p className="font-body text-xs text-charcoal-light tracking-wide uppercase">
+            Supporters &amp; Counting
+          </p>
         </div>
 
         {/* CTA Button */}
