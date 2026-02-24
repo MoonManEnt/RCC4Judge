@@ -1,3 +1,4 @@
+import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -61,6 +62,47 @@ export default function OurDistrictPage() {
           <div className="absolute top-1/3 left-1/3 w-96 h-96 bg-sage rounded-full blur-3xl" />
           <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-amber rounded-full blur-3xl" />
         </div>
+
+        {/* Faded background — Madison County map (right) */}
+        <div
+          className="absolute right-0 top-0 bottom-0 w-[35%] hidden lg:block pointer-events-none"
+          style={{
+            maskImage: 'linear-gradient(to left, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%, transparent 80%), linear-gradient(to bottom, transparent 0%, black 8%, black 88%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to left, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%, transparent 80%), linear-gradient(to bottom, transparent 0%, black 8%, black 88%, transparent 100%)',
+            maskComposite: 'intersect',
+            WebkitMaskComposite: 'source-in',
+          }}
+        >
+          <Image
+            src="/images/district/madison-county-map.jpg"
+            alt=""
+            fill
+            className="object-cover object-center opacity-[0.20] mix-blend-luminosity"
+            sizes="35vw"
+            priority
+          />
+        </div>
+
+        {/* Faded background — Leake County map (right, offset) */}
+        <div
+          className="absolute right-[28%] top-0 bottom-0 w-[30%] hidden lg:block pointer-events-none"
+          style={{
+            maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.3) 30%, rgba(0,0,0,0.5) 70%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 8%, black 88%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.3) 30%, rgba(0,0,0,0.5) 70%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 8%, black 88%, transparent 100%)',
+            maskComposite: 'intersect',
+            WebkitMaskComposite: 'source-in',
+          }}
+        >
+          <Image
+            src="/images/district/leake-county-map.jpg"
+            alt=""
+            fill
+            className="object-cover object-center opacity-[0.20] mix-blend-luminosity"
+            sizes="30vw"
+            priority
+          />
+        </div>
+
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-sage text-sm font-body font-medium tracking-[0.2em] uppercase mb-4 animate-fade-in">
             Subdistrict 11-2

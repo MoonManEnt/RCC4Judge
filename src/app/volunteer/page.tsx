@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
 
 const HELP_OPTIONS = [
@@ -46,6 +47,27 @@ export default function VolunteerPage() {
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-sage rounded-full blur-3xl" />
         </div>
+
+        {/* Faded background — Volunteers */}
+        <div
+          className="absolute right-0 top-0 bottom-0 w-[55%] hidden lg:block pointer-events-none"
+          style={{
+            maskImage: 'linear-gradient(to left, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%, transparent 80%), linear-gradient(to bottom, transparent 0%, black 10%, black 85%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to left, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%, transparent 80%), linear-gradient(to bottom, transparent 0%, black 10%, black 85%, transparent 100%)',
+            maskComposite: 'intersect',
+            WebkitMaskComposite: 'source-in',
+          }}
+        >
+          <Image
+            src="/images/volunteers-hero.jpg"
+            alt=""
+            fill
+            className="object-cover object-center opacity-[0.15] mix-blend-luminosity"
+            sizes="55vw"
+            priority
+          />
+        </div>
+
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-sage text-sm font-body font-medium tracking-[0.2em] uppercase mb-4 animate-fade-in">
             Get Involved
