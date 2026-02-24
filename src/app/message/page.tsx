@@ -70,17 +70,18 @@ export default function MessagePage() {
             </div>
           </ScrollReveal>
 
-          {/* Opening — with professional headshot floated right */}
+          {/* ── Photo 1: Young Caron & Mama — "raised my daughter here" ── */}
           <ScrollReveal>
             <div className="prose prose-lg max-w-none font-body text-charcoal leading-[1.9] space-y-6">
-              <div className="sm:float-right sm:ml-8 sm:mb-4 mb-6 flex justify-center sm:justify-end">
-                <div className="relative">
+              <div className="sm:float-right sm:ml-8 sm:mb-6 mb-8 flex justify-center sm:justify-end">
+                <div className="relative group">
+                  <div className="absolute -inset-2 bg-amber/10 rounded-[1.25rem] rotate-2 group-hover:rotate-1 transition-transform" />
                   <Image
-                    src="/images/message/professional-headshot.jpg"
-                    alt="Rhonda C. Cooper, Attorney"
-                    width={200}
-                    height={301}
-                    className="w-[160px] rounded-2xl shadow-lg ring-4 ring-cream"
+                    src="/images/message/young-caron-mama.jpg"
+                    alt="Rhonda and young Caron — a mother and daughter in Ridgeland"
+                    width={600}
+                    height={750}
+                    className="relative w-[180px] sm:w-[200px] rounded-2xl shadow-xl ring-2 ring-white"
                   />
                 </div>
               </div>
@@ -105,40 +106,51 @@ export default function MessagePage() {
             </div>
           </ScrollReveal>
 
-          {/* Family roots photo strip — "nearly 40 years... raised my daughter" */}
+          <div className="clear-both" />
+
+          {/* ── Photo 2: Then & Now — the 40-year arc ── */}
           <ScrollReveal>
-            <div className="my-14">
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
-                <div className="relative aspect-square rounded-2xl overflow-hidden shadow-md ring-1 ring-cream-dark">
-                  <Image
-                    src="/images/message/family-vintage.jpg"
-                    alt="The Cooper family — roots in Mississippi"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 640px) 45vw, 250px"
-                  />
+            <div className="my-16 sm:my-20">
+              <div className="mx-auto max-w-2xl grid grid-cols-2 gap-4 sm:gap-6 items-end">
+                {/* Then — vintage */}
+                <div className="relative group">
+                  <div className="absolute -inset-1.5 bg-amber/8 rounded-[1.25rem] -rotate-1" />
+                  <div className="relative overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5">
+                    <div className="aspect-[3/4]">
+                      <Image
+                        src="/images/message/young-rhonda-daughter.jpg"
+                        alt="Young Rhonda holding her daughter — a portrait from their early years in Ridgeland"
+                        fill
+                        className="object-cover object-top sepia-[.15] brightness-[1.02]"
+                        sizes="(max-width: 640px) 45vw, 300px"
+                      />
+                    </div>
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-4 pt-10">
+                      <p className="text-white text-xs sm:text-sm font-body font-medium">Then</p>
+                    </div>
+                  </div>
                 </div>
-                <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-md ring-1 ring-cream-dark">
-                  <Image
-                    src="/images/message/young-rhonda-daughter.jpg"
-                    alt="Young Rhonda with her daughter in Ridgeland"
-                    fill
-                    className="object-cover object-top"
-                    sizes="(max-width: 640px) 45vw, 250px"
-                  />
-                </div>
-                <div className="relative aspect-square rounded-2xl overflow-hidden shadow-md ring-1 ring-cream-dark hidden sm:block">
-                  <Image
-                    src="/images/message/with-elder.jpg"
-                    alt="Rhonda with a beloved community elder"
-                    fill
-                    className="object-cover"
-                    sizes="250px"
-                  />
+                {/* Now — sunlit family */}
+                <div className="relative group">
+                  <div className="absolute -inset-1.5 bg-forest/8 rounded-[1.25rem] rotate-1" />
+                  <div className="relative overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5">
+                    <div className="aspect-[3/4]">
+                      <Image
+                        src="/images/message/family-kinfolk.jpg"
+                        alt="Rhonda with family — enjoying a sunlit afternoon together today"
+                        fill
+                        className="object-cover object-top"
+                        sizes="(max-width: 640px) 45vw, 300px"
+                      />
+                    </div>
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-4 pt-10">
+                      <p className="text-white text-xs sm:text-sm font-body font-medium">Now</p>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <p className="text-center text-charcoal-light/60 text-xs font-body mt-3 italic">
-                Roots in Madison County — nearly 40 years of family, community, and purpose.
+              <p className="text-center text-charcoal-light/50 text-xs font-body mt-5 italic tracking-wide">
+                Nearly 40 years — from raising a daughter in Ridgeland to welcoming the next generation.
               </p>
             </div>
           </ScrollReveal>
@@ -152,7 +164,7 @@ export default function MessagePage() {
             </div>
           </ScrollReveal>
 
-          {/* Section 2 — Chancery Court / 38 years — with Rhonda speaking */}
+          {/* ── Photo 3: Speaking at church — "38 years in the courtroom" ── */}
           <ScrollReveal>
             <div className="prose prose-lg max-w-none font-body text-charcoal leading-[1.9] space-y-6">
               <p>
@@ -162,15 +174,18 @@ export default function MessagePage() {
                 your parents&apos; wishes are honored when they are gone.
               </p>
 
-              <div className="sm:float-left sm:mr-8 sm:mb-4 mb-6 mt-2 flex justify-center sm:justify-start">
-                <div className="relative w-[220px] sm:w-[200px] aspect-square rounded-2xl overflow-hidden shadow-lg ring-4 ring-forest/10">
-                  <Image
-                    src="/images/message/speaking-church.jpg"
-                    alt="Rhonda Cooper speaking passionately at a community gathering"
-                    fill
-                    className="object-cover object-top"
-                    sizes="220px"
-                  />
+              <div className="sm:float-left sm:mr-8 sm:mb-4 mb-8 mt-2 flex justify-center sm:justify-start not-prose">
+                <div className="relative group">
+                  <div className="absolute -inset-2 bg-forest/8 rounded-[1.25rem] -rotate-1 group-hover:rotate-0 transition-transform" />
+                  <div className="relative w-[220px] sm:w-[240px] aspect-square rounded-2xl overflow-hidden shadow-2xl ring-2 ring-white">
+                    <Image
+                      src="/images/message/speaking-church.jpg"
+                      alt="Rhonda Cooper speaking passionately at a community gathering"
+                      fill
+                      className="object-cover object-top"
+                      sizes="240px"
+                    />
+                  </div>
                 </div>
               </div>
 
@@ -192,33 +207,6 @@ export default function MessagePage() {
           </ScrollReveal>
 
           <div className="clear-both" />
-
-          {/* Parents & legacy photo pair */}
-          <ScrollReveal>
-            <div className="my-14 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
-              <div className="relative w-[200px] aspect-[4/3] rounded-2xl overflow-hidden shadow-md ring-1 ring-cream-dark">
-                <Image
-                  src="/images/message/parents-formal.jpg"
-                  alt="Rhonda's parents at a formal celebration"
-                  fill
-                  className="object-cover"
-                  sizes="200px"
-                />
-              </div>
-              <div className="relative w-[180px] aspect-[3/4] rounded-2xl overflow-hidden shadow-md ring-1 ring-cream-dark">
-                <Image
-                  src="/images/message/love-is-answer.jpg"
-                  alt="Love is the answer — Rhonda's daughter sharing a moment"
-                  fill
-                  className="object-cover object-top"
-                  sizes="180px"
-                />
-              </div>
-            </div>
-            <p className="text-center text-charcoal-light/60 text-xs font-body mt-1 italic">
-              My parents live in Madison. My daughter was raised here in Ridgeland.
-            </p>
-          </ScrollReveal>
 
           {/* Divider */}
           <ScrollReveal>
@@ -247,22 +235,27 @@ export default function MessagePage() {
             </div>
           </ScrollReveal>
 
-          {/* Family group photo — "your family's security, your legacy" */}
+          {/* ── Photo 4: Three generations — "your family's security, your legacy" ── */}
           <ScrollReveal>
-            <div className="my-14 flex justify-center">
-              <div className="relative w-full max-w-[400px] aspect-[3/4] rounded-2xl overflow-hidden shadow-xl ring-4 ring-cream">
-                <Image
-                  src="/images/message/family-group.jpg"
-                  alt="The Cooper family — three generations together"
-                  fill
-                  className="object-cover object-top"
-                  sizes="(max-width: 640px) 85vw, 400px"
-                />
+            <div className="my-16 sm:my-20 flex justify-center">
+              <div className="relative group max-w-[440px] w-full">
+                <div className="absolute -inset-3 bg-gradient-to-br from-amber/10 via-transparent to-forest/10 rounded-[1.75rem] rotate-1 group-hover:rotate-0 transition-transform" />
+                <div className="relative overflow-hidden rounded-2xl shadow-2xl ring-2 ring-white">
+                  <div className="aspect-[3/4]">
+                    <Image
+                      src="/images/message/family-group.jpg"
+                      alt="The Cooper family — three generations together"
+                      fill
+                      className="object-cover object-top"
+                      sizes="(max-width: 640px) 90vw, 440px"
+                    />
+                  </div>
+                </div>
+                <p className="text-center text-charcoal-light/50 text-xs font-body mt-5 italic tracking-wide">
+                  Three generations — the legacy we protect, the future we build.
+                </p>
               </div>
             </div>
-            <p className="text-center text-charcoal-light/60 text-xs font-body mt-1 italic">
-              Three generations — the legacy we protect, the future we build.
-            </p>
           </ScrollReveal>
 
           {/* Highlighted Call to Action Block */}
@@ -290,7 +283,7 @@ export default function MessagePage() {
             </div>
           </ScrollReveal>
 
-          {/* Signature — with warm family photo */}
+          {/* ── Photo 5: Warm closing — "From my family to yours" ── */}
           <ScrollReveal>
             <div className="mt-14 pt-8 border-t border-cream-dark">
               <div className="sm:flex sm:items-start sm:gap-8">
@@ -316,16 +309,18 @@ export default function MessagePage() {
                     </p>
                   </div>
                 </div>
-                {/* Warm family outing photo beside signature */}
-                <div className="mt-6 sm:mt-0 flex justify-center sm:justify-end shrink-0">
-                  <div className="relative w-[180px] aspect-[4/3] rounded-2xl overflow-hidden shadow-md ring-1 ring-cream-dark">
-                    <Image
-                      src="/images/message/rhonda-family-outing.jpg"
-                      alt="Rhonda enjoying time with family"
-                      fill
-                      className="object-cover"
-                      sizes="180px"
-                    />
+                <div className="mt-8 sm:mt-0 flex justify-center sm:justify-end shrink-0">
+                  <div className="relative group">
+                    <div className="absolute -inset-1.5 bg-amber/8 rounded-[1.25rem] rotate-2 group-hover:rotate-1 transition-transform" />
+                    <div className="relative w-[160px] sm:w-[180px] aspect-[3/4] rounded-2xl overflow-hidden shadow-xl ring-2 ring-white">
+                      <Image
+                        src="/images/message/love-is-answer.jpg"
+                        alt="A moment of love and connection"
+                        fill
+                        className="object-cover object-top"
+                        sizes="180px"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -334,29 +329,9 @@ export default function MessagePage() {
         </div>
       </section>
 
-      {/* Share & Act — with faded background collage */}
-      <section className="py-16 bg-cream relative overflow-hidden">
-        {/* Faded family photo in background */}
-        <div className="absolute left-[5%] top-[10%] w-[30%] h-[80%] hidden lg:block pointer-events-none opacity-[0.06]">
-          <Image
-            src="/images/message/family-group.jpg"
-            alt=""
-            fill
-            className="object-cover rounded-3xl"
-            sizes="30vw"
-          />
-        </div>
-        <div className="absolute right-[5%] top-[15%] w-[25%] h-[70%] hidden lg:block pointer-events-none opacity-[0.06]">
-          <Image
-            src="/images/message/young-rhonda-daughter.jpg"
-            alt=""
-            fill
-            className="object-cover rounded-3xl"
-            sizes="25vw"
-          />
-        </div>
-
-        <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+      {/* Share & Act — clean, no photos */}
+      <section className="py-16 bg-cream">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <ScrollReveal>
             <h2 className="font-heading text-3xl sm:text-4xl font-bold text-forest mb-4">
               Share This Message
@@ -383,7 +358,7 @@ export default function MessagePage() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* CTA — clean, no photos */}
       <section className="py-16 bg-forest">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <ScrollReveal>
