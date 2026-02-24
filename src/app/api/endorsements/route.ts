@@ -1,7 +1,17 @@
 import { NextResponse } from "next/server";
 import { getResend } from "@/lib/resend";
+import {
+  checkRateLimit,
+  sanitizeHeaderValue,
+  isValidEmail,
+  truncate,
+} from "@/lib/rate-limit";
 
 export async function POST(request: Request) {
+  // Rate limit: 5 endorsement submissions per minute per IP
+  const rateLimitResponse = await checkRateLimit(request, "endorsements", 5, "60 s");
+  if (rateLimitResponse) return rateLimitResponse;
+
   let body: {
     name?: string;
     title?: string;
@@ -21,11 +31,26 @@ export async function POST(request: Request) {
     );
   }
 
-  const { name, title, organization, county, email, phone, quote } = body;
+  // Sanitize and truncate all inputs
+  const name = truncate(sanitizeHeaderValue(body.name ?? ""), 200);
+  const title = truncate(sanitizeHeaderValue(body.title ?? ""), 200);
+  const organization = truncate(sanitizeHeaderValue(body.organization ?? ""), 200);
+  const county = truncate(sanitizeHeaderValue(body.county ?? ""), 100);
+  const email = (body.email ?? "").trim().toLowerCase();
+  const phone = truncate(sanitizeHeaderValue(body.phone ?? ""), 20);
+  const quote = truncate((body.quote ?? "").trim(), 5000);
 
   if (!name || !county || !email || !quote) {
     return NextResponse.json(
       { error: "Name, county, email, and endorsement statement are required" },
+      { status: 400 }
+    );
+  }
+
+  // Validate email format
+  if (!isValidEmail(email)) {
+    return NextResponse.json(
+      { error: "Please provide a valid email address" },
       { status: 400 }
     );
   }
@@ -42,7 +67,7 @@ export async function POST(request: Request) {
       from: fromAddress,
       to: [chairmanEmail],
       replyTo: email,
-      subject: `[New Endorsement] ${name}${title ? ` — ${title}` : ""} (${county} County)`,
+      subject: `[New Endorsement] ${sanitizeHeaderValue(name)}${title ? ` — ${sanitizeHeaderValue(title)}` : ""} (${sanitizeHeaderValue(county)} County)`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 560px; margin: 0 auto;">
           <div style="background-color: #285238; padding: 24px 32px; border-radius: 0 0 8px 8px;">

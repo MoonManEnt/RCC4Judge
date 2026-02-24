@@ -236,11 +236,10 @@ export default function MessagePage() {
               </div>
 
               <p>
-                If elected, I will also make history as the first African American and the first
-                African American woman ever to serve as Chancery Court Judge in Madison and Leake
-                Counties. I share that not as a slogan but as fact — because it reflects something
-                real about what is possible when neighbors choose to participate in a race that has
-                gone uncontested for more than twenty years.
+                For more than two decades, this seat has gone unchallenged. That changes now.
+                When voters have a real choice for the first time in a generation, it reflects
+                something powerful about what is possible when neighbors choose to participate
+                in their own democracy.
               </p>
 
               <p>

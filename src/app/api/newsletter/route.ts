@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { Redis } from "@upstash/redis";
+import { checkRateLimit, isValidEmail } from "@/lib/rate-limit";
 
 const NEWSLETTER_KEY = "rcc4judge:newsletter_subscribers";
 
@@ -10,11 +11,11 @@ function getRedis(): Redis | null {
   return new Redis({ url, token });
 }
 
-function isValidEmail(email: string): boolean {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
-
 export async function POST(request: Request) {
+  // Rate limit: 5 signups per minute per IP
+  const rateLimitResponse = await checkRateLimit(request, "newsletter", 5, "60 s");
+  if (rateLimitResponse) return rateLimitResponse;
+
   const redis = getRedis();
   if (!redis) {
     return NextResponse.json(
@@ -49,7 +50,11 @@ export async function POST(request: Request) {
   return NextResponse.json({ success: true });
 }
 
-export async function GET() {
+export async function GET(request: Request) {
+  // Rate limit: 30 reads per minute per IP
+  const rateLimitResponse = await checkRateLimit(request, "newsletter-get", 30, "60 s");
+  if (rateLimitResponse) return rateLimitResponse;
+
   const redis = getRedis();
   if (!redis) {
     return NextResponse.json({ count: 0 });

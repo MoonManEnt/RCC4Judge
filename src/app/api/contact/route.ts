@@ -1,7 +1,27 @@
 import { NextResponse } from "next/server";
 import { getResend } from "@/lib/resend";
+import {
+  checkRateLimit,
+  sanitizeHeaderValue,
+  isValidEmail,
+  truncate,
+} from "@/lib/rate-limit";
+
+const SUBJECT_LABELS: Record<string, string> = {
+  general: "General Inquiry",
+  volunteer: "Volunteering",
+  endorsement: "Endorsement",
+  donation: "Donation Question",
+  media: "Media / Press Inquiry",
+  event: "Event Request",
+  other: "Other",
+};
 
 export async function POST(request: Request) {
+  // Rate limit: 5 contact emails per minute per IP
+  const rateLimitResponse = await checkRateLimit(request, "contact", 5, "60 s");
+  if (rateLimitResponse) return rateLimitResponse;
+
   let body: {
     name?: string;
     email?: string;
@@ -18,7 +38,10 @@ export async function POST(request: Request) {
     );
   }
 
-  const { name, email, subject, message } = body;
+  const name = truncate(sanitizeHeaderValue(body.name ?? ""), 200);
+  const email = (body.email ?? "").trim().toLowerCase();
+  const subject = body.subject ?? "";
+  const message = truncate((body.message ?? "").trim(), 5000);
 
   if (!name || !email || !subject || !message) {
     return NextResponse.json(
@@ -27,21 +50,21 @@ export async function POST(request: Request) {
     );
   }
 
+  // Validate email format
+  if (!isValidEmail(email)) {
+    return NextResponse.json(
+      { error: "Please provide a valid email address" },
+      { status: 400 }
+    );
+  }
+
+  // Whitelist subject — only accept known keys, fall back to "Other"
+  const subjectLabel = SUBJECT_LABELS[subject] ?? "Other";
+
   const supportEmail =
     process.env.CAMPAIGN_SUPPORT_EMAIL ?? "Support@RCC4Judge.com";
   const fromAddress =
     process.env.CAMPAIGN_FROM_SUPPORT ?? "support@rcc4judge.com";
-
-  const subjectLabels: Record<string, string> = {
-    general: "General Inquiry",
-    volunteer: "Volunteering",
-    endorsement: "Endorsement",
-    donation: "Donation Question",
-    media: "Media / Press Inquiry",
-    event: "Event Request",
-    other: "Other",
-  };
-  const subjectLabel = subjectLabels[subject] ?? subject;
 
   try {
     const resend = getResend();
@@ -50,7 +73,7 @@ export async function POST(request: Request) {
       from: fromAddress,
       to: [supportEmail],
       replyTo: email,
-      subject: `[Website Contact] ${subjectLabel} — ${name}`,
+      subject: `[Website Contact] ${subjectLabel} — ${sanitizeHeaderValue(name)}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 560px; margin: 0 auto;">
           <div style="background-color: #285238; padding: 24px 32px; border-radius: 0 0 8px 8px;">

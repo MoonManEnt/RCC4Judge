@@ -153,6 +153,12 @@ export default function NewsPage() {
                     P.O. Box 74<br />
                     Tougaloo, MS 39174
                   </p>
+                  <a
+                    href="mailto:Media@RCC4Judge.com"
+                    className="inline-block mt-3 text-sm font-body font-medium text-amber hover:text-amber-dark transition-colors"
+                  >
+                    Media@RCC4Judge.com
+                  </a>
                 </div>
               </ScrollReveal>
             </div>

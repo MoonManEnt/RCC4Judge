@@ -43,7 +43,7 @@ const MADISON_COMMUNITIES = [
   },
   {
     name: "Suburban Growth Corridor",
-    description: "Highland Colony, Lake Caroline, Cobblestone, Gluckstadt — the affluent suburban growth precincts where families are rapidly settling. These communities need a judge who understands modern family dynamics.",
+    description: "Highland Colony, Lake Caroline, Cobblestone, Gluckstadt — fast-growing suburban precincts where families are rapidly settling. These communities need a judge who understands modern family dynamics.",
     precincts: "Highland Colony Baptist, Lake Caroline Clubhouse, Cobblestone, Gluckstadt, Grace Crossing",
   },
   {
@@ -321,7 +321,7 @@ export default function OurDistrictPage() {
                   </li>
                   <li className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 rounded-full bg-amber flex-shrink-0 mt-2" />
-                    Diverse racial and demographic mix
+                    Broad mix of neighborhoods and family backgrounds
                   </li>
                   <li className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 rounded-full bg-amber flex-shrink-0 mt-2" />

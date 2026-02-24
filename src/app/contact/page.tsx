@@ -94,6 +94,31 @@ export default function ContactPage() {
                       <p className="font-body text-charcoal-light text-sm">www.rcc4judge.com</p>
                     </div>
                   </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 bg-forest/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <svg className="w-5 h-5 text-forest" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16.5 12a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 10-2.636 6.364M16.5 12V8.25" />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="font-body font-semibold text-forest text-sm">Emails</p>
+                      <div className="space-y-0.5">
+                        <p className="font-body text-charcoal-light text-sm">
+                          <a href="mailto:Support@RCC4Judge.com" className="hover:text-forest transition-colors">Support@RCC4Judge.com</a>
+                        </p>
+                        <p className="font-body text-charcoal-light text-sm">
+                          <a href="mailto:Media@RCC4Judge.com" className="hover:text-forest transition-colors">Media@RCC4Judge.com</a>
+                        </p>
+                        <p className="font-body text-charcoal-light text-sm">
+                          <a href="mailto:Treasurer@RCC4Judge.com" className="hover:text-forest transition-colors">Treasurer@RCC4Judge.com</a>
+                        </p>
+                        <p className="font-body text-charcoal-light text-sm">
+                          <a href="mailto:Chairman@RCC4Judge.com" className="hover:text-forest transition-colors">Chairman@RCC4Judge.com</a>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 <div className="mt-10 p-6 bg-white rounded-2xl shadow-sm">

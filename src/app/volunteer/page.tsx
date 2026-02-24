@@ -27,6 +27,8 @@ export default function VolunteerPage() {
   const [helpWith, setHelpWith] = useState<string[]>([]);
   const [availability, setAvailability] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const toggleHelp = (item: string) => {
     setHelpWith((prev) =>
@@ -34,10 +36,35 @@ export default function VolunteerPage() {
     );
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Form submission backend will be connected
-    setSubmitted(true);
+    setLoading(true);
+    setError("");
+
+    try {
+      const res = await fetch("/api/volunteer", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...formData,
+          helpWith,
+          availability,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setError(data.error || "Something went wrong. Please try again.");
+        return;
+      }
+
+      setSubmitted(true);
+    } catch {
+      setError("Network error. Please check your connection and try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -245,12 +272,20 @@ export default function VolunteerPage() {
                 </div>
               </ScrollReveal>
 
+              {/* Error Display */}
+              {error && (
+                <div className="p-4 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm font-body">
+                  {error}
+                </div>
+              )}
+
               {/* Submit */}
               <button
                 type="submit"
-                className="w-full py-4 bg-amber text-white text-lg font-bold font-body rounded-xl shadow-lg hover:bg-amber-dark hover:shadow-xl transition-all hover:scale-[1.01]"
+                disabled={loading}
+                className="w-full py-4 bg-amber text-white text-lg font-bold font-body rounded-xl shadow-lg hover:bg-amber-dark hover:shadow-xl transition-all hover:scale-[1.01] disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                Join the Team
+                {loading ? "Submitting..." : "Join the Team"}
               </button>
 
               <p className="text-center text-xs font-body text-mauve">

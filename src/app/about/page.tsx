@@ -76,10 +76,10 @@ export default function AboutPage() {
                   </p>
                   <p>
                     But Rhonda&apos;s career has never been confined to a courtroom. She has dedicated
-                    her life to advocacy in <strong className="text-forest">equity in education, community
-                    engagement, and social capital</strong> — empowering impoverished and marginalized
-                    communities by providing pro bono services to those who need it most, particularly
-                    seniors and disadvantaged youth. The families who can&apos;t afford an attorney?
+                    her life to advocacy in <strong className="text-forest">education, community
+                    engagement, and public service</strong> — providing pro bono legal services
+                    to those who need it most, particularly seniors and families who otherwise
+                    could not afford representation. The families who can&apos;t afford an attorney?
                     Rhonda has been their attorney anyway.
                   </p>
                   <p>
@@ -371,7 +371,7 @@ export default function AboutPage() {
                   { label: "Delta Sigma Theta Sorority, Inc.", sub: "Charter Member, Madison County Alumnae Chapter" },
                   { label: "Leadership Madison County", sub: "Inaugural Class" },
                   { label: "MS Women's Lawyers Association", sub: "Member" },
-                  { label: "Metro Jackson Black Women Lawyers Assoc.", sub: "Member" },
+                  { label: "Metro Jackson Women Lawyers Association", sub: "Member" },
                   { label: "Mary Church Terrell Literary Club, Inc.", sub: "Member" },
                   { label: "Oral History Association", sub: "Member" },
                   { label: "St. Francis of Assisi Catholic Church", sub: "Hospitality Ministry, Madison, MS" },
