@@ -235,7 +235,7 @@ export default function VoterResourcesPage() {
                     </svg>
                   </a>
                   <a
-                    href="https://www.sos.ms.gov/yall-vote"
+                    href="https://www.msegov.com/sos/voter_registration/amiregistered/Search"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-between w-full px-5 py-4 bg-white/10 text-cream font-semibold font-body rounded-xl hover:bg-white/20 transition-all group"

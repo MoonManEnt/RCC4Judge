@@ -1,3 +1,4 @@
+import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -65,6 +66,27 @@ export default function KnowYourCourtPage() {
           <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-sage rounded-full blur-3xl" />
           <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-amber rounded-full blur-3xl" />
         </div>
+
+        {/* Faded background — Rhonda speaking at church */}
+        <div
+          className="absolute right-[2%] top-[5%] bottom-[5%] w-[45%] hidden lg:block pointer-events-none"
+          style={{
+            maskImage: 'linear-gradient(to left, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 55%, transparent 85%), linear-gradient(to bottom, transparent 0%, black 8%, black 90%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to left, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 55%, transparent 85%), linear-gradient(to bottom, transparent 0%, black 8%, black 90%, transparent 100%)',
+            maskComposite: 'intersect',
+            WebkitMaskComposite: 'source-in',
+          }}
+        >
+          <Image
+            src="/images/rhonda-speaking.jpg"
+            alt=""
+            fill
+            className="object-cover object-top opacity-[0.20] mix-blend-luminosity"
+            sizes="45vw"
+            priority
+          />
+        </div>
+
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-sage text-sm font-body font-medium tracking-[0.2em] uppercase mb-4 animate-fade-in">
             Voter Education
