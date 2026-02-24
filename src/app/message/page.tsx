@@ -217,9 +217,24 @@ export default function MessagePage() {
             </div>
           </ScrollReveal>
 
-          {/* Section 3 — Making history */}
+          {/* Section 3 — Making history — with parents photo */}
           <ScrollReveal>
             <div className="prose prose-lg max-w-none font-body text-charcoal leading-[1.9] space-y-6">
+              <div className="sm:float-right sm:ml-8 sm:mb-4 mb-8 mt-2 flex justify-center sm:justify-end not-prose">
+                <div className="relative group">
+                  <div className="absolute -inset-1.5 bg-amber/10 rounded-[1.25rem] rotate-2 group-hover:rotate-1 transition-transform" />
+                  <div className="relative w-[180px] sm:w-[200px] aspect-[4/3] rounded-2xl overflow-hidden shadow-xl ring-2 ring-white">
+                    <Image
+                      src="/images/message/parents-formal.jpg"
+                      alt="Rhonda's parents — elegantly dressed at a family celebration"
+                      fill
+                      className="object-cover"
+                      sizes="200px"
+                    />
+                  </div>
+                </div>
+              </div>
+
               <p>
                 If elected, I will also make history as the first African American and the first
                 African American woman ever to serve as Chancery Court Judge in Madison and Leake
