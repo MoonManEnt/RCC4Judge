@@ -56,7 +56,7 @@ export default function AboutPage() {
             <div className="lg:col-span-3">
               <ScrollReveal>
                 <h2 className="font-heading text-3xl sm:text-4xl font-bold text-forest mb-6">
-                  Four Decades in the Making
+                  38 Years in the Making
                 </h2>
                 <div className="prose prose-lg max-w-none font-body text-charcoal-light space-y-5 leading-relaxed">
                   <p>
@@ -145,10 +145,14 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-16">
             <ScrollReveal>
               <div className="p-6 bg-cream rounded-2xl text-center hover-lift h-full">
-                <div className="w-14 h-14 bg-amber/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-7 h-7 text-amber" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.562.562 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.562.562 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
-                  </svg>
+                <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 overflow-hidden">
+                  <Image
+                    src="/images/awards/mississippi-business-journal.jpg"
+                    alt="Mississippi Business Journal"
+                    width={236}
+                    height={45}
+                    className="w-full h-auto object-contain"
+                  />
                 </div>
                 <h3 className="font-heading text-lg font-bold text-forest mb-2">Leader in Law</h3>
                 <p className="font-body text-charcoal-light text-sm">Mississippi Business Journal, 2022</p>
@@ -157,10 +161,14 @@ export default function AboutPage() {
 
             <ScrollReveal delay={100}>
               <div className="p-6 bg-cream rounded-2xl text-center hover-lift h-full">
-                <div className="w-14 h-14 bg-forest/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-7 h-7 text-forest" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" />
-                  </svg>
+                <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 overflow-hidden">
+                  <Image
+                    src="/images/awards/charles-koch-foundation.png"
+                    alt="Charles Koch Foundation"
+                    width={301}
+                    height={99}
+                    className="w-full h-auto object-contain"
+                  />
                 </div>
                 <h3 className="font-heading text-lg font-bold text-forest mb-2">Koch Foundation Lecturer</h3>
                 <p className="font-body text-charcoal-light text-sm">Charles Koch Foundation Education Lecture, MVSU, 2018</p>
@@ -169,10 +177,14 @@ export default function AboutPage() {
 
             <ScrollReveal delay={200}>
               <div className="p-6 bg-cream rounded-2xl text-center hover-lift h-full">
-                <div className="w-14 h-14 bg-mauve/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-7 h-7 text-mauve" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.26 10.147a60.438 60.438 0 00-.491 6.347A48.62 48.62 0 0112 20.904a48.62 48.62 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.636 50.636 0 00-2.658-.813A59.906 59.906 0 0112 3.493a59.903 59.903 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
-                  </svg>
+                <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 overflow-hidden">
+                  <Image
+                    src="/images/awards/jsu-creative-awards.png"
+                    alt="JSU Creative Awards"
+                    width={138}
+                    height={77}
+                    className="w-full h-auto object-contain"
+                  />
                 </div>
                 <h3 className="font-heading text-lg font-bold text-forest mb-2">Two-Time Creative Awardee</h3>
                 <p className="font-body text-charcoal-light text-sm">JSU Creative Awards for Faculty & Staff</p>

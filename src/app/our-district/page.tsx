@@ -267,7 +267,16 @@ export default function OurDistrictPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
             <ScrollReveal>
               <div className="p-6 sm:p-8 bg-cream rounded-2xl h-full">
-                <h3 className="font-heading text-xl font-bold text-forest mb-3">Rural Leake County</h3>
+                <div className="flex items-center gap-3 mb-3">
+                  <Image
+                    src="/images/district/leake-county-logo.png"
+                    alt="Leake County, Mississippi"
+                    width={495}
+                    height={134}
+                    className="h-10 w-auto object-contain"
+                  />
+                  <h3 className="font-heading text-xl font-bold text-forest">Rural Leake County</h3>
+                </div>
                 <ul className="space-y-3 font-body text-charcoal-light text-sm leading-relaxed">
                   <li className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 rounded-full bg-forest flex-shrink-0 mt-2" />
@@ -291,7 +300,16 @@ export default function OurDistrictPage() {
 
             <ScrollReveal delay={150}>
               <div className="p-6 sm:p-8 bg-cream rounded-2xl h-full">
-                <h3 className="font-heading text-xl font-bold text-amber mb-3">Suburban Madison County</h3>
+                <div className="flex items-center gap-3 mb-3">
+                  <Image
+                    src="/images/district/madison-county-logo.png"
+                    alt="Madison County"
+                    width={123}
+                    height={99}
+                    className="h-10 w-auto object-contain"
+                  />
+                  <h3 className="font-heading text-xl font-bold text-amber">Suburban Madison County</h3>
+                </div>
                 <ul className="space-y-3 font-body text-charcoal-light text-sm leading-relaxed">
                   <li className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 rounded-full bg-amber flex-shrink-0 mt-2" />

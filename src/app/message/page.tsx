@@ -308,14 +308,11 @@ export default function MessagePage() {
                     moment deserves,
                   </p>
                   <div className="mb-6">
-                    <p className="font-heading text-2xl sm:text-3xl font-bold text-forest">
+                    <p className="font-heading text-2xl sm:text-3xl italic text-forest">
                       Rhonda C. Cooper, Esq.
                     </p>
                     <p className="font-body text-amber font-semibold text-sm tracking-widest uppercase mt-2">
                       Candidate for Chancery Judge
-                    </p>
-                    <p className="font-body text-charcoal-light text-sm">
-                      11th District, Subdistrict 2 — Madison & Leake Counties
                     </p>
                   </div>
                   <div className="inline-block px-4 py-2 bg-forest/5 rounded-lg">

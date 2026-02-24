@@ -23,7 +23,7 @@ const FOOTER_LINKS = [
 
 export default function Footer() {
   return (
-    <footer className="bg-forest text-white pb-24 lg:pb-0">
+    <footer className="bg-forest text-white pb-40 lg:pb-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
         <div className="py-10 grid grid-cols-1 md:grid-cols-[240px_1fr_280px] gap-8 items-start">
@@ -144,6 +144,9 @@ export default function Footer() {
             </p>
             <p className="text-cream/30 text-xs font-body mt-4">
               Election Day: November 3, 2026
+            </p>
+            <p className="text-cream/20 text-[10px] font-body mt-2">
+              Music licensed under Creative Commons: Kevin MacLeod (incompetech.com) — CC BY 4.0
             </p>
           </div>
         </div>
