@@ -19,7 +19,7 @@ export default function MessagePage() {
           <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-amber rounded-full blur-3xl" />
         </div>
 
-        {/* Faded background — Rhonda speaking */}
+        {/* Faded background — Rhonda speaking at church */}
         <div
           className="absolute right-[2%] top-[5%] bottom-[5%] w-[45%] hidden lg:block pointer-events-none"
           style={{
@@ -30,10 +30,10 @@ export default function MessagePage() {
           }}
         >
           <Image
-            src="/images/rhonda-speaking.jpg"
+            src="/images/message/speaking-church.jpg"
             alt=""
             fill
-            className="object-cover object-top opacity-[0.20] mix-blend-luminosity"
+            className="object-cover object-top opacity-[0.22] mix-blend-luminosity"
             sizes="45vw"
             priority
           />
@@ -70,8 +70,20 @@ export default function MessagePage() {
             </div>
           </ScrollReveal>
 
+          {/* Opening — with professional headshot floated right */}
           <ScrollReveal>
             <div className="prose prose-lg max-w-none font-body text-charcoal leading-[1.9] space-y-6">
+              <div className="sm:float-right sm:ml-8 sm:mb-4 mb-6 flex justify-center sm:justify-end">
+                <div className="relative">
+                  <Image
+                    src="/images/message/professional-headshot.jpg"
+                    alt="Rhonda C. Cooper, Attorney"
+                    width={200}
+                    height={301}
+                    className="w-[160px] rounded-2xl shadow-lg ring-4 ring-cream"
+                  />
+                </div>
+              </div>
               <p className="text-xl leading-relaxed">
                 I have lived in Madison County for nearly 40 years — not as a visitor, but as
                 a person whose life is woven into this place. I raised my daughter here in
@@ -93,6 +105,44 @@ export default function MessagePage() {
             </div>
           </ScrollReveal>
 
+          {/* Family roots photo strip — "nearly 40 years... raised my daughter" */}
+          <ScrollReveal>
+            <div className="my-14">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
+                <div className="relative aspect-square rounded-2xl overflow-hidden shadow-md ring-1 ring-cream-dark">
+                  <Image
+                    src="/images/message/family-vintage.jpg"
+                    alt="The Cooper family — roots in Mississippi"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 45vw, 250px"
+                  />
+                </div>
+                <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-md ring-1 ring-cream-dark">
+                  <Image
+                    src="/images/message/young-rhonda-daughter.jpg"
+                    alt="Young Rhonda with her daughter in Ridgeland"
+                    fill
+                    className="object-cover object-top"
+                    sizes="(max-width: 640px) 45vw, 250px"
+                  />
+                </div>
+                <div className="relative aspect-square rounded-2xl overflow-hidden shadow-md ring-1 ring-cream-dark hidden sm:block">
+                  <Image
+                    src="/images/message/with-elder.jpg"
+                    alt="Rhonda with a beloved community elder"
+                    fill
+                    className="object-cover"
+                    sizes="250px"
+                  />
+                </div>
+              </div>
+              <p className="text-center text-charcoal-light/60 text-xs font-body mt-3 italic">
+                Roots in Madison County — nearly 40 years of family, community, and purpose.
+              </p>
+            </div>
+          </ScrollReveal>
+
           {/* Divider */}
           <ScrollReveal>
             <div className="my-12 flex items-center gap-4">
@@ -102,6 +152,7 @@ export default function MessagePage() {
             </div>
           </ScrollReveal>
 
+          {/* Section 2 — Chancery Court / 38 years — with Rhonda speaking */}
           <ScrollReveal>
             <div className="prose prose-lg max-w-none font-body text-charcoal leading-[1.9] space-y-6">
               <p>
@@ -110,6 +161,18 @@ export default function MessagePage() {
                 marriage dissolves. Who raises your grandchild when a parent cannot. Whether
                 your parents&apos; wishes are honored when they are gone.
               </p>
+
+              <div className="sm:float-left sm:mr-8 sm:mb-4 mb-6 mt-2 flex justify-center sm:justify-start">
+                <div className="relative w-[220px] sm:w-[200px] aspect-square rounded-2xl overflow-hidden shadow-lg ring-4 ring-forest/10">
+                  <Image
+                    src="/images/message/speaking-church.jpg"
+                    alt="Rhonda Cooper speaking passionately at a community gathering"
+                    fill
+                    className="object-cover object-top"
+                    sizes="220px"
+                  />
+                </div>
+              </div>
 
               <p className="text-xl italic text-forest leading-relaxed">
                 When those moments arrive, you deserve a judge who has spent 38 years
@@ -128,6 +191,35 @@ export default function MessagePage() {
             </div>
           </ScrollReveal>
 
+          <div className="clear-both" />
+
+          {/* Parents & legacy photo pair */}
+          <ScrollReveal>
+            <div className="my-14 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+              <div className="relative w-[200px] aspect-[4/3] rounded-2xl overflow-hidden shadow-md ring-1 ring-cream-dark">
+                <Image
+                  src="/images/message/parents-formal.jpg"
+                  alt="Rhonda's parents at a formal celebration"
+                  fill
+                  className="object-cover"
+                  sizes="200px"
+                />
+              </div>
+              <div className="relative w-[180px] aspect-[3/4] rounded-2xl overflow-hidden shadow-md ring-1 ring-cream-dark">
+                <Image
+                  src="/images/message/love-is-answer.jpg"
+                  alt="Love is the answer — Rhonda's daughter sharing a moment"
+                  fill
+                  className="object-cover object-top"
+                  sizes="180px"
+                />
+              </div>
+            </div>
+            <p className="text-center text-charcoal-light/60 text-xs font-body mt-1 italic">
+              My parents live in Madison. My daughter was raised here in Ridgeland.
+            </p>
+          </ScrollReveal>
+
           {/* Divider */}
           <ScrollReveal>
             <div className="my-12 flex items-center gap-4">
@@ -137,6 +229,7 @@ export default function MessagePage() {
             </div>
           </ScrollReveal>
 
+          {/* Section 3 — Making history */}
           <ScrollReveal>
             <div className="prose prose-lg max-w-none font-body text-charcoal leading-[1.9] space-y-6">
               <p>
@@ -152,6 +245,24 @@ export default function MessagePage() {
                 community we choose to be when we finally have a choice.
               </p>
             </div>
+          </ScrollReveal>
+
+          {/* Family group photo — "your family's security, your legacy" */}
+          <ScrollReveal>
+            <div className="my-14 flex justify-center">
+              <div className="relative w-full max-w-[400px] aspect-[3/4] rounded-2xl overflow-hidden shadow-xl ring-4 ring-cream">
+                <Image
+                  src="/images/message/family-group.jpg"
+                  alt="The Cooper family — three generations together"
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 640px) 85vw, 400px"
+                />
+              </div>
+            </div>
+            <p className="text-center text-charcoal-light/60 text-xs font-body mt-1 italic">
+              Three generations — the legacy we protect, the future we build.
+            </p>
           </ScrollReveal>
 
           {/* Highlighted Call to Action Block */}
@@ -179,37 +290,73 @@ export default function MessagePage() {
             </div>
           </ScrollReveal>
 
-          {/* Signature */}
+          {/* Signature — with warm family photo */}
           <ScrollReveal>
             <div className="mt-14 pt-8 border-t border-cream-dark">
-              <p className="font-body text-charcoal-light italic text-lg leading-relaxed mb-6">
-                From my family to yours, with every bit of the respect and purpose this
-                moment deserves,
-              </p>
-              <div className="mb-6">
-                <p className="font-heading text-2xl sm:text-3xl font-bold text-forest">
-                  Rhonda C. Cooper, Esq.
-                </p>
-                <p className="font-body text-amber font-semibold text-sm tracking-widest uppercase mt-2">
-                  Candidate for Chancery Judge
-                </p>
-                <p className="font-body text-charcoal-light text-sm">
-                  11th District, Subdistrict 2 — Madison & Leake Counties
-                </p>
-              </div>
-              <div className="inline-block px-4 py-2 bg-forest/5 rounded-lg">
-                <p className="font-body text-forest text-sm font-semibold">
-                  Election Day: Tuesday, November 3, 2026
-                </p>
+              <div className="sm:flex sm:items-start sm:gap-8">
+                <div className="flex-1">
+                  <p className="font-body text-charcoal-light italic text-lg leading-relaxed mb-6">
+                    From my family to yours, with every bit of the respect and purpose this
+                    moment deserves,
+                  </p>
+                  <div className="mb-6">
+                    <p className="font-heading text-2xl sm:text-3xl font-bold text-forest">
+                      Rhonda C. Cooper, Esq.
+                    </p>
+                    <p className="font-body text-amber font-semibold text-sm tracking-widest uppercase mt-2">
+                      Candidate for Chancery Judge
+                    </p>
+                    <p className="font-body text-charcoal-light text-sm">
+                      11th District, Subdistrict 2 — Madison & Leake Counties
+                    </p>
+                  </div>
+                  <div className="inline-block px-4 py-2 bg-forest/5 rounded-lg">
+                    <p className="font-body text-forest text-sm font-semibold">
+                      Election Day: Tuesday, November 3, 2026
+                    </p>
+                  </div>
+                </div>
+                {/* Warm family outing photo beside signature */}
+                <div className="mt-6 sm:mt-0 flex justify-center sm:justify-end shrink-0">
+                  <div className="relative w-[180px] aspect-[4/3] rounded-2xl overflow-hidden shadow-md ring-1 ring-cream-dark">
+                    <Image
+                      src="/images/message/rhonda-family-outing.jpg"
+                      alt="Rhonda enjoying time with family"
+                      fill
+                      className="object-cover"
+                      sizes="180px"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* Share & Act */}
-      <section className="py-16 bg-cream">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+      {/* Share & Act — with faded background collage */}
+      <section className="py-16 bg-cream relative overflow-hidden">
+        {/* Faded family photo in background */}
+        <div className="absolute left-[5%] top-[10%] w-[30%] h-[80%] hidden lg:block pointer-events-none opacity-[0.06]">
+          <Image
+            src="/images/message/family-group.jpg"
+            alt=""
+            fill
+            className="object-cover rounded-3xl"
+            sizes="30vw"
+          />
+        </div>
+        <div className="absolute right-[5%] top-[15%] w-[25%] h-[70%] hidden lg:block pointer-events-none opacity-[0.06]">
+          <Image
+            src="/images/message/young-rhonda-daughter.jpg"
+            alt=""
+            fill
+            className="object-cover rounded-3xl"
+            sizes="25vw"
+          />
+        </div>
+
+        <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <ScrollReveal>
             <h2 className="font-heading text-3xl sm:text-4xl font-bold text-forest mb-4">
               Share This Message
