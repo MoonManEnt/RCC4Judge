@@ -142,51 +142,51 @@ export default function AboutPage() {
             </p>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-16">
             <ScrollReveal>
-              <div className="p-6 bg-cream rounded-2xl text-center hover-lift h-full">
-                <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 overflow-hidden">
+              <div className="p-8 text-center hover-lift h-full flex flex-col items-center">
+                <div className="w-44 h-24 flex items-center justify-center mx-auto mb-6">
                   <Image
                     src="/images/awards/mississippi-business-journal.jpg"
                     alt="Mississippi Business Journal"
                     width={236}
                     height={45}
-                    className="w-full h-auto object-contain"
+                    className="w-full h-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-500"
                   />
                 </div>
-                <h3 className="font-heading text-lg font-bold text-forest mb-2">Leader in Law</h3>
+                <h3 className="font-heading text-xl font-bold text-forest mb-2">Leader in Law</h3>
                 <p className="font-body text-charcoal-light text-sm">Mississippi Business Journal, 2022</p>
               </div>
             </ScrollReveal>
 
             <ScrollReveal delay={100}>
-              <div className="p-6 bg-cream rounded-2xl text-center hover-lift h-full">
-                <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 overflow-hidden">
+              <div className="p-8 text-center hover-lift h-full flex flex-col items-center">
+                <div className="w-44 h-24 flex items-center justify-center mx-auto mb-6">
                   <Image
                     src="/images/awards/charles-koch-foundation.png"
                     alt="Charles Koch Foundation"
                     width={301}
                     height={99}
-                    className="w-full h-auto object-contain"
+                    className="w-full h-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-500"
                   />
                 </div>
-                <h3 className="font-heading text-lg font-bold text-forest mb-2">Koch Foundation Lecturer</h3>
+                <h3 className="font-heading text-xl font-bold text-forest mb-2">Koch Foundation Lecturer</h3>
                 <p className="font-body text-charcoal-light text-sm">Charles Koch Foundation Education Lecture, MVSU, 2018</p>
               </div>
             </ScrollReveal>
 
             <ScrollReveal delay={200}>
-              <div className="p-6 bg-cream rounded-2xl text-center hover-lift h-full">
-                <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 overflow-hidden">
+              <div className="p-8 text-center hover-lift h-full flex flex-col items-center">
+                <div className="w-44 h-24 flex items-center justify-center mx-auto mb-6">
                   <Image
                     src="/images/awards/jsu-creative-awards.png"
                     alt="JSU Creative Awards"
                     width={138}
                     height={77}
-                    className="w-full h-auto object-contain"
+                    className="w-full h-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-500"
                   />
                 </div>
-                <h3 className="font-heading text-lg font-bold text-forest mb-2">Two-Time Creative Awardee</h3>
+                <h3 className="font-heading text-xl font-bold text-forest mb-2">Two-Time Creative Awardee</h3>
                 <p className="font-body text-charcoal-light text-sm">JSU Creative Awards for Faculty & Staff</p>
               </div>
             </ScrollReveal>
