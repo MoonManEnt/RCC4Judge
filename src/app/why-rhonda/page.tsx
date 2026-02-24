@@ -34,7 +34,7 @@ export default function WhyRhondaPage() {
             <span className="text-amber">Accountability</span>
           </h1>
           <p className="text-cream/80 font-body text-lg sm:text-xl max-w-2xl mt-4 leading-relaxed animate-fade-in-up stagger-2">
-            After more than 23 years without a real challenge, the families of the 11th Chancery District
+            After more than 20 years without a real challenge, the families of the 11th Chancery District
             deserve a judge who earns their trust — not one who takes it for granted.
           </p>
         </div>
@@ -87,7 +87,7 @@ export default function WhyRhondaPage() {
               </h2>
               <div className="space-y-5 font-body text-charcoal-light text-lg leading-relaxed">
                 <p>
-                  For over 23 years, the same judge has held this seat on the 11th Chancery Court.
+                  For over 20 years, the same judge has held this seat on the 11th Chancery Court.
                   In that time, she has run unopposed, faced little public scrutiny, and operated
                   without the accountability that every public servant should welcome.
                 </p>

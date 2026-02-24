@@ -48,7 +48,7 @@ const WHY_IT_MATTERS = [
     label: "Mississippi families will interact with Chancery Court at some point in their lives",
   },
   {
-    stat: "23+",
+    stat: "20+",
     label: "Years the current Subdistrict 2 seat has been held by the same judge",
   },
   {

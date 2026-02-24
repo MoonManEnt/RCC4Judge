@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 const RECORD_POINTS = [
   {
-    title: "23+ Years Without a Serious Challenge",
+    title: "20+ Years Without a Serious Challenge",
     description:
       "The current occupant of this seat has held it since the early 2000s, often running unopposed. Accountability requires that elected officials earn the trust of voters at regular intervals — not coast on the absence of competition.",
     icon: "M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z",
@@ -43,7 +43,7 @@ const CONTRAST_POINTS = [
   },
   {
     category: "Accountability",
-    current: "23+ years, often unopposed — limited accountability to voters",
+    current: "20+ years, often unopposed — limited accountability to voters",
     cooper: "Running on a promise of accountability, transparency, and earned trust",
   },
   {

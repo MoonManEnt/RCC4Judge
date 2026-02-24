@@ -42,7 +42,7 @@ const FAQ_ITEMS: FAQItem[] = [
   },
   {
     question: "Who is the current judge in this seat?",
-    answer: "The current occupant of the seat now designated as Subdistrict 2 on the 11th Chancery Court has held the position for over 23 years. Rhonda Cooper believes that after more than two decades, the families of this district deserve a choice — and accountability on the bench.",
+    answer: "The current occupant of the seat now designated as Subdistrict 2 on the 11th Chancery Court has held the position for over 20 years. Rhonda Cooper believes that after more than two decades, the families of this district deserve a choice — and accountability on the bench.",
   },
   {
     question: "How can I stay updated on the campaign?",
