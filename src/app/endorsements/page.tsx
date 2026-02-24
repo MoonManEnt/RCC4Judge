@@ -136,11 +136,11 @@ export default function EndorsementsPage() {
             </h2>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {ENDORSEMENT_CATEGORIES.map((category, i) => (
-              <ScrollReveal key={i} delay={i * 100}>
-                <div className="p-6 bg-white rounded-2xl shadow-sm">
-                  <div className="text-forest mb-3">{category.icon}</div>
+              <ScrollReveal key={i} delay={i * 100} className="h-full">
+                <div className="p-6 bg-white rounded-2xl shadow-sm h-full flex flex-col items-center text-center">
+                  <div className="w-12 h-12 bg-forest/10 rounded-xl flex items-center justify-center text-forest mb-4">{category.icon}</div>
                   <h3 className="font-heading text-xl font-bold text-forest mb-2">{category.title}</h3>
                   <p className="font-body text-charcoal-light text-sm leading-relaxed italic">
                     {category.description}
