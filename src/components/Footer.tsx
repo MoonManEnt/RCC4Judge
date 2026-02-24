@@ -3,6 +3,7 @@ import Image from "next/image";
 import EmailSignup from "@/components/EmailSignup";
 
 const FOOTER_LINKS = [
+  { href: "/message", label: "Her Message" },
   { href: "/about", label: "About Rhonda" },
   { href: "/why-rhonda", label: "Why Rhonda" },
   { href: "/know-your-court", label: "Know Your Court" },

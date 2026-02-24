@@ -6,6 +6,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const PRIMARY_LINKS = [
+  { href: "/message", label: "Her Message" },
   { href: "/about", label: "About" },
   { href: "/why-rhonda", label: "Why Rhonda" },
   { href: "/the-record", label: "The Record" },
