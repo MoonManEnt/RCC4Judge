@@ -78,7 +78,7 @@ export default function ElectionCountdown({ variant = "full" }: { variant?: "ful
               {String(block.value).padStart(2, "0")}
             </span>
           </div>
-          <span className="text-xs font-body font-medium text-charcoal-light mt-1.5 block">
+          <span className="text-xs font-body font-medium text-sage mt-1.5 block">
             {block.label}
           </span>
         </div>

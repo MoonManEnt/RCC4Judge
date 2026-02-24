@@ -82,6 +82,13 @@ export default function FundraisingThermometer() {
             </p>
           </div>
         </div>
+
+        {/* Community message */}
+        <div className="relative mt-6 bg-forest rounded-2xl p-5">
+          <p className="font-body text-sm text-cream/90 leading-relaxed text-center">
+            Join the 750+ families across Madison and Leake counties who have already invested in this campaign
+          </p>
+        </div>
       </div>
     </div>
   );

@@ -200,7 +200,7 @@ export default function Home() {
       {/* Election Countdown Strip */}
       <section className="py-8 bg-forest-dark">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-sage text-xs font-body font-medium tracking-widest uppercase mb-4">
+          <p className="text-cream text-sm font-body font-bold tracking-widest uppercase mb-4">
             Election Day: November 3, 2026
           </p>
           <ElectionCountdown />
