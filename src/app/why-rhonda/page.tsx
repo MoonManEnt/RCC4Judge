@@ -148,7 +148,7 @@ export default function WhyRhondaPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <ScrollReveal className="text-center mb-16">
             <h2 className="font-heading text-3xl sm:text-4xl font-bold text-forest mb-4">
-              Responsibility. Compassion. Competency.
+              Responsibility. Compassion. Competence.
             </h2>
             <p className="text-charcoal-light font-body text-lg max-w-3xl mx-auto">
               Three words that define how Rhonda Cooper will serve on the bench.
@@ -187,7 +187,7 @@ export default function WhyRhondaPage() {
                 <div className="w-16 h-16 mx-auto bg-sage/30 rounded-full flex items-center justify-center mb-5">
                   <span className="font-heading text-2xl font-bold text-forest">C</span>
                 </div>
-                <h3 className="font-heading text-2xl font-bold text-forest mb-3">Competency</h3>
+                <h3 className="font-heading text-2xl font-bold text-forest mb-3">Competence</h3>
                 <p className="font-body text-charcoal-light leading-relaxed">
                   Nearly 40 years of legal practice in the exact matters Chancery Court handles.
                   Rhonda has the knowledge, the skill, and the judicial temperament to
@@ -212,7 +212,7 @@ export default function WhyRhondaPage() {
             </h2>
             <p className="text-cream/80 font-body text-lg max-w-2xl mx-auto mb-8">
               On November 3, 2026, the families of Leake and Madison counties
-              will have the opportunity to choose accountability, compassion, and competency
+              will have the opportunity to choose accountability, compassion, and competence
               on the Chancery bench. Choose Rhonda C. Cooper.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

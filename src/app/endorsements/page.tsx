@@ -160,7 +160,7 @@ export default function EndorsementsPage() {
               Add Your Endorsement
             </h2>
             <p className="text-charcoal-light font-body text-lg max-w-xl mx-auto">
-              If you believe in accountability, fairness, and competency on the Chancery bench,
+              If you believe in accountability, fairness, and competence on the Chancery bench,
               we&apos;d be honored to have your endorsement.
             </p>
           </ScrollReveal>

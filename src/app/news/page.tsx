@@ -14,7 +14,7 @@ const NEWS_ITEMS = [
     excerpt:
       "Attorney Rhonda C. Cooper has officially qualified as a candidate for Chancery Judge in Mississippi's 11th Chancery Court District, Subdistrict 2, covering Leake County and designated Madison County precincts under SB2768.",
     content:
-      "With nearly 40 years of legal experience in estate planning, domestic relations, real property, and contract negotiations, Cooper brings a depth of experience directly aligned with the jurisdiction of Chancery Court. Her campaign is built on three pillars: Responsibility, Compassion, and Competency.",
+      "With nearly 40 years of legal experience in estate planning, domestic relations, real property, and contract negotiations, Cooper brings a depth of experience directly aligned with the jurisdiction of Chancery Court. Her campaign is built on three pillars: Responsibility, Compassion, and Competence.",
   },
   {
     id: 2,

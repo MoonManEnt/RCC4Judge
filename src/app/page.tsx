@@ -168,7 +168,7 @@ export default function Home() {
           {/* Slogan */}
           <div className="animate-fade-in-up stagger-4 mb-10">
             <p className="text-amber font-body font-semibold text-sm sm:text-base tracking-[0.15em] uppercase">
-              Responsibility &nbsp;|&nbsp; Compassion &nbsp;|&nbsp; Competency
+              Responsibility &nbsp;|&nbsp; Compassion &nbsp;|&nbsp; Competence
             </p>
           </div>
 
