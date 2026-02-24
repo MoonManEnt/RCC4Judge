@@ -14,11 +14,43 @@ export default function EndorsementForm() {
     permission: false,
   });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (formData.permission) {
+    if (!formData.permission) return;
+
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch("/api/endorsements", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          title: formData.title,
+          organization: formData.organization,
+          county: formData.county,
+          email: formData.email,
+          phone: formData.phone,
+          quote: formData.quote,
+        }),
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.error ?? "Failed to submit endorsement.");
+      }
+
       setSubmitted(true);
+    } catch (err) {
+      setError(
+        err instanceof Error ? err.message : "Something went wrong. Please try again."
+      );
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -146,16 +178,21 @@ export default function EndorsementForm() {
         </span>
       </label>
 
+      {error && (
+        <div className="p-3 bg-red-50 border border-red-200 rounded-xl mb-4">
+          <p className="text-sm font-body text-red-700">{error}</p>
+        </div>
+      )}
       <button
         type="submit"
-        disabled={!formData.permission}
+        disabled={!formData.permission || loading}
         className={`w-full py-4 font-bold font-body rounded-xl transition-all ${
-          formData.permission
+          formData.permission && !loading
             ? "bg-forest text-white hover:bg-forest-dark shadow-md"
             : "bg-cream-dark text-charcoal-light/40 cursor-not-allowed"
         }`}
       >
-        Submit Endorsement
+        {loading ? "Submitting..." : "Submit Endorsement"}
       </button>
     </form>
   );

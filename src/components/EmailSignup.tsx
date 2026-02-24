@@ -5,11 +5,35 @@ import { useState } from "react";
 export default function EmailSignup({ variant = "inline" }: { variant?: "inline" | "banner" }) {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email.trim()) {
+    if (!email.trim()) return;
+
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email.trim() }),
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.error ?? "Subscription failed. Please try again.");
+      }
+
       setSubmitted(true);
+    } catch (err) {
+      setError(
+        err instanceof Error ? err.message : "Something went wrong. Please try again."
+      );
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -30,41 +54,53 @@ export default function EmailSignup({ variant = "inline" }: { variant?: "inline"
 
   if (variant === "banner") {
     return (
-      <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
+      <div>
+        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
+          <input
+            type="email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Enter your email address"
+            className="flex-1 px-5 py-3 rounded-full border-2 border-cream-dark font-body text-charcoal focus:border-forest focus:outline-none bg-white"
+          />
+          <button
+            type="submit"
+            disabled={loading}
+            className="px-6 py-3 bg-amber text-white font-bold font-body rounded-full hover:bg-amber-dark transition-colors shadow-md whitespace-nowrap disabled:opacity-60"
+          >
+            {loading ? "Signing up..." : "Stay Updated"}
+          </button>
+        </form>
+        {error && (
+          <p className="text-red-600 text-xs font-body mt-2 text-center">{error}</p>
+        )}
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <form onSubmit={handleSubmit} className="flex gap-2">
         <input
           type="email"
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="Enter your email address"
-          className="flex-1 px-5 py-3 rounded-full border-2 border-cream-dark font-body text-charcoal focus:border-forest focus:outline-none bg-white"
+          placeholder="Your email"
+          className="flex-1 px-4 py-2.5 rounded-xl border-2 border-cream-dark font-body text-sm text-charcoal focus:border-forest focus:outline-none bg-white"
         />
         <button
           type="submit"
-          className="px-6 py-3 bg-amber text-white font-bold font-body rounded-full hover:bg-amber-dark transition-colors shadow-md whitespace-nowrap"
+          disabled={loading}
+          className="px-5 py-2.5 bg-forest text-white font-bold font-body text-sm rounded-xl hover:bg-forest-dark transition-colors disabled:opacity-60"
         >
-          Stay Updated
+          {loading ? "..." : "Subscribe"}
         </button>
       </form>
-    );
-  }
-
-  return (
-    <form onSubmit={handleSubmit} className="flex gap-2">
-      <input
-        type="email"
-        required
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="Your email"
-        className="flex-1 px-4 py-2.5 rounded-xl border-2 border-cream-dark font-body text-sm text-charcoal focus:border-forest focus:outline-none bg-white"
-      />
-      <button
-        type="submit"
-        className="px-5 py-2.5 bg-forest text-white font-bold font-body text-sm rounded-xl hover:bg-forest-dark transition-colors"
-      >
-        Subscribe
-      </button>
-    </form>
+      {error && (
+        <p className="text-red-500 text-xs font-body mt-1.5">{error}</p>
+      )}
+    </div>
   );
 }

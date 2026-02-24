@@ -85,32 +85,47 @@ export default function DonationPlatform() {
   const nextImpact = IMPACT_MILESTONES.find((m) => amount < m.at);
 
   const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const handleSubmit = async () => {
     setSubmitting(true);
+    setSubmitError(null);
 
-    // Record the donation
     try {
-      await fetch("/api/donors", {
+      const tierObj = TIERS.find((t) => t.id === selectedTier);
+      const tierName = isCustom ? "Custom" : (tierObj?.name ?? "Custom");
+
+      const response = await fetch("/api/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           amount,
-          type: contributorType,
-          name: `${formData.firstName} ${formData.lastName}`,
-          email: formData.email,
-          recurring: isRecurring,
+          isRecurring,
+          contributorType,
+          tierName,
+          formData,
         }),
       });
-    } catch {
-      // Tracking failure should not block the donation flow
-    }
 
-    // Stripe integration will go here
-    alert(
-      `Thank you for your ${isRecurring ? "monthly " : ""}contribution of $${amount.toLocaleString()} to RCC for Chancery 2026! Stripe payment processing will be integrated here.`
-    );
-    setSubmitting(false);
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.error ?? "Failed to create checkout session");
+      }
+
+      const { url } = await response.json();
+      if (!url) throw new Error("No checkout URL returned");
+
+      // Redirect to Stripe Checkout
+      window.location.href = url;
+    } catch (err) {
+      console.error("Checkout error:", err);
+      setSubmitError(
+        err instanceof Error
+          ? err.message
+          : "An error occurred. Please try again or contact us at Support@RCC4Judge.com."
+      );
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -468,6 +483,13 @@ export default function DonationPlatform() {
                   )}
                 </div>
 
+                {/* Error Display */}
+                {submitError && (
+                  <div className="p-4 bg-red-50 border border-red-200 rounded-xl">
+                    <p className="text-sm font-body text-red-700">{submitError}</p>
+                  </div>
+                )}
+
                 {/* Navigation */}
                 <div className="flex gap-4">
                   <button
@@ -485,7 +507,7 @@ export default function DonationPlatform() {
                         : "bg-cream-dark text-charcoal-light/40 cursor-not-allowed"
                     }`}
                   >
-                    {submitting ? "Processing..." : `Confirm $${amount.toLocaleString()}${isRecurring ? "/month" : ""} Contribution`}
+                    {submitting ? "Redirecting to Secure Payment..." : `Confirm $${amount.toLocaleString()}${isRecurring ? "/month" : ""} Contribution`}
                   </button>
                 </div>
               </div>

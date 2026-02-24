@@ -11,10 +11,34 @@ export default function ContactPage() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.error ?? "Failed to send message.");
+      }
+
+      setSubmitted(true);
+    } catch (err) {
+      setError(
+        err instanceof Error ? err.message : "Something went wrong. Please try again."
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -162,11 +186,17 @@ export default function ContactPage() {
                           className="w-full px-4 py-3 rounded-xl border-2 border-cream-dark font-body text-charcoal focus:border-forest focus:outline-none resize-none"
                         />
                       </div>
+                      {error && (
+                        <div className="p-3 bg-red-50 border border-red-200 rounded-xl">
+                          <p className="text-sm font-body text-red-700">{error}</p>
+                        </div>
+                      )}
                       <button
                         type="submit"
-                        className="w-full py-4 bg-forest text-white text-lg font-bold font-body rounded-xl shadow-md hover:bg-forest-dark hover:shadow-lg transition-all"
+                        disabled={loading}
+                        className="w-full py-4 bg-forest text-white text-lg font-bold font-body rounded-xl shadow-md hover:bg-forest-dark hover:shadow-lg transition-all disabled:opacity-60"
                       >
-                        Send Message
+                        {loading ? "Sending..." : "Send Message"}
                       </button>
                     </div>
                   </form>
