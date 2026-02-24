@@ -198,7 +198,7 @@ export default function AboutPage() {
             src="/images/causes/mary-church-terrell.jpg"
             alt=""
             fill
-            className="object-cover object-top opacity-[0.10]"
+            className="object-cover object-top opacity-[0.25]"
             sizes="28vw"
           />
         </div>
@@ -217,7 +217,7 @@ export default function AboutPage() {
             src="/images/causes/mct-members.jpg"
             alt=""
             fill
-            className="object-cover object-center opacity-[0.08]"
+            className="object-cover object-center opacity-[0.20]"
             sizes="45vw"
           />
         </div>
@@ -236,7 +236,7 @@ export default function AboutPage() {
             src="/images/causes/leadership-madison.png"
             alt=""
             fill
-            className="object-contain opacity-[0.06]"
+            className="object-contain opacity-[0.18]"
             sizes="22vw"
           />
         </div>
@@ -255,7 +255,7 @@ export default function AboutPage() {
             src="/images/causes/dst-madison.png"
             alt=""
             fill
-            className="object-contain opacity-[0.07]"
+            className="object-contain opacity-[0.20]"
             sizes="28vw"
           />
         </div>
@@ -272,7 +272,7 @@ export default function AboutPage() {
             src="/images/causes/mpb.svg"
             alt=""
             fill
-            className="object-contain opacity-[0.06]"
+            className="object-contain opacity-[0.18]"
             sizes="18vw"
           />
         </div>
@@ -288,7 +288,7 @@ export default function AboutPage() {
             src="/images/causes/alzheimers-ms.jpg"
             alt=""
             fill
-            className="object-contain opacity-[0.07]"
+            className="object-contain opacity-[0.18]"
             sizes="14vw"
           />
         </div>
@@ -304,7 +304,7 @@ export default function AboutPage() {
             src="/images/causes/magnolia-bar.png"
             alt=""
             fill
-            className="object-contain opacity-[0.06]"
+            className="object-contain opacity-[0.18]"
             sizes="12vw"
           />
         </div>
@@ -320,7 +320,7 @@ export default function AboutPage() {
             src="/images/causes/catholic-charities.png"
             alt=""
             fill
-            className="object-contain opacity-[0.06]"
+            className="object-contain opacity-[0.18]"
             sizes="13vw"
           />
         </div>
