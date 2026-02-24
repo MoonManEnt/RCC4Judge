@@ -11,7 +11,7 @@ const PILLARS = [
   {
     title: "Experience",
     description:
-      "Over 25 years of legal practice across civil rights, probate, family law, and criminal defense — the exact matters Chancery Court handles every day.",
+      "Nearly 40 years of legal practice in estate planning, domestic relations, real property, and contract negotiations — the exact matters Chancery Court handles every day.",
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
@@ -201,7 +201,7 @@ export default function Home() {
               <div className="grid grid-cols-2 gap-6 mb-6">
                 <div className="p-6 bg-white rounded-2xl shadow-sm text-center hover-lift">
                   <div className="font-heading text-4xl font-bold text-forest mb-1">
-                    <CountUpNumber target={25} suffix="+" />
+                    <CountUpNumber target={40} suffix="" />
                   </div>
                   <p className="text-mauve font-body text-sm">Years of Legal Experience</p>
                 </div>
@@ -269,9 +269,9 @@ export default function Home() {
                 Attorney Rhonda C. Cooper
               </h2>
               <p className="text-charcoal-light font-body text-lg leading-relaxed mb-4">
-                With over 25 years of distinguished legal practice, Rhonda C. Cooper has dedicated
-                her career to the very areas of law that Chancery Court handles every day — family matters,
-                estates, property disputes, and civil rights.
+                With nearly four decades of distinguished legal practice, Rhonda C. Cooper has dedicated
+                her career to the very areas of law that Chancery Court handles every day — estate planning,
+                domestic relations, real property, and contract negotiations.
               </p>
               <p className="text-charcoal-light font-body text-lg leading-relaxed mb-8">
                 She&apos;s not a politician seeking a title. She&apos;s a lawyer who has spent a lifetime

@@ -133,7 +133,7 @@ export default function WhyRhondaPage() {
                   </h3>
                   <p className="font-body text-charcoal-light leading-relaxed">
                     New energy and a fresh perspective on the bench doesn&apos;t mean
-                    inexperience — it means 25+ years of legal practice from the side of
+                    inexperience — it means nearly 40 years of legal practice from the side of
                     the people who actually appear in Chancery Court. That perspective matters.
                   </p>
                 </div>
@@ -189,7 +189,7 @@ export default function WhyRhondaPage() {
                 </div>
                 <h3 className="font-heading text-2xl font-bold text-forest mb-3">Competency</h3>
                 <p className="font-body text-charcoal-light leading-relaxed">
-                  25+ years of legal practice in the exact matters Chancery Court handles.
+                  Nearly 40 years of legal practice in the exact matters Chancery Court handles.
                   Rhonda has the knowledge, the skill, and the judicial temperament to
                   deliver rulings that are fair, legally sound, and timely.
                 </p>

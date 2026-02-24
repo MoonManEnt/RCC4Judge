@@ -26,7 +26,7 @@ const FAQ_ITEMS: FAQItem[] = [
   },
   {
     question: "What are Rhonda Cooper's qualifications?",
-    answer: "Rhonda C. Cooper is a licensed Mississippi attorney with over 25 years of legal experience in the exact areas Chancery Court handles — family law, probate, estates, civil rights, and criminal defense. She has practiced across Leake and Madison counties throughout her career.",
+    answer: "Rhonda C. Cooper, Esq. is a licensed Mississippi attorney with nearly 40 years of legal experience in the exact areas Chancery Court handles — estate planning and administration, domestic relations, real property, and contract negotiations. A Millsaps College and University of Alabama School of Law graduate, she was honored as a 2022 Leader in Law by the Mississippi Business Journal and served as Clinical Assistant Professor and Pre-Law Advisor at Jackson State University.",
   },
   {
     question: "How can I contribute to the campaign?",

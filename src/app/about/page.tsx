@@ -1,45 +1,13 @@
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
+import InteractiveTimeline from "@/components/InteractiveTimeline";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "About Rhonda C. Cooper | RCC for Chancery 2026",
   description:
-    "Learn about Attorney Rhonda C. Cooper — over 25 years of legal experience in civil rights, probate, family law, and criminal defense. Candidate for Chancery Judge, 11th District.",
+    "Meet Attorney Rhonda C. Cooper — nearly 40 years of legal experience in estate planning, domestic relations, and real property. Millsaps College. University of Alabama School of Law. 2022 Leader in Law. Candidate for Chancery Judge, 11th District, Subdistrict 2.",
 };
-
-const CAREER_MILESTONES = [
-  {
-    period: "Law School & Early Career",
-    description:
-      "Earned her Juris Doctor and began a career dedicated to serving families and individuals navigating the legal system.",
-  },
-  {
-    period: "Civil Rights Practice",
-    description:
-      "Built a distinguished practice advocating for civil rights, ensuring equal access to justice for underserved communities across Mississippi.",
-  },
-  {
-    period: "Family & Probate Law",
-    description:
-      "Developed deep expertise in the exact matters Chancery Court handles daily — divorce, custody, guardianship, estates, wills, and property disputes.",
-  },
-  {
-    period: "Criminal Defense",
-    description:
-      "Represented clients in criminal matters, gaining a thorough understanding of due process, constitutional rights, and the profound responsibility of the bench.",
-  },
-  {
-    period: "25+ Years of Practice",
-    description:
-      "A quarter-century of legal experience across multiple disciplines, preparing her for the broad jurisdiction of the Chancery Court.",
-  },
-  {
-    period: "2026 — Running for Chancery Judge",
-    description:
-      "Qualified as a candidate for the 11th Chancery Court District, Subdistrict 2 — bringing accountability, compassion, and competency to the bench.",
-  },
-];
 
 export default function AboutPage() {
   return (
@@ -54,11 +22,11 @@ export default function AboutPage() {
             Meet the Candidate
           </p>
           <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight animate-fade-in-up">
-            Attorney Rhonda C. Cooper
+            Rhonda C. Cooper, <span className="text-amber">Esq.</span>
           </h1>
           <p className="text-cream/80 font-body text-lg sm:text-xl max-w-2xl mt-4 leading-relaxed animate-fade-in-up stagger-2">
-            Over 25 years of legal experience serving Mississippi families. Now seeking to bring that
-            experience, integrity, and dedication to the Chancery bench.
+            Nearly four decades of legal practice. A career built not on ambition for the bench,
+            but on service to the families who depend on it.
           </p>
         </div>
       </section>
@@ -87,32 +55,42 @@ export default function AboutPage() {
             <div className="lg:col-span-3">
               <ScrollReveal>
                 <h2 className="font-heading text-3xl sm:text-4xl font-bold text-forest mb-6">
-                  A Lifetime of Preparation for the Bench
+                  Four Decades in the Making
                 </h2>
                 <div className="prose prose-lg max-w-none font-body text-charcoal-light space-y-5 leading-relaxed">
                   <p>
-                    Rhonda C. Cooper is a seasoned Mississippi attorney with more than 25 years of legal
-                    practice spanning civil rights, probate, family law, and criminal defense. Her career
-                    has been defined by a commitment to fairness, a meticulous approach to the law, and a
-                    deep respect for the families and individuals she has represented.
+                    Some people run for judge because they want the title. Rhonda C. Cooper is running
+                    because she has spent nearly forty years doing the work — and she knows this court
+                    deserves someone who has.
                   </p>
                   <p>
-                    As a practitioner in the exact areas of law that fall under Chancery Court jurisdiction —
-                    divorce, child custody, guardianship, estates, wills, and property disputes — Rhonda
-                    brings a rare depth of understanding to this race. She doesn&apos;t need to learn what
-                    Chancery Court does. She has lived it, day in and day out, for over two decades.
+                    A graduate of <strong className="text-forest">Millsaps College</strong> with a degree
+                    in Business Administration and the <strong className="text-forest">University of Alabama
+                    School of Law</strong>, Rhonda built her career in the exact areas Chancery Court
+                    governs: <em>estate planning and administration, domestic relations, real property,
+                    and contract negotiations</em>. She didn&apos;t choose these practice areas by
+                    accident. She chose them because they are where the law meets life — where a judge&apos;s
+                    decision determines whether a family stays together, whether a widow keeps her home,
+                    whether a child is protected.
                   </p>
                   <p>
-                    Rhonda&apos;s legal career has taken her across Leake and Madison counties —
-                    the communities that make up Subdistrict 11-2 of the 11th Chancery Court District. She knows the
-                    communities, the families, and the challenges they face. Her roots in this district
-                    are not political — they are personal and professional.
+                    But Rhonda&apos;s career has never been confined to a courtroom. She has dedicated
+                    her life to advocacy in <strong className="text-forest">equity in education, community
+                    engagement, and social capital</strong> — empowering impoverished and marginalized
+                    communities by providing pro bono services to those who need it most, particularly
+                    seniors and disadvantaged youth. The families who can&apos;t afford an attorney?
+                    Rhonda has been their attorney anyway.
                   </p>
                   <p>
-                    In Chancery Court, the decisions a judge makes can reshape a family&apos;s entire future.
-                    Rhonda believes that responsibility demands a judge who is prepared, who listens, who
-                    rules with both legal rigor and human compassion, and who is accountable to the
-                    community she serves.
+                    A resident of <strong className="text-forest">Ridgeland, Mississippi</strong>, she is
+                    a parishioner at <strong className="text-forest">St. Francis of Assisi Catholic
+                    Church</strong> in Madison, where she serves in the hospitality ministry. She is a
+                    charter member of the <strong className="text-forest">Madison County Alumnae Chapter
+                    of Delta Sigma Theta Sorority, Inc.</strong> and was in the inaugural class
+                    of <strong className="text-forest">Leadership Madison County</strong>.
+                  </p>
+                  <p>
+                    She doesn&apos;t just know this district. She has shaped it.
                   </p>
                 </div>
               </ScrollReveal>
@@ -135,98 +113,135 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Career Timeline */}
+      {/* Interactive Career Timeline */}
       <section className="py-20 bg-cream">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <ScrollReveal className="text-center mb-16">
             <h2 className="font-heading text-3xl sm:text-4xl font-bold text-forest mb-4">
-              Career Highlights
+              A Career That Speaks for Itself
             </h2>
             <p className="text-charcoal-light font-body text-lg max-w-2xl mx-auto">
-              A career spanning decades, building the experience the bench demands.
+              Click any milestone to explore the journey that prepared Rhonda C. Cooper for the bench.
             </p>
           </ScrollReveal>
 
-          <div className="max-w-3xl mx-auto">
-            {CAREER_MILESTONES.map((milestone, i) => (
-              <ScrollReveal key={i} delay={i * 100}>
-                <div className="flex gap-6 mb-8 last:mb-0">
-                  <div className="flex flex-col items-center">
-                    <div className="w-4 h-4 rounded-full bg-forest flex-shrink-0 mt-1.5" />
-                    {i < CAREER_MILESTONES.length - 1 && (
-                      <div className="w-0.5 h-full bg-forest/20 mt-2" />
-                    )}
-                  </div>
-                  <div className="pb-8">
-                    <h3 className="font-heading text-lg font-bold text-forest mb-1">
-                      {milestone.period}
-                    </h3>
-                    <p className="text-charcoal-light font-body leading-relaxed">
-                      {milestone.description}
-                    </p>
-                  </div>
+          <InteractiveTimeline />
+        </div>
+      </section>
+
+      {/* Honors & Recognition */}
+      <section className="py-20 bg-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <ScrollReveal className="text-center mb-12">
+            <h2 className="font-heading text-3xl sm:text-4xl font-bold text-forest mb-4">
+              Recognized. Respected. Ready.
+            </h2>
+            <p className="text-charcoal-light font-body text-lg max-w-2xl mx-auto">
+              A record of excellence acknowledged by Mississippi&apos;s legal community and beyond.
+            </p>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-16">
+            <ScrollReveal>
+              <div className="p-6 bg-cream rounded-2xl text-center hover-lift h-full">
+                <div className="w-14 h-14 bg-amber/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-7 h-7 text-amber" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.562.562 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.562.562 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+                  </svg>
                 </div>
-              </ScrollReveal>
-            ))}
+                <h3 className="font-heading text-lg font-bold text-forest mb-2">Leader in Law</h3>
+                <p className="font-body text-charcoal-light text-sm">Mississippi Business Journal, 2022</p>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal delay={100}>
+              <div className="p-6 bg-cream rounded-2xl text-center hover-lift h-full">
+                <div className="w-14 h-14 bg-forest/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-7 h-7 text-forest" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" />
+                  </svg>
+                </div>
+                <h3 className="font-heading text-lg font-bold text-forest mb-2">Koch Foundation Lecturer</h3>
+                <p className="font-body text-charcoal-light text-sm">Charles Koch Foundation Education Lecture, MVSU, 2018</p>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal delay={200}>
+              <div className="p-6 bg-cream rounded-2xl text-center hover-lift h-full">
+                <div className="w-14 h-14 bg-mauve/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-7 h-7 text-mauve" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.26 10.147a60.438 60.438 0 00-.491 6.347A48.62 48.62 0 0112 20.904a48.62 48.62 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.636 50.636 0 00-2.658-.813A59.906 59.906 0 0112 3.493a59.903 59.903 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
+                  </svg>
+                </div>
+                <h3 className="font-heading text-lg font-bold text-forest mb-2">Two-Time Creative Awardee</h3>
+                <p className="font-body text-charcoal-light text-sm">JSU Creative Awards for Faculty & Staff</p>
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
 
-      {/* Community Involvement */}
-      <section className="py-20 bg-white">
+      {/* Community & Organizations */}
+      <section className="py-20 bg-cream">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <ScrollReveal>
               <h2 className="font-heading text-3xl sm:text-4xl font-bold text-forest mb-6">
-                Rooted in Community
+                Rooted Where It Matters
               </h2>
               <p className="text-charcoal-light font-body text-lg leading-relaxed mb-4">
-                Rhonda&apos;s commitment to this district extends far beyond the courtroom. She is an active
-                member of her faith community, a dedicated civic volunteer, and a trusted voice
-                in organizations across Madison and Leake counties.
+                There is a difference between a candidate who campaigns in a community and one who has
+                built a life in it. Rhonda didn&apos;t arrive in Madison County for an election. She
+                helped launch its institutions. She mentored its students. She served its families
+                before anyone was watching — and long before anyone was voting.
               </p>
               <p className="text-charcoal-light font-body text-lg leading-relaxed mb-4">
-                She knows these communities because she lives in them. She worships in them.
-                She serves in them. And she will bring that same dedication to the Chancery bench.
+                From the inaugural class of Leadership Madison County to chartering the local chapter
+                of Delta Sigma Theta, from lecturing at universities to serving in her church&apos;s
+                hospitality ministry — Rhonda&apos;s community involvement isn&apos;t a campaign talking
+                point. It&apos;s a matter of record.
               </p>
-              <p className="text-mauve font-body text-sm italic mt-6">
-                Detailed community involvement and organizational affiliations coming soon.
+              <p className="text-charcoal-light font-body text-lg leading-relaxed">
+                She supports causes that reflect her values: Mississippi Public Broadcasting, the
+                Mississippi Chapter of the Alzheimer&apos;s Association, the Magnolia Bar Foundation,
+                and Catholic Charities. She gives — of her time, her expertise, and her heart — because
+                that is who she is. Not who she becomes in an election year.
               </p>
             </ScrollReveal>
 
             <ScrollReveal delay={200}>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="p-6 bg-cream rounded-2xl text-center">
-                  <div className="text-forest mb-3">
-                    <svg className="w-8 h-8 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21" />
-                    </svg>
+              <div className="space-y-4">
+                <h3 className="font-heading text-xl font-bold text-forest mb-4">Professional & Community</h3>
+                {[
+                  { label: "Delta Sigma Theta Sorority, Inc.", sub: "Charter Member, Madison County Alumnae Chapter" },
+                  { label: "Leadership Madison County", sub: "Inaugural Class" },
+                  { label: "MS Women's Lawyers Association", sub: "Member" },
+                  { label: "Metro Jackson Black Women Lawyers Assoc.", sub: "Member" },
+                  { label: "Mary Church Terrell Literary Club, Inc.", sub: "Member" },
+                  { label: "Oral History Association", sub: "Member" },
+                  { label: "St. Francis of Assisi Catholic Church", sub: "Hospitality Ministry, Madison, MS" },
+                ].map((org, i) => (
+                  <div key={i} className="flex items-start gap-3 p-4 bg-white rounded-xl">
+                    <div className="w-2 h-2 rounded-full bg-amber flex-shrink-0 mt-2" />
+                    <div>
+                      <p className="font-body font-semibold text-forest text-sm">{org.label}</p>
+                      <p className="font-body text-charcoal-light text-xs">{org.sub}</p>
+                    </div>
                   </div>
-                  <p className="font-body font-semibold text-forest text-sm">Faith Community</p>
-                </div>
-                <div className="p-6 bg-cream rounded-2xl text-center">
-                  <div className="text-forest mb-3">
-                    <svg className="w-8 h-8 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 01-2.031.352 5.989 5.989 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 01-2.031.352 5.989 5.989 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971z" />
-                    </svg>
-                  </div>
-                  <p className="font-body font-semibold text-forest text-sm">Legal Advocacy</p>
-                </div>
-                <div className="p-6 bg-cream rounded-2xl text-center">
-                  <div className="text-forest mb-3">
-                    <svg className="w-8 h-8 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                    </svg>
-                  </div>
-                  <p className="font-body font-semibold text-forest text-sm">Civic Service</p>
-                </div>
-                <div className="p-6 bg-cream rounded-2xl text-center">
-                  <div className="text-forest mb-3">
-                    <svg className="w-8 h-8 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
-                    </svg>
-                  </div>
-                  <p className="font-body font-semibold text-forest text-sm">Community Roots</p>
+                ))}
+
+                <h3 className="font-heading text-xl font-bold text-forest mb-4 pt-4">Causes She Supports</h3>
+                <div className="grid grid-cols-2 gap-3">
+                  {[
+                    "Mississippi Public Broadcasting",
+                    "MS Alzheimer's Association",
+                    "Magnolia Bar Foundation",
+                    "Catholic Charities, Inc.",
+                  ].map((cause, i) => (
+                    <div key={i} className="p-3 bg-white rounded-xl text-center">
+                      <p className="font-body text-charcoal-light text-xs">{cause}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
             </ScrollReveal>

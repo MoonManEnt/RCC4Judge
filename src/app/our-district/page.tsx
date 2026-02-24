@@ -284,7 +284,7 @@ export default function OurDistrictPage() {
                 <span className="text-amber">This District</span>
               </h2>
               <p className="font-body text-charcoal-light text-lg leading-relaxed mb-4">
-                For over 25 years, Rhonda C. Cooper has practiced law across Leake and Madison counties.
+                For nearly four decades, Rhonda C. Cooper has practiced law across Leake and Madison counties.
                 She knows the communities, the families, and the challenges they face.
               </p>
               <p className="font-body text-charcoal-light text-lg leading-relaxed mb-4">
@@ -301,7 +301,7 @@ export default function OurDistrictPage() {
             <ScrollReveal delay={200}>
               <div className="grid grid-cols-2 gap-4">
                 <div className="p-6 bg-forest rounded-2xl text-center text-white">
-                  <p className="font-heading text-3xl font-bold text-amber mb-1">25+</p>
+                  <p className="font-heading text-3xl font-bold text-amber mb-1">~40</p>
                   <p className="font-body text-cream/80 text-sm">Years Practicing in This District</p>
                 </div>
                 <div className="p-6 bg-white rounded-2xl text-center shadow-sm">

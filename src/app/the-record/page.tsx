@@ -39,7 +39,7 @@ const CONTRAST_POINTS = [
   {
     category: "Experience",
     current: "Career judge — limited to perspective from the bench",
-    cooper: "25+ years of legal practice from the perspective of the people who appear in court",
+    cooper: "Nearly 40 years of legal practice from the perspective of the people who appear in court",
   },
   {
     category: "Accountability",
@@ -54,7 +54,7 @@ const CONTRAST_POINTS = [
   {
     category: "Judicial Temperament",
     current: "Documented reprimands and oversight concerns on public record",
-    cooper: "25 years of practice built on integrity, fairness, and respect for all parties",
+    cooper: "Nearly 40 years of practice built on integrity, fairness, and respect for all parties",
   },
 ];
 
