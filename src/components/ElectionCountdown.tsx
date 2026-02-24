@@ -11,9 +11,9 @@ interface TimeLeft {
   seconds: number;
 }
 
-function getTimeLeft(): TimeLeft {
+function getTimeLeft(target: Date): TimeLeft {
   const now = new Date();
-  const diff = ELECTION_DATE.getTime() - now.getTime();
+  const diff = target.getTime() - now.getTime();
 
   if (diff <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 };
 
@@ -25,13 +25,19 @@ function getTimeLeft(): TimeLeft {
   };
 }
 
-export default function ElectionCountdown({ variant = "full" }: { variant?: "full" | "compact" }) {
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>(getTimeLeft());
+interface ElectionCountdownProps {
+  variant?: "full" | "compact";
+  targetDate?: Date;
+}
+
+export default function ElectionCountdown({ variant = "full", targetDate }: ElectionCountdownProps) {
+  const target = targetDate ?? ELECTION_DATE;
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>(getTimeLeft(target));
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-    const timer = setInterval(() => setTimeLeft(getTimeLeft()), 1000);
+    const timer = setInterval(() => setTimeLeft(getTimeLeft(target)), 1000);
     return () => clearInterval(timer);
   }, []);
 
