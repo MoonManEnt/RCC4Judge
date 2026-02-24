@@ -70,6 +70,101 @@ export default function Home() {
           <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-amber rounded-full blur-3xl" />
         </div>
 
+        {/* LEFT — Civil Rights: March silhouettes & scales of justice */}
+        <div className="absolute left-0 top-0 bottom-0 w-1/4 hidden lg:flex items-center justify-center pointer-events-none">
+          <svg className="w-full h-auto max-h-[70%] opacity-[0.06] text-cream" viewBox="0 0 200 500" fill="currentColor">
+            {/* Scales of justice */}
+            <circle cx="100" cy="60" r="8" />
+            <rect x="98" y="68" width="4" height="120" rx="2" />
+            <line x1="40" y1="90" x2="160" y2="90" stroke="currentColor" strokeWidth="3" fill="none" />
+            {/* Left pan */}
+            <path d="M40,90 L30,130 Q35,140 50,140 Q65,140 70,130 L60,90" />
+            {/* Right pan */}
+            <path d="M140,90 L130,120 Q135,130 150,130 Q165,130 170,120 L160,90" />
+            {/* March figures */}
+            <circle cx="55" cy="240" r="10" />
+            <path d="M55,250 L55,290 M45,265 L65,265 M55,290 L45,320 M55,290 L65,320" stroke="currentColor" strokeWidth="3" fill="none" />
+            <circle cx="90" cy="235" r="10" />
+            <path d="M90,245 L90,285 M80,260 L100,260 M90,285 L80,315 M90,285 L100,315" stroke="currentColor" strokeWidth="3" fill="none" />
+            <circle cx="125" cy="240" r="10" />
+            <path d="M125,250 L125,290 M115,265 L135,265 M125,290 L115,320 M125,290 L135,320" stroke="currentColor" strokeWidth="3" fill="none" />
+            {/* Signs held up */}
+            <rect x="42" y="248" width="26" height="18" rx="2" fill="none" stroke="currentColor" strokeWidth="2" />
+            <rect x="112" y="248" width="26" height="18" rx="2" fill="none" stroke="currentColor" strokeWidth="2" />
+            {/* Church silhouette (civil rights movement) */}
+            <path d="M60,380 L60,420 L140,420 L140,380 L120,360 L110,370 L100,340 L90,370 L80,360 Z" fill="none" stroke="currentColor" strokeWidth="2.5" />
+            <rect x="90" y="395" width="20" height="25" rx="3" fill="none" stroke="currentColor" strokeWidth="2" />
+            <line x1="100" y1="328" x2="100" y2="340" stroke="currentColor" strokeWidth="2.5" />
+            <line x1="94" y1="334" x2="106" y2="334" stroke="currentColor" strokeWidth="2.5" />
+          </svg>
+        </div>
+
+        {/* RIGHT TOP — Mississippi Nature: Magnolia, cypress, river */}
+        <div className="absolute right-0 top-0 w-1/4 h-2/3 hidden lg:flex items-start justify-center pt-20 pointer-events-none">
+          <svg className="w-full h-auto max-h-full opacity-[0.06] text-cream" viewBox="0 0 200 400" fill="none" stroke="currentColor" strokeWidth="1.5">
+            {/* Magnolia flower */}
+            <ellipse cx="100" cy="70" rx="20" ry="35" transform="rotate(0 100 70)" fill="currentColor" opacity="0.3" stroke="currentColor" />
+            <ellipse cx="100" cy="70" rx="20" ry="35" transform="rotate(60 100 70)" fill="currentColor" opacity="0.3" stroke="currentColor" />
+            <ellipse cx="100" cy="70" rx="20" ry="35" transform="rotate(120 100 70)" fill="currentColor" opacity="0.3" stroke="currentColor" />
+            <circle cx="100" cy="70" r="10" fill="currentColor" opacity="0.5" />
+            {/* Magnolia leaves */}
+            <path d="M100,105 Q80,130 70,160 Q90,140 100,105" fill="currentColor" opacity="0.4" />
+            <path d="M100,105 Q120,130 130,160 Q110,140 100,105" fill="currentColor" opacity="0.4" />
+            {/* Cypress tree with Spanish moss */}
+            <path d="M160,400 L160,250 Q160,220 150,210 Q170,220 160,250" strokeWidth="3" fill="currentColor" opacity="0.3" />
+            <path d="M145,260 Q130,270 120,280" strokeWidth="1" opacity="0.4" />
+            <path d="M155,240 Q140,250 130,265" strokeWidth="1" opacity="0.4" />
+            <path d="M165,255 Q175,265 185,275" strokeWidth="1" opacity="0.4" />
+            <path d="M150,220 Q135,230 125,250" strokeWidth="1" opacity="0.3" />
+            <path d="M170,225 Q180,240 190,260" strokeWidth="1" opacity="0.3" />
+            {/* Tree canopy */}
+            <ellipse cx="160" cy="200" rx="35" ry="25" fill="currentColor" opacity="0.15" />
+            {/* River flowing lines */}
+            <path d="M10,320 Q50,310 80,330 Q110,350 150,340 Q180,330 200,340" strokeWidth="2" opacity="0.4" />
+            <path d="M10,340 Q50,330 80,350 Q110,370 150,360 Q180,350 200,360" strokeWidth="1.5" opacity="0.3" />
+            <path d="M10,355 Q50,345 80,365 Q110,385 150,375 Q180,365 200,375" strokeWidth="1" opacity="0.2" />
+          </svg>
+        </div>
+
+        {/* BOTTOM — Mississippi Scholarship: Books, columns, graduation */}
+        <div className="absolute bottom-0 left-0 right-0 h-1/4 hidden lg:flex items-end justify-center pointer-events-none overflow-hidden">
+          <svg className="w-full max-w-4xl h-auto opacity-[0.04] text-cream mb-0" viewBox="0 0 800 150" fill="currentColor">
+            {/* Open book (center) */}
+            <path d="M350,130 Q370,100 400,95 Q430,100 450,130" fill="none" stroke="currentColor" strokeWidth="2.5" />
+            <path d="M350,130 Q370,105 400,100 Q430,105 450,130" fill="none" stroke="currentColor" strokeWidth="1.5" />
+            <line x1="400" y1="95" x2="400" y2="130" stroke="currentColor" strokeWidth="1.5" />
+            {/* Book pages */}
+            <line x1="360" y1="118" x2="395" y2="108" stroke="currentColor" strokeWidth="1" opacity="0.6" />
+            <line x1="365" y1="112" x2="393" y2="103" stroke="currentColor" strokeWidth="1" opacity="0.6" />
+            <line x1="370" y1="106" x2="392" y2="99" stroke="currentColor" strokeWidth="1" opacity="0.6" />
+            <line x1="405" y1="108" x2="440" y2="118" stroke="currentColor" strokeWidth="1" opacity="0.6" />
+            <line x1="407" y1="103" x2="435" y2="112" stroke="currentColor" strokeWidth="1" opacity="0.6" />
+            <line x1="408" y1="99" x2="430" y2="106" stroke="currentColor" strokeWidth="1" opacity="0.6" />
+            {/* Left: Academic columns */}
+            <rect x="120" y="60" width="12" height="90" rx="2" opacity="0.5" />
+            <rect x="145" y="50" width="12" height="100" rx="2" opacity="0.6" />
+            <rect x="170" y="60" width="12" height="90" rx="2" opacity="0.5" />
+            <rect x="115" y="50" width="72" height="8" rx="2" opacity="0.4" />
+            <path d="M115,50 L151,30 L187,50" fill="currentColor" opacity="0.4" />
+            {/* Right: Graduation cap */}
+            <path d="M620,80 L680,60 L740,80 L680,100 Z" opacity="0.5" />
+            <rect x="676" y="60" width="8" height="30" opacity="0.4" />
+            <line x1="740" y1="80" x2="740" y2="110" stroke="currentColor" strokeWidth="2" />
+            <circle cx="740" cy="114" r="4" opacity="0.5" />
+            {/* Stacked books (left of center) */}
+            <rect x="260" y="120" width="50" height="10" rx="2" opacity="0.4" />
+            <rect x="255" y="108" width="55" height="10" rx="2" opacity="0.35" />
+            <rect x="258" y="96" width="48" height="10" rx="2" opacity="0.3" />
+            {/* Stacked books (right of center) */}
+            <rect x="490" y="120" width="50" height="10" rx="2" opacity="0.4" />
+            <rect x="495" y="108" width="45" height="10" rx="2" opacity="0.35" />
+            <rect x="492" y="96" width="48" height="10" rx="2" opacity="0.3" />
+            {/* Quill pen */}
+            <path d="M560,40 Q565,60 558,90 Q555,100 560,110" stroke="currentColor" strokeWidth="1.5" fill="none" opacity="0.4" />
+            <path d="M560,40 Q570,35 575,25 Q565,30 560,40" fill="currentColor" opacity="0.4" />
+          </svg>
+        </div>
+
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center py-32">
           {/* County line */}
           <div className="animate-fade-in-up stagger-1">
