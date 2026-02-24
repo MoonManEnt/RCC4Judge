@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import InteractiveTimeline from "@/components/InteractiveTimeline";
@@ -182,8 +183,150 @@ export default function AboutPage() {
       </section>
 
       {/* Community & Organizations */}
-      <section className="py-20 bg-cream">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-cream relative overflow-hidden">
+        {/* RED BOX — Mary Church Terrell portrait, left side full height */}
+        <div
+          className="absolute left-0 top-0 bottom-0 w-[28%] hidden lg:block pointer-events-none"
+          style={{
+            maskImage: 'linear-gradient(to right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 55%, transparent 85%), linear-gradient(to bottom, transparent 3%, black 15%, black 85%, transparent 97%)',
+            WebkitMaskImage: 'linear-gradient(to right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 55%, transparent 85%), linear-gradient(to bottom, transparent 3%, black 15%, black 85%, transparent 97%)',
+            maskComposite: 'intersect',
+            WebkitMaskComposite: 'source-in',
+          }}
+        >
+          <Image
+            src="/images/causes/mary-church-terrell.jpg"
+            alt=""
+            fill
+            className="object-cover object-top opacity-[0.10]"
+            sizes="28vw"
+          />
+        </div>
+
+        {/* PURPLE BOX — MCT society members, bottom center-left */}
+        <div
+          className="absolute left-[5%] bottom-0 w-[45%] h-[35%] hidden lg:block pointer-events-none"
+          style={{
+            maskImage: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 30%, rgba(0,0,0,0.5) 100%), linear-gradient(to right, transparent 0%, black 10%, black 80%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 30%, rgba(0,0,0,0.5) 100%), linear-gradient(to right, transparent 0%, black 10%, black 80%, transparent 100%)',
+            maskComposite: 'intersect',
+            WebkitMaskComposite: 'source-in',
+          }}
+        >
+          <Image
+            src="/images/causes/mct-members.jpg"
+            alt=""
+            fill
+            className="object-cover object-center opacity-[0.08]"
+            sizes="45vw"
+          />
+        </div>
+
+        {/* GREEN BOX — Leadership Madison County, far right edge */}
+        <div
+          className="absolute right-0 bottom-[5%] w-[22%] h-[25%] hidden lg:block pointer-events-none"
+          style={{
+            maskImage: 'linear-gradient(to left, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 50%, transparent 85%), linear-gradient(to bottom, transparent 5%, black 25%, black 75%, transparent 95%)',
+            WebkitMaskImage: 'linear-gradient(to left, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 50%, transparent 85%), linear-gradient(to bottom, transparent 5%, black 25%, black 75%, transparent 95%)',
+            maskComposite: 'intersect',
+            WebkitMaskComposite: 'source-in',
+          }}
+        >
+          <Image
+            src="/images/causes/leadership-madison.png"
+            alt=""
+            fill
+            className="object-contain opacity-[0.06]"
+            sizes="22vw"
+          />
+        </div>
+
+        {/* BLUE BOX — Delta Sigma Theta logo, right side full height */}
+        <div
+          className="absolute right-0 top-0 bottom-0 w-[28%] hidden lg:block pointer-events-none"
+          style={{
+            maskImage: 'linear-gradient(to left, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 55%, transparent 85%), linear-gradient(to bottom, transparent 3%, black 15%, black 85%, transparent 97%)',
+            WebkitMaskImage: 'linear-gradient(to left, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 55%, transparent 85%), linear-gradient(to bottom, transparent 3%, black 15%, black 85%, transparent 97%)',
+            maskComposite: 'intersect',
+            WebkitMaskComposite: 'source-in',
+          }}
+        >
+          <Image
+            src="/images/causes/dst-madison.png"
+            alt=""
+            fill
+            className="object-contain opacity-[0.07]"
+            sizes="28vw"
+          />
+        </div>
+
+        {/* Charity logos, right side scattered (over DST) */}
+        <div
+          className="absolute right-0 top-[3%] w-[18%] h-[22%] hidden lg:block pointer-events-none"
+          style={{
+            maskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,0.5) 0%, transparent 70%)',
+            WebkitMaskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,0.5) 0%, transparent 70%)',
+          }}
+        >
+          <Image
+            src="/images/causes/mpb.svg"
+            alt=""
+            fill
+            className="object-contain opacity-[0.06]"
+            sizes="18vw"
+          />
+        </div>
+
+        <div
+          className="absolute right-[3%] top-[30%] w-[14%] h-[18%] hidden lg:block pointer-events-none"
+          style={{
+            maskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,0.5) 0%, transparent 70%)',
+            WebkitMaskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,0.5) 0%, transparent 70%)',
+          }}
+        >
+          <Image
+            src="/images/causes/alzheimers-ms.jpg"
+            alt=""
+            fill
+            className="object-contain opacity-[0.07]"
+            sizes="14vw"
+          />
+        </div>
+
+        <div
+          className="absolute right-[1%] top-[55%] w-[12%] h-[16%] hidden lg:block pointer-events-none"
+          style={{
+            maskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,0.5) 0%, transparent 70%)',
+            WebkitMaskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,0.5) 0%, transparent 70%)',
+          }}
+        >
+          <Image
+            src="/images/causes/magnolia-bar.png"
+            alt=""
+            fill
+            className="object-contain opacity-[0.06]"
+            sizes="12vw"
+          />
+        </div>
+
+        <div
+          className="absolute right-[5%] bottom-[8%] w-[13%] h-[18%] hidden lg:block pointer-events-none"
+          style={{
+            maskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,0.5) 0%, transparent 70%)',
+            WebkitMaskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,0.5) 0%, transparent 70%)',
+          }}
+        >
+          <Image
+            src="/images/causes/catholic-charities.png"
+            alt=""
+            fill
+            className="object-contain opacity-[0.06]"
+            sizes="13vw"
+          />
+        </div>
+
+        {/* Foreground content */}
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <ScrollReveal>
               <h2 className="font-heading text-3xl sm:text-4xl font-bold text-forest mb-6">
@@ -221,7 +364,7 @@ export default function AboutPage() {
                   { label: "Oral History Association", sub: "Member" },
                   { label: "St. Francis of Assisi Catholic Church", sub: "Hospitality Ministry, Madison, MS" },
                 ].map((org, i) => (
-                  <div key={i} className="flex items-start gap-3 p-4 bg-white rounded-xl">
+                  <div key={i} className="flex items-start gap-3 p-4 bg-white/80 backdrop-blur-sm rounded-xl">
                     <div className="w-2 h-2 rounded-full bg-amber flex-shrink-0 mt-2" />
                     <div>
                       <p className="font-body font-semibold text-forest text-sm">{org.label}</p>
@@ -238,7 +381,7 @@ export default function AboutPage() {
                     "Magnolia Bar Foundation",
                     "Catholic Charities, Inc.",
                   ].map((cause, i) => (
-                    <div key={i} className="p-3 bg-white rounded-xl text-center">
+                    <div key={i} className="p-3 bg-white/80 backdrop-blur-sm rounded-xl text-center">
                       <p className="font-body text-charcoal-light text-xs">{cause}</p>
                     </div>
                   ))}
