@@ -143,7 +143,7 @@ export default function Footer() {
               and corporate contributions to $1,000 per calendar year.
             </p>
             <p className="text-cream/30 text-xs font-body mt-4">
-              Election Day: November 3, 2026
+              Election Day: <span className="election-date-glow">November 3, 2026</span>
             </p>
             <p className="text-cream/20 text-[10px] font-body mt-2">
               Music licensed under Creative Commons: Kevin MacLeod (incompetech.com) — CC BY 4.0

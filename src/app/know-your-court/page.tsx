@@ -242,7 +242,7 @@ export default function KnowYourCourtPage() {
               Now That You Know — <span className="text-amber">Take Action</span>
             </h2>
             <p className="text-cream/80 font-body text-lg mb-8 max-w-xl mx-auto">
-              Share this page with a neighbor. Talk to your family. And on November 3, 2026 —
+              Share this page with a neighbor. Talk to your family. And on <span className="election-date-glow">November 3, 2026</span> —
               vote for accountability on the bench.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

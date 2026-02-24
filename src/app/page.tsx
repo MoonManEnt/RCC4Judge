@@ -201,7 +201,7 @@ export default function Home() {
       <section className="py-8 bg-forest-dark">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-cream text-sm font-body font-bold tracking-widest uppercase mb-4">
-            Election Day: November 3, 2026
+            Election Day: <span className="election-date-glow">November 3, 2026</span>
           </p>
           <ElectionCountdown />
         </div>

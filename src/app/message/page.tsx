@@ -101,7 +101,7 @@ export default function MessagePage() {
               </p>
 
               <p>
-                <strong className="text-forest">Election Day is Tuesday, November 3, 2026.</strong>
+                <strong className="text-forest">Election Day is Tuesday, <span className="election-date-glow">November 3, 2026</span>.</strong>
               </p>
             </div>
           </ScrollReveal>
@@ -276,7 +276,7 @@ export default function MessagePage() {
           <ScrollReveal>
             <blockquote className="my-14 p-8 sm:p-10 bg-cream rounded-2xl border-l-4 border-amber">
               <p className="font-heading text-xl sm:text-2xl text-forest italic leading-relaxed mb-6">
-                &ldquo;I am asking for your vote on November 3, 2026 — and through my Campaign
+                &ldquo;I am asking for your vote on <span className="election-date-glow">November 3, 2026</span> — and through my Campaign
                 Committee, for your support in whatever form you can give.&rdquo;
               </p>
               <p className="font-body text-charcoal-light leading-relaxed">
@@ -316,7 +316,7 @@ export default function MessagePage() {
                   </div>
                   <div className="inline-block px-4 py-2 bg-forest/5 rounded-lg">
                     <p className="font-body text-forest text-sm font-semibold">
-                      Election Day: Tuesday, November 3, 2026
+                      Election Day: Tuesday, <span className="election-date-glow">November 3, 2026</span>
                     </p>
                   </div>
                 </div>

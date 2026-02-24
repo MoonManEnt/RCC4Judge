@@ -109,7 +109,7 @@ export default function VoterResourcesPage() {
             <span className="text-amber">Resources</span>
           </h1>
           <p className="text-cream/80 font-body text-lg sm:text-xl max-w-2xl mt-4 leading-relaxed animate-fade-in-up stagger-2">
-            Everything you need to make your voice heard on November 3, 2026.
+            Everything you need to make your voice heard on <span className="election-date-glow">November 3, 2026</span>.
             Registration, absentee voting, ID requirements, and polling locations — all in one place.
           </p>
         </div>
@@ -131,7 +131,7 @@ export default function VoterResourcesPage() {
             {/* Election Day Countdown */}
             <div className="text-center">
               <p className="text-cream text-sm font-body font-bold tracking-widest uppercase mb-4">
-                Election Day: November 3, 2026
+                Election Day: <span className="election-date-glow">November 3, 2026</span>
               </p>
               <ElectionCountdown />
               <p className="text-sage text-sm font-body mt-4">Polls open 7:00 AM – 7:00 PM</p>
@@ -186,7 +186,7 @@ export default function VoterResourcesPage() {
               <div className="space-y-4 font-body text-charcoal-light leading-relaxed">
                 <p>
                   You must be registered at least <strong className="text-forest">30 days before the election</strong>.
-                  The deadline for the November 3, 2026 election is <strong className="text-forest">October 5, 2026</strong>.
+                  The deadline for the <span className="election-date-glow">November 3, 2026</span> election is <strong className="text-forest">October 5, 2026</strong>.
                 </p>
                 <p>
                   Mississippi does not currently offer online voter registration for new voters. You can register

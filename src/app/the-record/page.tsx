@@ -164,7 +164,7 @@ export default function TheRecordPage() {
               The Record Is Clear. <span className="text-amber">The Choice Is Yours.</span>
             </h2>
             <p className="text-cream/80 font-body text-lg mb-8 max-w-xl mx-auto">
-              On November 3, 2026, vote for accountability, experience, and a judge
+              On <span className="election-date-glow">November 3, 2026</span>, vote for accountability, experience, and a judge
               who serves every family in the 11th Chancery District.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
