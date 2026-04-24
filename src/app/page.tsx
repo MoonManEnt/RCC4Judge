@@ -78,9 +78,9 @@ export default function Home() {
                 <Image
                   src="/images/hero-logo.png"
                   alt="Vote Cooper For Chancery Judge"
-                  width={480}
-                  height={200}
-                  className="w-auto max-w-xs sm:max-w-sm lg:max-w-md mx-auto lg:mx-0"
+                  width={700}
+                  height={292}
+                  className="w-auto max-w-sm sm:max-w-lg lg:max-w-2xl mx-auto lg:mx-0"
                   priority
                 />
               </div>
