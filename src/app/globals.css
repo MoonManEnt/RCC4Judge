@@ -211,6 +211,21 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
 }
 
+/* Endorsement ticker infinite scroll */
+@keyframes ticker-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.ticker-track {
+  animation: ticker-scroll 60s linear infinite;
+  width: max-content;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
 /* Safe area for mobile bottom bar */
 .safe-area-pb {
   padding-bottom: max(0.75rem, env(safe-area-inset-bottom));

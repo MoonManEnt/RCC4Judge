@@ -63,137 +63,80 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-forest via-forest-dark to-forest" />
+      <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-forest via-forest-dark to-forest">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-sage rounded-full blur-3xl" />
           <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-amber rounded-full blur-3xl" />
         </div>
 
-        {/* LEFT — Civil Rights */}
-        <div
-          className="absolute left-0 top-0 bottom-0 w-[45%] hidden lg:block pointer-events-none"
-          style={{
-            maskImage: 'linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 55%, transparent 85%), linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)',
-            WebkitMaskImage: 'linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 55%, transparent 85%), linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)',
-            maskComposite: 'intersect',
-            WebkitMaskComposite: 'source-in',
-          }}
-        >
-          <Image
-            src="/images/hero/civil-rights.jpg"
-            alt=""
-            fill
-            className="object-cover opacity-[0.15] mix-blend-luminosity"
-            sizes="45vw"
-            priority
-          />
-        </div>
+        <div className="relative z-10 mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 py-32">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-        {/* RIGHT — Mississippi Cityscape */}
-        <div
-          className="absolute right-0 top-0 bottom-0 w-[45%] hidden lg:block pointer-events-none"
-          style={{
-            maskImage: 'linear-gradient(to left, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 55%, transparent 85%), linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)',
-            WebkitMaskImage: 'linear-gradient(to left, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 55%, transparent 85%), linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)',
-            maskComposite: 'intersect',
-            WebkitMaskComposite: 'source-in',
-          }}
-        >
-          <Image
-            src="/images/hero/mississippi-cityscape.jpg"
-            alt=""
-            fill
-            className="object-cover opacity-[0.12] mix-blend-soft-light"
-            sizes="45vw"
-            priority
-          />
-        </div>
+            {/* LEFT — Logo + Election Day */}
+            <div className="animate-fade-in-up flex flex-col items-center lg:items-start text-center lg:text-left">
+              <div className="mb-8">
+                <Image
+                  src="/images/hero-logo.png"
+                  alt="Vote Cooper For Chancery Judge"
+                  width={480}
+                  height={200}
+                  className="w-auto max-w-xs sm:max-w-sm lg:max-w-md mx-auto lg:mx-0"
+                  priority
+                />
+              </div>
 
-        {/* BOTTOM — Mississippi Universities */}
-        <div
-          className="absolute bottom-0 left-0 right-0 h-[35%] hidden lg:block pointer-events-none"
-          style={{
-            maskImage: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.6) 100%), linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
-            WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.6) 100%), linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
-            maskComposite: 'intersect',
-            WebkitMaskComposite: 'source-in',
-          }}
-        >
-          <Image
-            src="/images/hero/ms-universities.jpg"
-            alt=""
-            fill
-            className="object-cover object-center opacity-[0.10] mix-blend-luminosity"
-            sizes="100vw"
-            priority
-          />
-        </div>
+              <p className="text-sage/70 text-xs sm:text-sm font-body font-medium tracking-[0.25em] uppercase mb-6">
+                Madison County &nbsp;&middot;&nbsp; Leake County
+              </p>
 
-        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center py-32">
-          {/* County line */}
-          <div className="animate-fade-in-up stagger-1">
-            <p className="text-sage/70 text-xs sm:text-sm font-body font-medium tracking-[0.25em] uppercase mb-8">
-              Madison County &nbsp;&middot;&nbsp; Leake County &nbsp;&middot;&nbsp; November 2026
-            </p>
+              <div className="mb-8">
+                <p className="text-cream/60 text-sm font-body font-medium tracking-[0.2em] uppercase mb-2">
+                  Election Day
+                </p>
+                <p className="font-heading text-5xl sm:text-6xl lg:text-7xl font-bold text-amber leading-none election-date-glow">
+                  Nov 3, 2026
+                </p>
+              </div>
+
+              <p className="text-amber font-body font-semibold text-sm sm:text-base tracking-[0.15em] uppercase mb-10">
+                Responsibility &nbsp;|&nbsp; Compassion &nbsp;|&nbsp; Competence
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  href="/donate"
+                  className="px-8 py-4 bg-amber text-white text-base sm:text-lg font-bold font-body rounded-full shadow-lg hover:bg-amber-dark hover:shadow-xl transition-all duration-200 hover:scale-[1.02] uppercase tracking-wide"
+                >
+                  Donate Today
+                </Link>
+                <Link
+                  href="/volunteer"
+                  className="px-8 py-4 border-2 border-cream/30 text-cream text-base sm:text-lg font-medium font-body rounded-full hover:bg-white/10 transition-all duration-200"
+                >
+                  Volunteer
+                </Link>
+              </div>
+            </div>
+
+            {/* RIGHT — Rhonda's Headshot */}
+            <div className="animate-fade-in-up stagger-2 flex justify-center lg:justify-end">
+              <div className="relative w-72 sm:w-80 lg:w-96 xl:w-[420px]">
+                <div className="aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl border border-white/10 relative">
+                  <Image
+                    src="/images/rhonda-headshot.jpg"
+                    alt="Attorney Rhonda C. Cooper"
+                    fill
+                    className="object-cover object-top"
+                    sizes="(max-width: 768px) 288px, (max-width: 1024px) 320px, 420px"
+                    priority
+                  />
+                </div>
+                {/* Decorative ring */}
+                <div className="absolute -inset-2 rounded-3xl border border-amber/20 pointer-events-none" />
+              </div>
+            </div>
+
           </div>
-
-          {/* Main headline */}
-          <div className="animate-fade-in-up stagger-2 max-w-3xl mx-auto mb-6">
-            <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-[1.2] mb-2">
-              When you walk into that courtroom,<br />
-              <span className="text-amber italic">you deserve to see someone<br />
-              who understands your world.</span>
-            </h1>
-          </div>
-
-          {/* Body copy */}
-          <div className="animate-fade-in-up stagger-3 max-w-2xl mx-auto mb-4">
-            <p className="text-cream/85 text-base sm:text-lg font-body leading-relaxed">
-              A judge shapes the future of families. Which means the judge should understand
-              what family really means — the sacrifices, the land passed down, the children you&apos;d
-              do anything for.
-            </p>
-          </div>
-
-          <div className="animate-fade-in-up stagger-3 max-w-2xl mx-auto mb-8">
-            <p className="text-cream/60 text-sm sm:text-base font-body italic leading-relaxed">
-              Rhonda Cooper isn&apos;t just qualified. She&apos;s connected — to these communities, these families,
-              and the real stakes behind every case on that docket. In Madison and Leake counties, that
-              connection is long overdue on the bench.
-            </p>
-          </div>
-
-          {/* Slogan */}
-          <div className="animate-fade-in-up stagger-4 mb-10">
-            <p className="text-amber font-body font-semibold text-sm sm:text-base tracking-[0.15em] uppercase">
-              Responsibility &nbsp;|&nbsp; Compassion &nbsp;|&nbsp; Competence
-            </p>
-          </div>
-
-          {/* CTA Buttons */}
-          <div className="animate-fade-in-up stagger-5 flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/donate"
-              className="px-8 py-4 bg-amber text-white text-base sm:text-lg font-bold font-body rounded-full shadow-lg hover:bg-amber-dark hover:shadow-xl transition-all duration-200 hover:scale-[1.02] uppercase tracking-wide"
-            >
-              Help Put Rhonda on the Bench
-            </Link>
-            <Link
-              href="/volunteer"
-              className="px-8 py-4 border-2 border-cream/30 text-cream text-base sm:text-lg font-medium font-body rounded-full hover:bg-white/10 transition-all duration-200"
-            >
-              Volunteer to Make History
-            </Link>
-          </div>
-        </div>
-
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <svg className="w-6 h-6 text-cream/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
         </div>
       </section>
 
@@ -350,41 +293,6 @@ export default function Home() {
               </Link>
             </ScrollReveal>
           </div>
-        </div>
-      </section>
-
-      {/* CTA Banner */}
-      <section className="py-16 sm:py-20 bg-gradient-to-r from-forest via-forest-dark to-forest relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-amber rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-sage rounded-full blur-3xl" />
-        </div>
-        <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-          <ScrollReveal>
-            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
-              Join the Movement for<br />
-              <span className="text-amber">Accountable Justice</span>
-            </h2>
-            <p className="text-cream/80 font-body text-lg max-w-2xl mx-auto mb-8">
-              Judges shouldn&apos;t belong to political parties — they belong to families.
-              When your child&apos;s custody is at stake, you don&apos;t want a partisan judge.
-              You want a fair one.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/donate"
-                className="px-8 py-4 bg-amber text-white text-lg font-bold font-body rounded-full shadow-lg hover:bg-amber-dark hover:shadow-xl transition-all hover:scale-[1.02]"
-              >
-                Donate Today
-              </Link>
-              <Link
-                href="/volunteer"
-                className="px-8 py-4 border-2 border-cream/30 text-cream text-lg font-medium font-body rounded-full hover:bg-white/10 transition-all"
-              >
-                Volunteer With Us
-              </Link>
-            </div>
-          </ScrollReveal>
         </div>
       </section>
 

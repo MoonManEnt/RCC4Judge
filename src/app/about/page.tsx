@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
-import InteractiveTimeline from "@/components/InteractiveTimeline";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -36,18 +35,17 @@ export default function AboutPage() {
       <section className="py-20 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
-            {/* Photo Placeholder */}
+            {/* Headshot */}
             <div className="lg:col-span-2">
               <ScrollReveal>
-                <div className="aspect-[3/4] bg-gradient-to-br from-forest/10 to-sage/20 rounded-3xl flex items-center justify-center sticky top-28">
-                  <div className="text-center px-8">
-                    <div className="w-28 h-28 mx-auto mb-4 rounded-full bg-forest/10 flex items-center justify-center">
-                      <svg className="w-14 h-14 text-forest/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                      </svg>
-                    </div>
-                    <p className="text-forest/50 font-body text-sm">Professional Photo Coming Soon</p>
-                  </div>
+                <div className="aspect-[3/4] rounded-3xl overflow-hidden shadow-xl sticky top-28 relative">
+                  <Image
+                    src="/images/rhonda-headshot.jpg"
+                    alt="Attorney Rhonda C. Cooper"
+                    fill
+                    className="object-cover object-top"
+                    sizes="(max-width: 1024px) 100vw, 40vw"
+                  />
                 </div>
               </ScrollReveal>
             </div>
@@ -114,86 +112,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Interactive Career Timeline */}
-      <section className="py-20 bg-cream">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <ScrollReveal className="text-center mb-16">
-            <h2 className="font-heading text-3xl sm:text-4xl font-bold text-forest mb-4">
-              A Career That Speaks for Itself
-            </h2>
-            <p className="text-charcoal-light font-body text-lg max-w-2xl mx-auto">
-              Click any milestone to explore the journey that prepared Rhonda C. Cooper for the bench.
-            </p>
-          </ScrollReveal>
-
-          <InteractiveTimeline />
-        </div>
-      </section>
-
-      {/* Honors & Recognition */}
-      <section className="py-20 bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <ScrollReveal className="text-center mb-12">
-            <h2 className="font-heading text-3xl sm:text-4xl font-bold text-forest mb-4">
-              Recognized. Respected. Ready.
-            </h2>
-            <p className="text-charcoal-light font-body text-lg max-w-2xl mx-auto">
-              A record of excellence acknowledged by Mississippi&apos;s legal community and beyond.
-            </p>
-          </ScrollReveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-16">
-            <ScrollReveal>
-              <div className="p-8 text-center hover-lift h-full flex flex-col items-center">
-                <div className="w-44 h-24 flex items-center justify-center mx-auto mb-6">
-                  <Image
-                    src="/images/awards/mississippi-business-journal.jpg"
-                    alt="Mississippi Business Journal"
-                    width={236}
-                    height={45}
-                    className="w-full h-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-500"
-                  />
-                </div>
-                <h3 className="font-heading text-xl font-bold text-forest mb-2">Leader in Law</h3>
-                <p className="font-body text-charcoal-light text-sm">Mississippi Business Journal, 2022</p>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal delay={100}>
-              <div className="p-8 text-center hover-lift h-full flex flex-col items-center">
-                <div className="w-44 h-24 flex items-center justify-center mx-auto mb-6">
-                  <Image
-                    src="/images/awards/charles-koch-foundation.png"
-                    alt="Charles Koch Foundation"
-                    width={301}
-                    height={99}
-                    className="w-full h-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-500"
-                  />
-                </div>
-                <h3 className="font-heading text-xl font-bold text-forest mb-2">Koch Foundation Lecturer</h3>
-                <p className="font-body text-charcoal-light text-sm">Charles Koch Foundation Education Lecture, MVSU, 2018</p>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal delay={200}>
-              <div className="p-8 text-center hover-lift h-full flex flex-col items-center">
-                <div className="w-44 h-24 flex items-center justify-center mx-auto mb-6">
-                  <Image
-                    src="/images/awards/jsu-creative-awards.png"
-                    alt="JSU Creative Awards"
-                    width={138}
-                    height={77}
-                    className="w-full h-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-500"
-                  />
-                </div>
-                <h3 className="font-heading text-xl font-bold text-forest mb-2">Two-Time Creative Awardee</h3>
-                <p className="font-body text-charcoal-light text-sm">JSU Creative Awards for Faculty & Staff</p>
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
       {/* Community & Organizations */}
       <section className="py-20 bg-cream relative overflow-hidden">
         {/* RED BOX — Mary Church Terrell portrait, left side full height */}
@@ -253,26 +171,7 @@ export default function AboutPage() {
           />
         </div>
 
-        {/* BLUE BOX — Delta Sigma Theta logo, right side full height */}
-        <div
-          className="absolute right-0 top-0 bottom-0 w-[28%] hidden lg:block pointer-events-none"
-          style={{
-            maskImage: 'linear-gradient(to left, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 55%, transparent 85%), linear-gradient(to bottom, transparent 3%, black 15%, black 85%, transparent 97%)',
-            WebkitMaskImage: 'linear-gradient(to left, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 55%, transparent 85%), linear-gradient(to bottom, transparent 3%, black 15%, black 85%, transparent 97%)',
-            maskComposite: 'intersect',
-            WebkitMaskComposite: 'source-in',
-          }}
-        >
-          <Image
-            src="/images/causes/dst-madison.png"
-            alt=""
-            fill
-            className="object-contain opacity-[0.20]"
-            sizes="28vw"
-          />
-        </div>
-
-        {/* Charity logos, right side scattered (over DST) */}
+        {/* Charity logos, right side scattered */}
         <div
           className="absolute right-0 top-[3%] w-[18%] h-[22%] hidden lg:block pointer-events-none"
           style={{

@@ -1,4 +1,5 @@
 import ScrollReveal from "@/components/ScrollReveal";
+import EndorsementTicker from "@/components/EndorsementTicker";
 import EndorsementForm from "@/components/EndorsementForm";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -8,27 +9,6 @@ export const metadata: Metadata = {
   description:
     "See who stands with Rhonda C. Cooper for Chancery Judge. Endorsements from community leaders, faith leaders, attorneys, and organizations across the 11th Chancery District.",
 };
-
-const FEATURED_ENDORSEMENTS = [
-  {
-    quote: "Rhonda Cooper has the experience, the temperament, and the heart to serve our community with distinction on the Chancery bench.",
-    name: "Community Leader",
-    title: "Madison County",
-    category: "community",
-  },
-  {
-    quote: "Our families deserve a judge who understands the real impact of every decision. Rhonda is that judge.",
-    name: "Faith Leader",
-    title: "Leake County",
-    category: "faith",
-  },
-  {
-    quote: "I've watched Rhonda practice law for decades. Her integrity is beyond question. She will be an outstanding Chancellor.",
-    name: "Attorney",
-    title: "11th Chancery District",
-    category: "legal",
-  },
-];
 
 const ENDORSEMENT_CATEGORIES = [
   {
@@ -92,10 +72,10 @@ export default function EndorsementsPage() {
         </div>
       </section>
 
-      {/* Featured Endorsements */}
+      {/* Featured Endorsements — Scrolling Ticker */}
       <section className="py-20 bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <ScrollReveal className="text-center mb-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-12">
+          <ScrollReveal className="text-center">
             <h2 className="font-heading text-3xl sm:text-4xl font-bold text-forest mb-4">
               Featured Endorsements
             </h2>
@@ -103,28 +83,8 @@ export default function EndorsementsPage() {
               Placeholder endorsements — real names and quotes will be added as they are secured.
             </p>
           </ScrollReveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {FEATURED_ENDORSEMENTS.map((endorsement, i) => (
-              <ScrollReveal key={i} delay={i * 150}>
-                <div className="p-8 bg-cream rounded-2xl h-full flex flex-col">
-                  <div className="text-amber mb-4">
-                    <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                    </svg>
-                  </div>
-                  <p className="text-charcoal font-body text-base leading-relaxed italic flex-grow mb-6">
-                    &ldquo;{endorsement.quote}&rdquo;
-                  </p>
-                  <div className="border-t border-cream-dark pt-4">
-                    <p className="font-body font-semibold text-forest text-sm">{endorsement.name}</p>
-                    <p className="font-body text-mauve text-xs">{endorsement.title}</p>
-                  </div>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
         </div>
+        <EndorsementTicker />
       </section>
 
       {/* Endorsement Categories */}
