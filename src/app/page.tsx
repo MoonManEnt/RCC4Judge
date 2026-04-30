@@ -10,9 +10,9 @@ import SocialShare from "@/components/SocialShare";
 
 const PILLARS = [
   {
-    title: "Experience",
+    title: "Responsible",
     description:
-      "Nearly 40 years of legal practice in estate planning, domestic relations, real property, and contract negotiations — the exact matters Chancery Court handles every day.",
+      "Understands the obligation and role of properly handling every client issue before the Chancery Court and will be accountable for the Court's decisions and their impact.",
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
@@ -20,9 +20,9 @@ const PILLARS = [
     ),
   },
   {
-    title: "Character",
+    title: "Competent",
     description:
-      "A reputation built on integrity, fairness, and the belief that every person who enters a courtroom deserves to be heard with dignity and respect.",
+      "Possesses the knowledge and expertise of nearly 40 years of service to successfully resolve the family, land, estate, and other matters within the jurisdiction of the Chancery Court.",
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
@@ -30,9 +30,9 @@ const PILLARS = [
     ),
   },
   {
-    title: "Connection",
+    title: "Compassionate",
     description:
-      "Deep roots across Leake County and Madison County. A leader who knows this community because she lives it, serves it, and fights for it.",
+      "Recognizes that courtroom experiences can be frightening, stressful, and uncomfortable — and knows that the response from the bench should be to promote dignity, fairness, and integrity.",
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
@@ -191,15 +191,21 @@ export default function Home() {
                 Your Chancery Court.<br />
                 <span className="text-amber">Your Family&apos;s Future.</span>
               </h2>
-              <p className="text-charcoal-light font-body text-lg leading-relaxed mb-6">
-                Chancery Court handles the most personal legal decisions families face — divorce, child custody,
-                child support, guardianship, estates, wills, and property disputes. When you walk into that courtroom,
-                the judge&apos;s decision shapes your family&apos;s future.
+              <p className="text-charcoal-light font-body text-lg leading-relaxed mb-4">
+                The Chancery Court oversees the fabric of the family and the important decisions that are
+                faced all too often — divorces, division of marital assets, child custody and support,
+                guardianships and conservatorships, wills and estates, and property rights and land disputes.
+              </p>
+              <p className="text-charcoal-light font-body text-lg leading-relaxed mb-4">
+                When inside the courtroom for any of these matters, the judge&apos;s decision will affect
+                the future of the family.
+              </p>
+              <p className="text-charcoal-light font-body text-lg leading-relaxed mb-4">
+                The same judge has decided outcomes for families in Madison and Leake Counties for 20 years.
               </p>
               <p className="text-charcoal-light font-body text-lg leading-relaxed mb-8">
-                For over two decades, the same judge has held this seat — often without any challenge at all.
-                Our community deserves a Chancellor who is accountable, prepared, and committed to serving
-                every family with fairness and efficiency.
+                These communities now deserve a Chancery Judge who is responsible, competent, and compassionate
+                in serving every family and its members efficiently, fairly, and respectfully.
               </p>
 
               <div className="grid grid-cols-2 gap-6 mb-6">
@@ -241,56 +247,6 @@ export default function Home() {
             {/* Fundraising Thermometer */}
             <ScrollReveal delay={200}>
               <FundraisingThermometer />
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* Meet Rhonda Preview */}
-      <section className="py-20 sm:py-28 bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Photo Placeholder */}
-            <ScrollReveal>
-              <div className="aspect-[4/5] bg-gradient-to-br from-forest/10 to-sage/20 rounded-3xl flex items-center justify-center relative overflow-hidden hover-scale">
-                <div className="text-center px-8">
-                  <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-forest/10 flex items-center justify-center">
-                    <svg className="w-16 h-16 text-forest/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                    </svg>
-                  </div>
-                  <p className="text-forest/50 font-body text-sm">Professional Photo Coming Soon</p>
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-forest/5 to-transparent" />
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal delay={200}>
-              <p className="text-amber font-body font-semibold text-sm tracking-widest uppercase mb-4">
-                Meet the Candidate
-              </p>
-              <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-forest mb-6 leading-tight">
-                Attorney Rhonda C. Cooper
-              </h2>
-              <p className="text-charcoal-light font-body text-lg leading-relaxed mb-4">
-                With nearly four decades of distinguished legal practice, Rhonda C. Cooper has dedicated
-                her career to the very areas of law that Chancery Court handles every day — estate planning,
-                domestic relations, real property, and contract negotiations.
-              </p>
-              <p className="text-charcoal-light font-body text-lg leading-relaxed mb-8">
-                She&apos;s not a politician seeking a title. She&apos;s a lawyer who has spent a lifetime
-                preparing for the responsibility of the bench — and she&apos;s ready to serve every family
-                in this district with the accountability and compassion they deserve.
-              </p>
-              <Link
-                href="/about"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-forest text-white font-body font-semibold rounded-full hover:bg-forest-dark transition-colors"
-              >
-                Read Rhonda&apos;s Full Story
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </Link>
             </ScrollReveal>
           </div>
         </div>

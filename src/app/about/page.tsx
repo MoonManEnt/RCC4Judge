@@ -76,20 +76,17 @@ export default function AboutPage() {
                     But Rhonda&apos;s career has never been confined to a courtroom. She has dedicated
                     her life to advocacy in <strong className="text-forest">education, community
                     engagement, and public service</strong> — providing pro bono legal services
-                    to those who need it most, particularly seniors and families who otherwise
-                    could not afford representation. The families who can&apos;t afford an attorney?
-                    Rhonda has been their attorney anyway.
+                    to those who need it most, particularly seniors and young adults who otherwise
+                    could not afford representation.
                   </p>
                   <p>
                     A resident of <strong className="text-forest">Ridgeland, Mississippi</strong>, she is
                     a parishioner at <strong className="text-forest">St. Francis of Assisi Catholic
-                    Church</strong> in Madison, where she serves in the hospitality ministry. She is a
-                    charter member of the <strong className="text-forest">Madison County Alumnae Chapter
-                    of Delta Sigma Theta Sorority, Inc.</strong> and was in the inaugural class
-                    of <strong className="text-forest">Leadership Madison County</strong>.
-                  </p>
-                  <p>
-                    She doesn&apos;t just know this district. She has shaped it.
+                    Church</strong> in Madison, where she serves in the hospitality ministry. She was in
+                    the inaugural class of <strong className="text-forest">Leadership Madison County</strong> and
+                    is a charter member of the <strong className="text-forest">Madison County Alumnae Chapter
+                    of Delta Sigma Theta Sorority, Inc.</strong> Cooper currently serves as Parliamentarian
+                    on the Board of the <strong className="text-forest">Friends of the City of Ridgeland Library</strong>.
                   </p>
                 </div>
               </ScrollReveal>
@@ -244,22 +241,26 @@ export default function AboutPage() {
                 Rooted Where It Matters
               </h2>
               <p className="text-charcoal-light font-body text-lg leading-relaxed mb-4">
-                There is a difference between a candidate who campaigns in a community and one who has
-                built a life in it. Rhonda didn&apos;t arrive in Madison County for an election. She
-                helped launch its institutions. She mentored its students. She served its families
-                before anyone was watching — and long before anyone was voting.
+                There is a difference between a candidate who campaigns in a District and one whose
+                life is immersed in it. Cooper hasn&apos;t shown up just for this election. She has
+                been a part of these communities throughout her career. She has mentored their students,
+                partnered with their community stakeholders, and aided in their efforts to activate
+                voter participation — all done before anyone was watching, but while all were waiting
+                for the change.
               </p>
               <p className="text-charcoal-light font-body text-lg leading-relaxed mb-4">
-                From the inaugural class of Leadership Madison County to chartering the local chapter
-                of Delta Sigma Theta, from lecturing at universities to serving in her church&apos;s
-                hospitality ministry — Rhonda&apos;s community involvement isn&apos;t a campaign talking
-                point. It&apos;s a matter of record.
+                From serving in the inaugural class of Leadership Madison County to chartering the
+                Madison County Chapter of Delta Sigma Theta Sorority, Inc. — from teaching at Holmes
+                Community College, Ridgeland, Mississippi College School of Law, and Jackson State
+                University and lecturing at Mississippi Valley State University to serving in the
+                hospitality ministry at St. Francis of Assisi Catholic Church in Madison — Cooper&apos;s
+                community involvement isn&apos;t a campaign talking point. It&apos;s a matter of record.
               </p>
               <p className="text-charcoal-light font-body text-lg leading-relaxed">
-                She supports causes that reflect her values: Mississippi Public Broadcasting, the
-                Mississippi Chapter of the Alzheimer&apos;s Association, the Magnolia Bar Foundation,
-                and Catholic Charities. She gives — of her time, her expertise, and her heart — because
-                that is who she is. Not who she becomes in an election year.
+                She supports causes that reflect her values: the Mississippi Chapter of the
+                Alzheimer&apos;s Association, Magnolia Bar Foundation, Inc., Mississippi Public
+                Broadcasting, and Catholic Charities, Inc. Cooper gives — her time, her expertise,
+                and her heart — because that is who she is. Not who she becomes in an election year.
               </p>
             </ScrollReveal>
 
@@ -267,13 +268,14 @@ export default function AboutPage() {
               <div className="space-y-4">
                 <h3 className="font-heading text-xl font-bold text-forest mb-4">Professional & Community</h3>
                 {[
-                  { label: "Delta Sigma Theta Sorority, Inc.", sub: "Charter Member, Madison County Alumnae Chapter" },
                   { label: "Leadership Madison County", sub: "Inaugural Class" },
-                  { label: "MS Women's Lawyers Association", sub: "Member" },
-                  { label: "Metro Jackson Women Lawyers Association", sub: "Member" },
-                  { label: "Mary Church Terrell Literary Club, Inc.", sub: "Member" },
-                  { label: "Oral History Association", sub: "Member" },
-                  { label: "St. Francis of Assisi Catholic Church", sub: "Hospitality Ministry, Madison, MS" },
+                  { label: "Delta Sigma Theta Sorority, Inc.", sub: "Charter Member, Madison County Alumnae Chapter" },
+                  { label: "Mississippi Women Lawyers Association", sub: "Community Service Liaison" },
+                  { label: "Metro Jackson Black Women Lawyers Association", sub: "Book Club Hostess" },
+                  { label: "St. Francis of Assisi Catholic Church", sub: "Hospitality Ministry" },
+                  { label: "Friends of the City of Ridgeland Library", sub: "Board Parliamentarian" },
+                  { label: "Mary Church Terrell Literary Club, Inc.", sub: "First Vice President" },
+                  { label: "Oral History Association", sub: "Project Coordinator and Interviewer" },
                 ].map((org, i) => (
                   <div key={i} className="flex items-start gap-3 p-4 bg-white/80 backdrop-blur-sm rounded-xl">
                     <div className="w-2 h-2 rounded-full bg-amber flex-shrink-0 mt-2" />
