@@ -19,7 +19,7 @@ interface DonorReceiptProps {
   isRecurring: boolean;
   contributorType: "individual" | "corporate";
   transactionDate: string;
-  stripePaymentId: string;
+  transactionId: string;
 }
 
 export default function DonorReceipt({
@@ -29,7 +29,7 @@ export default function DonorReceipt({
   isRecurring = false,
   contributorType = "individual",
   transactionDate = new Date().toISOString(),
-  stripePaymentId = "",
+  transactionId = "",
 }: DonorReceiptProps) {
   const formattedDate = new Date(transactionDate).toLocaleDateString("en-US", {
     year: "numeric",
@@ -202,7 +202,7 @@ export default function DonorReceipt({
                 </Text>
               </Column>
             </Row>
-            {stripePaymentId && (
+            {transactionId && (
               <Row>
                 <Column style={{ width: "40%" }}>
                   <Text
@@ -226,9 +226,9 @@ export default function DonorReceipt({
                       margin: 0,
                     }}
                   >
-                    {stripePaymentId.length > 24
-                      ? stripePaymentId.slice(0, 24) + "..."
-                      : stripePaymentId}
+                    {transactionId.length > 24
+                      ? transactionId.slice(0, 24) + "..."
+                      : transactionId}
                   </Text>
                 </Column>
               </Row>

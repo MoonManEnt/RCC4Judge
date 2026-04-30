@@ -7,31 +7,7 @@ export const metadata: Metadata = {
     "Your contribution to RCC for Chancery 2026 has been received.",
 };
 
-export default async function ThankYouPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ session_id?: string }>;
-}) {
-  const params = await searchParams;
-  const sessionId = params.session_id ?? "";
-
-  let donorName = "";
-  let amount = 0;
-  let isRecurring = false;
-
-  if (sessionId && process.env.STRIPE_SECRET_KEY) {
-    try {
-      const { default: Stripe } = await import("stripe");
-      const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-      const session = await stripe.checkout.sessions.retrieve(sessionId);
-      donorName = (session.metadata?.donorFirstName ?? "").trim();
-      amount = Math.round((session.amount_total ?? 0) / 100);
-      isRecurring = session.mode === "subscription";
-    } catch {
-      // Non-critical — proceed with generic message
-    }
-  }
-
+export default function ThankYouPage() {
   return (
     <div className="min-h-screen bg-cream flex items-center justify-center px-4">
       <div className="max-w-2xl mx-auto text-center py-24">
@@ -54,25 +30,8 @@ export default async function ThankYouPage({
 
         {/* Headline */}
         <h1 className="font-heading text-4xl sm:text-5xl font-bold text-forest mb-4">
-          {donorName ? `Thank You, ${donorName}.` : "Thank You."}
+          Thank You.
         </h1>
-
-        {/* Amount confirmation */}
-        {amount > 0 && (
-          <div className="inline-block bg-forest/10 rounded-2xl px-8 py-4 mb-6">
-            <p className="font-heading text-3xl font-bold text-forest">
-              ${amount.toLocaleString()}
-              {isRecurring && (
-                <span className="text-lg text-mauve font-body">/month</span>
-              )}
-            </p>
-            <p className="font-body text-sm text-mauve mt-1">
-              {isRecurring
-                ? "Monthly recurring contribution confirmed"
-                : "One-time contribution confirmed"}
-            </p>
-          </div>
-        )}
 
         {/* Message */}
         <p className="font-body text-lg text-charcoal-light leading-relaxed mb-4 max-w-lg mx-auto">

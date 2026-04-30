@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getStripe } from "@/lib/stripe";
+import { getAuthNetConfig, callAuthNet } from "@/lib/stripe";
 import {
   checkRateLimit,
   sanitizeHeaderValue,
@@ -21,13 +21,12 @@ const VALID_CONTRIBUTOR_TYPES = ["individual", "corporate"] as const;
 type ContributorType = (typeof VALID_CONTRIBUTOR_TYPES)[number];
 
 export async function POST(request: Request) {
-  // Rate limit: 10 checkout attempts per minute per IP
   const rateLimitResponse = await checkRateLimit(request, "checkout", 10, "60 s");
   if (rateLimitResponse) return rateLimitResponse;
 
-  let stripe;
+  let config;
   try {
-    stripe = getStripe();
+    config = getAuthNetConfig();
   } catch {
     return NextResponse.json(
       { error: "Payment processing is not configured" },
@@ -39,10 +38,7 @@ export async function POST(request: Request) {
   try {
     body = await request.json();
   } catch {
-    return NextResponse.json(
-      { error: "Invalid request body" },
-      { status: 400 }
-    );
+    return NextResponse.json({ error: "Invalid request body" }, { status: 400 });
   }
 
   const { amount, isRecurring, contributorType, tierName, formData } = body as {
@@ -53,7 +49,6 @@ export async function POST(request: Request) {
     formData: Record<string, string> | undefined;
   };
 
-  // Validate contributorType against whitelist
   if (
     typeof contributorType !== "string" ||
     !VALID_CONTRIBUTOR_TYPES.includes(contributorType as ContributorType)
@@ -65,7 +60,6 @@ export async function POST(request: Request) {
   }
   const validatedType = contributorType as ContributorType;
 
-  // Validate amount is a positive integer
   if (typeof amount !== "number" || !Number.isInteger(amount) || amount < 1) {
     return NextResponse.json(
       { error: "Amount must be a whole dollar value of at least $1." },
@@ -73,7 +67,6 @@ export async function POST(request: Request) {
     );
   }
 
-  // Server-side enforcement of Mississippi contribution limits
   const maxAllowed = validatedType === "corporate" ? 1000 : 2500;
   if (amount > maxAllowed) {
     return NextResponse.json(
@@ -84,7 +77,6 @@ export async function POST(request: Request) {
     );
   }
 
-  // Validate formData exists
   if (!formData || typeof formData !== "object") {
     return NextResponse.json(
       { error: "Donor information is required." },
@@ -92,7 +84,6 @@ export async function POST(request: Request) {
     );
   }
 
-  // Validate email
   const donorEmail = (formData.email ?? "").trim();
   if (!donorEmail || !isValidEmail(donorEmail)) {
     return NextResponse.json(
@@ -101,86 +92,133 @@ export async function POST(request: Request) {
     );
   }
 
-  // Sanitize and truncate all metadata values (Stripe max 500 chars per value)
   const s = (val: string | undefined) =>
-    truncate(sanitizeHeaderValue(val ?? ""), 500);
+    truncate(sanitizeHeaderValue(val ?? ""), 40);
 
-  const metadata: Record<string, string> = {
-    donorFirstName: s(formData.firstName),
-    donorLastName: s(formData.lastName),
-    donorEmail: s(formData.email),
-    donorPhone: s(formData.phone),
-    donorAddress: s(
-      [formData.address, formData.city, formData.state, formData.zip]
-        .filter(Boolean)
-        .join(", ")
-    ),
-    contributorType: validatedType,
-    tierName: s(typeof tierName === "string" ? tierName : undefined) ||
-      TIER_NAMES[amount] ||
-      "Custom",
-    isRecurring: String(!!isRecurring),
-    employer: s(formData.employer),
-    occupation: s(formData.occupation),
-    corporateName: s(formData.corporateName),
-    corporateAuthorizer: s(formData.corporateAuthorizer),
-  };
+  const resolvedTierName =
+    s(typeof tierName === "string" ? tierName : undefined) ||
+    TIER_NAMES[amount] ||
+    "Custom";
 
   const siteUrl =
     process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.rcc4judge.com";
-  const productName = `RCC for Chancery 2026 — ${metadata.tierName}`;
+
+  const transactionRequest: Record<string, unknown> = {
+    transactionType: "authCaptureTransaction",
+    amount: amount.toFixed(2),
+    order: {
+      description: truncate(
+        `RCC4Judge - ${resolvedTierName} - ${validatedType}`,
+        255
+      ),
+    },
+    customer: {
+      type: validatedType === "corporate" ? "business" : "individual",
+      email: donorEmail,
+    },
+    billTo: {
+      firstName: s(formData.firstName),
+      lastName: s(formData.lastName),
+      address: s(formData.address),
+      city: s(formData.city),
+      state: s(formData.state),
+      zip: s(formData.zip),
+      country: "US",
+    },
+    userFields: {
+      userField: [
+        { name: "isRecurring", value: String(!!isRecurring) },
+        { name: "contributorType", value: validatedType },
+        { name: "tierName", value: resolvedTierName },
+        { name: "donorPhone", value: s(formData.phone) },
+        {
+          name: "donorAddress",
+          value: s(
+            [formData.address, formData.city, formData.state, formData.zip]
+              .filter(Boolean)
+              .join(", ")
+          ),
+        },
+        { name: "employer", value: s(formData.employer) },
+        { name: "occupation", value: s(formData.occupation) },
+        { name: "corporateName", value: s(formData.corporateName) },
+        { name: "corporateAuthorizer", value: s(formData.corporateAuthorizer) },
+      ],
+    },
+  };
+
+  if (isRecurring) {
+    transactionRequest.profile = { createProfile: true };
+  }
 
   try {
-    if (isRecurring) {
-      const session = await stripe.checkout.sessions.create({
-        mode: "subscription",
-        payment_method_types: ["card"],
-        line_items: [
-          {
-            price_data: {
-              currency: "usd",
-              recurring: { interval: "month" },
-              unit_amount: amount * 100,
-              product_data: {
-                name: `${productName} Monthly`,
-                description: `Monthly campaign contribution — ${validatedType}`,
-              },
+    const result = await callAuthNet(config, {
+      getHostedPaymentPageRequest: {
+        merchantAuthentication: {
+          name: config.loginId,
+          transactionKey: config.transactionKey,
+        },
+        transactionRequest,
+        hostedPaymentSettings: {
+          setting: [
+            {
+              settingName: "hostedPaymentReturnOptions",
+              settingValue: JSON.stringify({
+                showReceipt: false,
+                url: `${siteUrl}/donate/thank-you`,
+                urlText: "Return to Campaign",
+                cancelUrl: `${siteUrl}/donate`,
+                cancelUrlText: "Cancel",
+              }),
             },
-            quantity: 1,
-          },
-        ],
-        metadata,
-        customer_email: donorEmail,
-        success_url: `${siteUrl}/donate/thank-you?session_id={CHECKOUT_SESSION_ID}`,
-        cancel_url: `${siteUrl}/donate`,
-      });
-      return NextResponse.json({ url: session.url });
-    } else {
-      const session = await stripe.checkout.sessions.create({
-        mode: "payment",
-        payment_method_types: ["card"],
-        line_items: [
-          {
-            price_data: {
-              currency: "usd",
-              unit_amount: amount * 100,
-              product_data: {
-                name: productName,
-                description: `Campaign contribution — ${validatedType}`,
-              },
+            {
+              settingName: "hostedPaymentButtonOptions",
+              settingValue: JSON.stringify({ text: "Complete Contribution" }),
             },
-            quantity: 1,
-          },
-        ],
-        metadata,
-        customer_email: donorEmail,
-        success_url: `${siteUrl}/donate/thank-you?session_id={CHECKOUT_SESSION_ID}`,
-        cancel_url: `${siteUrl}/donate`,
-      });
-      return NextResponse.json({ url: session.url });
+            {
+              settingName: "hostedPaymentBillingAddressOptions",
+              settingValue: JSON.stringify({ show: false, required: false }),
+            },
+            {
+              settingName: "hostedPaymentShippingAddressOptions",
+              settingValue: JSON.stringify({ show: false, required: false }),
+            },
+            {
+              settingName: "hostedPaymentOrderOptions",
+              settingValue: JSON.stringify({
+                show: true,
+                merchantName: "RCC for Chancery 2026",
+              }),
+            },
+          ],
+        },
+      },
+    });
+
+    const messages = result.messages as
+      | { resultCode: string; message: Array<{ code: string; text: string }> }
+      | undefined;
+    const token = result.token as string | undefined;
+
+    if (messages?.resultCode !== "Ok" || !token) {
+      const errorText =
+        messages?.message?.[0]?.text ?? "Failed to create payment session";
+      console.error("Authorize.net error:", errorText);
+      return NextResponse.json(
+        { error: "Failed to create payment session. Please try again." },
+        { status: 500 }
+      );
     }
+
+    const baseUrl = config.isSandbox
+      ? "https://test.authorize.net/payment/payment"
+      : "https://accept.authorize.net/payment/payment";
+
+    return NextResponse.json({
+      url: `${baseUrl}?token=${encodeURIComponent(token)}`,
+    });
   } catch (err) {
-    console.error("Stripe checkout session error:", err);
+    console.error("Authorize.net checkout error:", err);
     return NextResponse.json(
       { error: "Failed to create payment session. Please try again." },
       { status: 500 }

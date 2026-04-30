@@ -24,7 +24,7 @@ interface DonorNotificationProps {
   occupation: string;
   corporateName: string;
   corporateAuthorizer: string;
-  stripePaymentId: string;
+  transactionId: string;
   transactionDate: string;
 }
 
@@ -41,7 +41,7 @@ export default function DonorNotification({
   occupation = "",
   corporateName = "",
   corporateAuthorizer = "",
-  stripePaymentId = "",
+  transactionId = "",
   transactionDate = new Date().toISOString(),
 }: DonorNotificationProps) {
   const formattedDate = new Date(transactionDate).toLocaleString("en-US", {
@@ -73,7 +73,7 @@ export default function DonorNotification({
           ["Corporate Name", corporateName || "—"],
           ["Authorized By", corporateAuthorizer || "—"],
         ] as [string, string][])),
-    ["Stripe ID", stripePaymentId],
+    ["Transaction ID", transactionId],
     ["Timestamp", formattedDate],
   ];
 
@@ -194,7 +194,7 @@ export default function DonorNotification({
           >
             This is an automated notification from rcc4judge.com.
             <br />
-            Log into Stripe Dashboard to manage payments and subscriptions.
+            Log into Authorize.net to manage payments and subscriptions.
           </Text>
         </Container>
       </Body>

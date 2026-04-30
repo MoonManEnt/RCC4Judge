@@ -115,7 +115,6 @@ export default function DonationPlatform() {
       const { url } = await response.json();
       if (!url) throw new Error("No checkout URL returned");
 
-      // Redirect to Stripe Checkout
       window.location.href = url;
     } catch (err) {
       console.error("Checkout error:", err);

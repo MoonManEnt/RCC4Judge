@@ -1,11 +1,11 @@
 import { NextResponse } from "next/server";
-import { getStripe } from "@/lib/stripe";
+import { createHmac } from "crypto";
+import { getAuthNetConfig, callAuthNet } from "@/lib/stripe";
 import { getResend } from "@/lib/resend";
 import { Redis } from "@upstash/redis";
 import { render } from "@react-email/render";
 import DonorReceipt from "@/emails/DonorReceipt";
 import DonorNotification from "@/emails/DonorNotification";
-import type Stripe from "stripe";
 
 const KV_KEY = "rcc4judge:donor_count";
 const DONATIONS_KEY = "rcc4judge:donations";
@@ -18,246 +18,220 @@ function getRedis(): Redis | null {
 }
 
 export async function POST(request: Request) {
-  const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
-  if (!webhookSecret) {
-    console.error("STRIPE_WEBHOOK_SECRET is not configured");
-    return NextResponse.json(
-      { error: "Webhook not configured" },
-      { status: 500 }
-    );
-  }
-
-  // Read raw body for signature verification
   const body = await request.text();
-  const signature = request.headers.get("stripe-signature");
 
-  if (!signature) {
-    return NextResponse.json({ error: "No signature" }, { status: 400 });
+  const signatureKey = process.env.AUTHORIZENET_SIGNATURE_KEY;
+  if (signatureKey) {
+    const sigHeader = request.headers.get("X-ANET-Signature");
+    if (!sigHeader) {
+      return NextResponse.json({ error: "No signature" }, { status: 400 });
+    }
+    const [, sigHex] = sigHeader.split("=");
+    const expected = createHmac("sha512", signatureKey)
+      .update(body)
+      .digest("hex")
+      .toUpperCase();
+    if (expected !== (sigHex ?? "").toUpperCase()) {
+      return NextResponse.json({ error: "Invalid signature" }, { status: 400 });
+    }
   }
 
-  let stripe: Stripe;
+  let event: Record<string, unknown>;
   try {
-    stripe = getStripe();
+    event = JSON.parse(body) as Record<string, unknown>;
   } catch {
-    return NextResponse.json(
-      { error: "Stripe not configured" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
   }
 
-  let event: Stripe.Event;
+  const eventType = event.eventType as string;
+  if (eventType !== "net.authorize.payment.authcapture.created") {
+    return NextResponse.json({ received: true });
+  }
+
+  const payload = event.payload as Record<string, unknown>;
+  const transactionId = String(payload.id ?? "");
+  if (!transactionId) return NextResponse.json({ received: true });
+
+  let config;
   try {
-    event = stripe.webhooks.constructEvent(body, signature, webhookSecret);
+    config = getAuthNetConfig();
+  } catch {
+    console.error("Authorize.net not configured for webhook");
+    return NextResponse.json({ error: "Not configured" }, { status: 500 });
+  }
+
+  let tx: Record<string, unknown>;
+  try {
+    const result = await callAuthNet(config, {
+      getTransactionDetailsRequest: {
+        merchantAuthentication: {
+          name: config.loginId,
+          transactionKey: config.transactionKey,
+        },
+        transId: transactionId,
+      },
+    });
+    const messages = result.messages as { resultCode: string } | undefined;
+    if (messages?.resultCode !== "Ok") {
+      console.error("Failed to fetch transaction details:", result);
+      return NextResponse.json({ received: true });
+    }
+    tx = result.transaction as Record<string, unknown>;
   } catch (err) {
-    console.error("Webhook signature verification failed:", err);
-    return NextResponse.json({ error: "Invalid signature" }, { status: 400 });
+    console.error("Failed to fetch transaction details:", err);
+    return NextResponse.json({ received: true });
   }
 
-  if (event.type === "checkout.session.completed") {
-    const session = event.data.object as Stripe.Checkout.Session;
+  const userFieldArray = (
+    (tx.userFields as Record<string, unknown>)?.userField ?? []
+  ) as Array<{ name: string; value: string }>;
+  const userFields: Record<string, string> = {};
+  for (const f of userFieldArray) userFields[f.name] = f.value;
 
-    // For subscriptions, first payment confirmation comes here too
-    if (session.payment_status !== "paid" && session.mode !== "subscription") {
-      return NextResponse.json({ received: true });
-    }
+  const isRecurring = userFields.isRecurring === "true";
+  const contributorType = (userFields.contributorType ?? "individual") as
+    | "individual"
+    | "corporate";
+  const tierName = userFields.tierName ?? "Custom";
 
-    const metadata = (session.metadata ?? {}) as Record<string, string>;
-    const donorName =
-      `${metadata.donorFirstName ?? ""} ${metadata.donorLastName ?? ""}`.trim();
-    const amount = Math.round((session.amount_total ?? 0) / 100);
-    const isRecurring = metadata.isRecurring === "true";
-    const contributorType = (metadata.contributorType ?? "individual") as
-      | "individual"
-      | "corporate";
-    const tierName = metadata.tierName ?? "Custom";
-    const transactionDate = new Date().toISOString();
-    const stripePaymentId = session.id;
+  const billTo = (tx.billTo ?? {}) as Record<string, string>;
+  const customer = (tx.customer ?? {}) as Record<string, string>;
+  const donorName =
+    `${billTo.firstName ?? ""} ${billTo.lastName ?? ""}`.trim();
+  const donorEmail = customer.email ?? "";
+  const amount = Math.round(
+    parseFloat(String(tx.authAmount ?? tx.settleAmount ?? "0"))
+  );
+  const transactionDate = new Date().toISOString();
 
-    // Record in Redis
-    const redis = getRedis();
-    if (redis) {
-      const donation = {
-        amount,
-        contributorType,
-        name: donorName,
-        email: metadata.donorEmail,
-        recurring: isRecurring,
-        status: "confirmed",
-        stripePaymentId,
-        timestamp: transactionDate,
-      };
-      await Promise.all([
-        redis.incr(KV_KEY),
-        redis.lpush(DONATIONS_KEY, JSON.stringify(donation)),
-      ]);
-    }
+  if (isRecurring) {
+    const profile = tx.profile as Record<string, string> | undefined;
+    if (profile?.customerProfileId && profile?.customerPaymentProfileId) {
+      const startDate = new Date();
+      startDate.setMonth(startDate.getMonth() + 1);
+      const startDateStr = startDate.toISOString().split("T")[0];
 
-    // Send emails
-    try {
-      const resend = getResend();
-      const fromAddress =
-        process.env.CAMPAIGN_FROM_DONATE ?? "donate@rcc4judge.com";
-      const notifyEmails = (
-        process.env.CAMPAIGN_DONATION_NOTIFY_EMAILS ?? ""
-      )
-        .split(",")
-        .map((e) => e.trim())
-        .filter(Boolean);
-
-      const receiptHtml = await render(
-        DonorReceipt({
-          donorName,
-          amount,
-          tierName,
-          isRecurring,
-          contributorType,
-          transactionDate,
-          stripePaymentId,
-        })
-      );
-
-      const notificationHtml = await render(
-        DonorNotification({
-          donorName,
-          donorEmail: metadata.donorEmail ?? "",
-          donorPhone: metadata.donorPhone ?? "",
-          amount,
-          tierName,
-          isRecurring,
-          contributorType,
-          address: metadata.donorAddress ?? "",
-          employer: metadata.employer ?? "",
-          occupation: metadata.occupation ?? "",
-          corporateName: metadata.corporateName ?? "",
-          corporateAuthorizer: metadata.corporateAuthorizer ?? "",
-          stripePaymentId,
-          transactionDate,
-        })
-      );
-
-      const emailPromises: Promise<unknown>[] = [];
-
-      // Donor receipt
-      if (metadata.donorEmail) {
-        emailPromises.push(
-          resend.emails.send({
-            from: fromAddress,
-            to: [metadata.donorEmail],
-            replyTo: process.env.CAMPAIGN_REPLY_TO ?? "Support@RCC4Judge.com",
-            subject: `Thank you for your ${isRecurring ? "monthly " : ""}contribution to RCC for Chancery 2026`,
-            html: receiptHtml,
-          })
-        );
-      }
-
-      // Team notification
-      if (notifyEmails.length > 0) {
-        emailPromises.push(
-          resend.emails.send({
-            from: fromAddress,
-            to: notifyEmails,
-            subject: `[${isRecurring ? "RECURRING" : "ONE-TIME"}] New $${amount} donation — ${donorName}`,
-            html: notificationHtml,
-          })
-        );
-      }
-
-      await Promise.all(emailPromises);
-    } catch (emailErr) {
-      // Log but don't fail the webhook — payment is already confirmed
-      console.error("Failed to send donation emails:", emailErr);
-    }
-  }
-
-  // For recurring subscription renewals after the first
-  if (event.type === "invoice.payment_succeeded") {
-    const invoice = event.data.object as Stripe.Invoice;
-
-    // Skip the first invoice — already handled by checkout.session.completed
-    if (invoice.billing_reason === "subscription_create") {
-      return NextResponse.json({ received: true });
-    }
-
-    const amount = Math.round((invoice.amount_paid ?? 0) / 100);
-    let metadata: Record<string, string> = {};
-
-    // In the newer Stripe API, subscription lives under invoice.parent.subscription_details
-    const subscriptionRef =
-      invoice.parent?.subscription_details?.subscription;
-    if (subscriptionRef) {
       try {
-        const subscriptionId =
-          typeof subscriptionRef === "string"
-            ? subscriptionRef
-            : subscriptionRef.id;
-        const subscription =
-          await stripe.subscriptions.retrieve(subscriptionId);
-        metadata = (subscription.metadata ?? {}) as Record<string, string>;
-      } catch {
-        console.error("Failed to retrieve subscription metadata");
-      }
-    }
-
-    if (metadata.donorEmail) {
-      const donorName =
-        `${metadata.donorFirstName ?? ""} ${metadata.donorLastName ?? ""}`.trim();
-      const transactionDate = new Date().toISOString();
-
-      // Record in Redis
-      const redis = getRedis();
-      if (redis) {
-        await Promise.all([
-          redis.incr(KV_KEY),
-          redis.lpush(
-            DONATIONS_KEY,
-            JSON.stringify({
-              amount,
-              contributorType: metadata.contributorType ?? "individual",
-              name: donorName,
-              email: metadata.donorEmail,
-              recurring: true,
-              status: "confirmed",
-              stripePaymentId: invoice.id,
-              timestamp: transactionDate,
-            })
-          ),
-        ]);
-      }
-
-      // Send renewal receipt
-      try {
-        const resend = getResend();
-        const fromAddress =
-          process.env.CAMPAIGN_FROM_DONATE ?? "donate@rcc4judge.com";
-
-        const receiptHtml = await render(
-          DonorReceipt({
-            donorName,
-            amount,
-            tierName: metadata.tierName ?? "Custom",
-            isRecurring: true,
-            contributorType: (metadata.contributorType ?? "individual") as
-              | "individual"
-              | "corporate",
-            transactionDate,
-            stripePaymentId: invoice.id ?? "",
-          })
-        );
-
-        await resend.emails.send({
-          from: fromAddress,
-          to: [metadata.donorEmail],
-          replyTo: process.env.CAMPAIGN_REPLY_TO ?? "Support@RCC4Judge.com",
-          subject:
-            "Your monthly contribution to RCC for Chancery 2026 has been processed",
-          html: receiptHtml,
+        await callAuthNet(config, {
+          ARBCreateSubscriptionRequest: {
+            merchantAuthentication: {
+              name: config.loginId,
+              transactionKey: config.transactionKey,
+            },
+            subscription: {
+              name: "RCC for Chancery 2026 — Monthly",
+              paymentSchedule: {
+                interval: { length: "1", unit: "months" },
+                startDate: startDateStr,
+                totalOccurrences: "9999",
+                trialOccurrences: "0",
+              },
+              amount: amount.toFixed(2),
+              trialAmount: "0.00",
+              profile: {
+                customerProfileId: profile.customerProfileId,
+                customerPaymentProfileId: profile.customerPaymentProfileId,
+              },
+            },
+          },
         });
-      } catch (emailErr) {
-        console.error("Failed to send renewal receipt:", emailErr);
+      } catch (err) {
+        console.error("Failed to create ARB subscription:", err);
       }
     }
   }
 
-  // Always return 200 to prevent Stripe retries
+  const redis = getRedis();
+  if (redis) {
+    await Promise.all([
+      redis.incr(KV_KEY),
+      redis.lpush(
+        DONATIONS_KEY,
+        JSON.stringify({
+          amount,
+          contributorType,
+          name: donorName,
+          email: donorEmail,
+          recurring: isRecurring,
+          status: "confirmed",
+          transactionId,
+          timestamp: transactionDate,
+        })
+      ),
+    ]);
+  }
+
+  try {
+    const resend = getResend();
+    const fromAddress =
+      process.env.CAMPAIGN_FROM_DONATE ?? "donate@rcc4judge.com";
+    const notifyEmails = (
+      process.env.CAMPAIGN_DONATION_NOTIFY_EMAILS ?? ""
+    )
+      .split(",")
+      .map((e) => e.trim())
+      .filter(Boolean);
+
+    const receiptHtml = await render(
+      DonorReceipt({
+        donorName,
+        amount,
+        tierName,
+        isRecurring,
+        contributorType,
+        transactionDate,
+        transactionId,
+      })
+    );
+
+    const notificationHtml = await render(
+      DonorNotification({
+        donorName,
+        donorEmail,
+        donorPhone: userFields.donorPhone ?? "",
+        amount,
+        tierName,
+        isRecurring,
+        contributorType,
+        address: userFields.donorAddress ?? "",
+        employer: userFields.employer ?? "",
+        occupation: userFields.occupation ?? "",
+        corporateName: userFields.corporateName ?? "",
+        corporateAuthorizer: userFields.corporateAuthorizer ?? "",
+        transactionId,
+        transactionDate,
+      })
+    );
+
+    const emailPromises: Promise<unknown>[] = [];
+
+    if (donorEmail) {
+      emailPromises.push(
+        resend.emails.send({
+          from: fromAddress,
+          to: [donorEmail],
+          replyTo: process.env.CAMPAIGN_REPLY_TO ?? "Support@RCC4Judge.com",
+          subject: `Thank you for your ${isRecurring ? "monthly " : ""}contribution to RCC for Chancery 2026`,
+          html: receiptHtml,
+        })
+      );
+    }
+
+    if (notifyEmails.length > 0) {
+      emailPromises.push(
+        resend.emails.send({
+          from: fromAddress,
+          to: notifyEmails,
+          subject: `[${isRecurring ? "RECURRING" : "ONE-TIME"}] New $${amount} donation — ${donorName}`,
+          html: notificationHtml,
+        })
+      );
+    }
+
+    await Promise.all(emailPromises);
+  } catch (emailErr) {
+    console.error("Failed to send donation emails:", emailErr);
+  }
+
   return NextResponse.json({ received: true });
 }
