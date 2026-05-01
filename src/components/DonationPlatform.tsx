@@ -97,11 +97,28 @@ export default function DonationPlatform() {
       form.action = "https://Simplecheckout.authorize.net/payment/CatalogPayment.aspx";
       form.style.display = "none";
 
-      const linkInput = document.createElement("input");
-      linkInput.type = "hidden";
-      linkInput.name = "LinkId";
-      linkInput.value = "c9820c74-b331-4034-8952-8f6f4b1dc65f";
-      form.appendChild(linkInput);
+      const fields: Record<string, string> = {
+        LinkId: "c9820c74-b331-4034-8952-8f6f4b1dc65f",
+        // Pre-fill billing info so donor doesn't re-enter
+        billing_first_name: formData.firstName,
+        billing_last_name: formData.lastName,
+        billing_address: formData.address,
+        billing_city: formData.city,
+        billing_state: formData.state,
+        billing_zip: formData.zip,
+        billing_country: "US",
+        billing_email: formData.email,
+        billing_phone: formData.phone,
+      };
+
+      for (const [name, value] of Object.entries(fields)) {
+        if (!value) continue;
+        const input = document.createElement("input");
+        input.type = "hidden";
+        input.name = name;
+        input.value = value;
+        form.appendChild(input);
+      }
 
       document.body.appendChild(form);
       form.submit();
