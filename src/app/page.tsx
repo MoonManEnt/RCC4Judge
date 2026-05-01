@@ -98,10 +98,6 @@ export default function Home() {
                 </p>
               </div>
 
-              <p className="text-amber font-body font-semibold text-sm sm:text-base tracking-[0.15em] uppercase mb-10">
-                Responsibility &nbsp;|&nbsp; Compassion &nbsp;|&nbsp; Competence
-              </p>
-
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/donate"
