@@ -3,6 +3,9 @@ import { getResend } from "@/lib/resend";
 import { checkRateLimit, sanitizeHeaderValue, isValidEmail, truncate } from "@/lib/rate-limit";
 import { render } from "@react-email/render";
 import DonorNotification from "@/emails/DonorNotification";
+import { saveDonation } from "@/lib/db";
+import type { DonationRecord } from "@/lib/db";
+import { randomUUID } from "crypto";
 
 const VALID_CONTRIBUTOR_TYPES = ["individual", "corporate"] as const;
 type ContributorType = (typeof VALID_CONTRIBUTOR_TYPES)[number];
@@ -115,6 +118,32 @@ export async function POST(request: Request) {
   } catch (err) {
     // Log but don't block — payment must still proceed
     console.error("Donor notification email failed:", err);
+  }
+
+  // Persist donation record for admin dashboard and campaign finance reporting
+  try {
+    const record: DonationRecord = {
+      id: randomUUID(),
+      timestamp: transactionDate,
+      donorName,
+      email: donorEmail,
+      phone: s(formData.phone),
+      address: s(formData.address),
+      city: s(formData.city),
+      state: s(formData.state),
+      zip: s(formData.zip),
+      amount,
+      tierName: resolvedTierName,
+      contributorType: contributorType as "individual" | "corporate",
+      isRecurring: !!isRecurring,
+      employer: s(formData.employer),
+      occupation: s(formData.occupation),
+      corporateName: s(formData.corporateName),
+      corporateAuthorizer: s(formData.corporateAuthorizer),
+    };
+    await saveDonation(record);
+  } catch (err) {
+    console.error("Failed to persist donation record:", err);
   }
 
   return NextResponse.json({ ok: true });
