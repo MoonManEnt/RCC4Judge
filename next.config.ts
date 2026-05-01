@@ -44,7 +44,7 @@ const nextConfig: NextConfig = {
               "media-src 'self'",
               "object-src 'none'",
               "base-uri 'self'",
-              "form-action 'self'",
+              "form-action 'self' https://Simplecheckout.authorize.net",
               "frame-ancestors 'none'",
             ].join("; "),
           },

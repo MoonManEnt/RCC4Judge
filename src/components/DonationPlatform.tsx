@@ -87,42 +87,27 @@ export default function DonationPlatform() {
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
 
-  const handleSubmit = async () => {
+  const handleSubmit = () => {
     setSubmitting(true);
     setSubmitError(null);
 
     try {
-      const tierObj = TIERS.find((t) => t.id === selectedTier);
-      const tierName = isCustom ? "Custom" : (tierObj?.name ?? "Custom");
+      const form = document.createElement("form");
+      form.method = "POST";
+      form.action = "https://Simplecheckout.authorize.net/payment/CatalogPayment.aspx";
+      form.style.display = "none";
 
-      const response = await fetch("/api/checkout", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          amount,
-          isRecurring,
-          contributorType,
-          tierName,
-          formData,
-        }),
-      });
+      const linkInput = document.createElement("input");
+      linkInput.type = "hidden";
+      linkInput.name = "LinkId";
+      linkInput.value = "c9820c74-b331-4034-8952-8f6f4b1dc65f";
+      form.appendChild(linkInput);
 
-      if (!response.ok) {
-        const data = await response.json();
-        throw new Error(data.error ?? "Failed to create checkout session");
-      }
-
-      const { url } = await response.json();
-      if (!url) throw new Error("No checkout URL returned");
-
-      window.location.href = url;
+      document.body.appendChild(form);
+      form.submit();
     } catch (err) {
       console.error("Checkout error:", err);
-      setSubmitError(
-        err instanceof Error
-          ? err.message
-          : "An error occurred. Please try again or contact us at Support@RCC4Judge.com."
-      );
+      setSubmitError("An error occurred. Please try again or contact us at Support@RCC4Judge.com.");
       setSubmitting(false);
     }
   };
