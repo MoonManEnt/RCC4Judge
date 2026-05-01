@@ -87,11 +87,22 @@ export default function DonationPlatform() {
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     setSubmitting(true);
     setSubmitError(null);
 
     try {
+      const tierObj = TIERS.find((t) => t.id === selectedTier);
+      const tierName = isCustom ? "Custom" : (tierObj?.name ?? "Custom");
+
+      // Record donor info for campaign finance compliance — non-blocking
+      fetch("/api/record-donation", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ amount, isRecurring, contributorType, tierName, formData }),
+      }).catch(() => {/* silent — payment proceeds regardless */});
+
+      // Submit to Authorize.net Simple Checkout with billing pre-filled
       const form = document.createElement("form");
       form.method = "POST";
       form.action = "https://Simplecheckout.authorize.net/payment/CatalogPayment.aspx";
@@ -99,7 +110,6 @@ export default function DonationPlatform() {
 
       const fields: Record<string, string> = {
         LinkId: "c9820c74-b331-4034-8952-8f6f4b1dc65f",
-        // Pre-fill billing info so donor doesn't re-enter
         billing_first_name: formData.firstName,
         billing_last_name: formData.lastName,
         billing_address: formData.address,
