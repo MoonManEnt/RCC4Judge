@@ -47,18 +47,28 @@ export default function Header() {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
-          {/* Logo */}
+          {/* Logo — cross-fades between light (transparent header) and dark (scrolled white header) */}
           <Link href="/" className="flex items-center">
-            <Image
-              src="/images/nav-logo-light.png"
-              alt="Vote Cooper For Chancery Judge"
-              width={286}
-              height={120}
-              className={`h-12 sm:h-14 w-auto transition-all duration-300 ${
-                scrolled ? "brightness-[0.3] saturate-150" : ""
-              }`}
-              priority
-            />
+            <div className="relative h-12 sm:h-14" style={{ aspectRatio: "286/120" }}>
+              <Image
+                src="/images/nav-logo-light.png"
+                alt="Vote Cooper For Chancery Judge"
+                fill
+                className={`object-contain transition-opacity duration-300 ${
+                  scrolled ? "opacity-0" : "opacity-100"
+                }`}
+                priority
+              />
+              <Image
+                src="/images/nav-logo-dark.png"
+                alt=""
+                fill
+                className={`object-contain transition-opacity duration-300 ${
+                  scrolled ? "opacity-100" : "opacity-0"
+                }`}
+                priority
+              />
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
