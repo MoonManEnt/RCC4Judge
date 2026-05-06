@@ -3,7 +3,7 @@ import { Playfair_Display, DM_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import MobileDonateBar from "@/components/MobileDonateBar";
+
 import PageTransition from "@/components/PageTransition";
 
 const playfair = Playfair_Display({
@@ -79,7 +79,6 @@ export default function RootLayout({
           <PageTransition>{children}</PageTransition>
         </main>
         <Footer />
-        <MobileDonateBar />
       </body>
     </html>
   );
