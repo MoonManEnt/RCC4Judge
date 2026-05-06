@@ -4,7 +4,6 @@ import ScrollReveal from "@/components/ScrollReveal";
 import CountUpNumber from "@/components/CountUpNumber";
 import ElectionCountdown from "@/components/ElectionCountdown";
 import EmailSignup from "@/components/EmailSignup";
-import FundraisingThermometer from "@/components/FundraisingThermometer";
 import FAQAccordion from "@/components/FAQAccordion";
 import SocialShare from "@/components/SocialShare";
 
@@ -72,8 +71,8 @@ export default function Home() {
         <div className="relative z-10 mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 py-32">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-            {/* LEFT — Logo + Election Day */}
-            <div className="animate-fade-in-up flex flex-col items-center lg:items-start text-center lg:text-left">
+            {/* LEFT — Logo + Election Day (shown below headshot on mobile) */}
+            <div className="animate-fade-in-up flex flex-col items-center lg:items-start text-center lg:text-left order-2 lg:order-1">
               <div className="mb-8">
                 <Image
                   src="/images/hero-logo.png"
@@ -114,8 +113,8 @@ export default function Home() {
               </div>
             </div>
 
-            {/* RIGHT — Rhonda's Headshot */}
-            <div className="animate-fade-in-up stagger-2 flex justify-center lg:justify-end">
+            {/* RIGHT — Rhonda's Headshot (shown first/above on mobile) */}
+            <div className="animate-fade-in-up stagger-2 flex justify-center lg:justify-end order-1 lg:order-2">
               <div className="relative w-72 sm:w-80 lg:w-96 xl:w-[420px]">
                 <div className="aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl border border-white/10 relative">
                   <Image
@@ -178,11 +177,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why This Race Matters + Fundraising */}
+      {/* Why This Race Matters */}
       <section className="py-20 sm:py-28 bg-cream">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <ScrollReveal>
+          <ScrollReveal>
+            <div className="max-w-3xl">
               <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-forest mb-6 leading-tight">
                 Your Chancery Court.<br />
                 <span className="text-amber">Your Family&apos;s Future.</span>
@@ -203,48 +202,43 @@ export default function Home() {
                 These communities now deserve a Chancery Judge who is responsible, competent, and compassionate
                 in serving every family and its members efficiently, fairly, and respectfully.
               </p>
+            </div>
 
-              <div className="grid grid-cols-2 gap-6 mb-6">
-                <div className="p-6 bg-white rounded-2xl shadow-sm text-center hover-lift">
-                  <div className="font-heading text-4xl font-bold text-forest mb-1">
-                    <CountUpNumber target={40} suffix="" />
-                  </div>
-                  <p className="text-mauve font-body text-sm">Years of Legal Experience</p>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-6">
+              <div className="p-6 bg-white rounded-2xl shadow-sm text-center hover-lift">
+                <div className="font-heading text-4xl font-bold text-forest mb-1">
+                  <CountUpNumber target={40} suffix="" />
                 </div>
-                <div className="p-6 bg-white rounded-2xl shadow-sm text-center hover-lift">
-                  <div className="font-heading text-4xl font-bold text-forest mb-1">
-                    <CountUpNumber target={2} />
-                  </div>
-                  <p className="text-mauve font-body text-sm">Counties Served</p>
-                </div>
-                <div className="p-6 bg-white rounded-2xl shadow-sm text-center hover-lift">
-                  <div className="font-heading text-4xl font-bold text-amber mb-1">
-                    <CountUpNumber target={100} suffix="K+" />
-                  </div>
-                  <p className="text-mauve font-body text-sm">Residents in Subdistrict</p>
-                </div>
-                <div className="p-6 bg-forest rounded-2xl shadow-sm text-center">
-                  <p className="text-amber font-heading text-2xl font-bold mb-1">Nov 3</p>
-                  <p className="text-cream/80 font-body text-sm">Election Day 2026</p>
-                </div>
+                <p className="text-mauve font-body text-sm">Years of Legal Experience</p>
               </div>
+              <div className="p-6 bg-white rounded-2xl shadow-sm text-center hover-lift">
+                <div className="font-heading text-4xl font-bold text-forest mb-1">
+                  <CountUpNumber target={2} />
+                </div>
+                <p className="text-mauve font-body text-sm">Counties Served</p>
+              </div>
+              <div className="p-6 bg-white rounded-2xl shadow-sm text-center hover-lift">
+                <div className="font-heading text-4xl font-bold text-amber mb-1">
+                  <CountUpNumber target={100} suffix="K+" />
+                </div>
+                <p className="text-mauve font-body text-sm">Residents in Subdistrict</p>
+              </div>
+              <div className="p-6 bg-forest rounded-2xl shadow-sm text-center">
+                <p className="text-amber font-heading text-2xl font-bold mb-1">Nov 3</p>
+                <p className="text-cream/80 font-body text-sm">Election Day 2026</p>
+              </div>
+            </div>
 
-              <Link
-                href="/why-rhonda"
-                className="inline-flex items-center gap-2 text-forest font-body font-semibold hover:text-amber transition-colors"
-              >
-                Learn more about why this race matters
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </Link>
-            </ScrollReveal>
-
-            {/* Fundraising Thermometer */}
-            <ScrollReveal delay={200}>
-              <FundraisingThermometer />
-            </ScrollReveal>
-          </div>
+            <Link
+              href="/why-rhonda"
+              className="inline-flex items-center gap-2 text-forest font-body font-semibold hover:text-amber transition-colors"
+            >
+              Learn more about why this race matters
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </ScrollReveal>
         </div>
       </section>
 
