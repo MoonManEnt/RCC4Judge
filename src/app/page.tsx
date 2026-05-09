@@ -40,24 +40,6 @@ const PILLARS = [
   },
 ];
 
-const ENDORSEMENTS_PREVIEW = [
-  {
-    quote: "Rhonda Cooper has the experience, the temperament, and the heart to serve our community with distinction on the Chancery bench.",
-    name: "Community Leader",
-    title: "Madison County",
-  },
-  {
-    quote: "Our families deserve a judge who understands the real impact of every decision. Rhonda is that judge.",
-    name: "Faith Leader",
-    title: "Leake County",
-  },
-  {
-    quote: "I've watched Rhonda practice law for decades. Her integrity is beyond question. She will be an outstanding Chancellor.",
-    name: "Attorney",
-    title: "11th Chancery District",
-  },
-];
-
 export default function Home() {
   return (
     <>
@@ -234,53 +216,6 @@ export default function Home() {
               className="inline-flex items-center gap-2 text-forest font-body font-semibold hover:text-amber transition-colors"
             >
               Learn more about why this race matters
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </Link>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* Endorsements Preview */}
-      <section className="py-20 sm:py-28 bg-cream">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <ScrollReveal className="text-center mb-16">
-            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-forest mb-4">
-              Voices of Support
-            </h2>
-            <p className="text-charcoal-light font-body text-lg max-w-2xl mx-auto">
-              Leaders across our community stand with Rhonda Cooper for Chancery Judge.
-            </p>
-          </ScrollReveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {ENDORSEMENTS_PREVIEW.map((endorsement, i) => (
-              <ScrollReveal key={i} delay={i * 150}>
-                <div className="p-8 bg-white rounded-2xl shadow-sm h-full flex flex-col hover-lift">
-                  <div className="text-amber mb-4">
-                    <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                    </svg>
-                  </div>
-                  <p className="text-charcoal font-body text-base leading-relaxed italic flex-grow mb-6">
-                    &ldquo;{endorsement.quote}&rdquo;
-                  </p>
-                  <div className="border-t border-cream-dark pt-4">
-                    <p className="font-body font-semibold text-forest text-sm">{endorsement.name}</p>
-                    <p className="font-body text-mauve text-xs">{endorsement.title}</p>
-                  </div>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-
-          <ScrollReveal className="text-center mt-12">
-            <Link
-              href="/endorsements"
-              className="inline-flex items-center gap-2 text-forest font-body font-semibold hover:text-amber transition-colors"
-            >
-              See all endorsements
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
