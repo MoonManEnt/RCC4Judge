@@ -153,7 +153,7 @@ export default function Header() {
             </Link>
             <div className="mt-6 pt-6 border-t border-cream-dark">
               <p className="text-xs text-mauve/60 font-body text-center leading-relaxed">
-                Paid for by RCC for Chancery 2026
+                Paid for by the Committee to Elect Rhonda C. Cooper Chancery Court Judge
               </p>
             </div>
           </nav>

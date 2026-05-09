@@ -112,7 +112,7 @@ export default function DonorNotification({
                 margin: "0 0 4px",
               }}
             >
-              RCC for Chancery 2026 — Internal
+              Cooper for Chancery Judge — Internal
             </Text>
             <Text
               style={{

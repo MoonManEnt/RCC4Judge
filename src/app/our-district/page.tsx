@@ -4,7 +4,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Our District | RCC for Chancery 2026",
+  title: "Our District",
   description:
     "Learn about Subdistrict 11-2 of the 11th Chancery Court District — Leake County and Madison County precincts. The communities, the people, and why this election matters.",
 };

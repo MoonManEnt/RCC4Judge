@@ -3,7 +3,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Why Rhonda Cooper | RCC for Chancery 2026",
+  title: "Why Rhonda Cooper",
   description:
     "Why this election matters. Learn what Chancery Court does, why accountability matters, and how Rhonda Cooper will serve every family in our district.",
 };

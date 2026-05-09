@@ -3,22 +3,14 @@ import Image from "next/image";
 import EmailSignup from "@/components/EmailSignup";
 
 const FOOTER_LINKS = [
-  { href: "/message", label: "Her Message" },
   { href: "/about", label: "About Rhonda" },
-  { href: "/why-rhonda", label: "Why Rhonda" },
   { href: "/know-your-court", label: "Know Your Court" },
-  { href: "/the-record", label: "The Record" },
   { href: "/our-district", label: "Our District" },
   { href: "/endorsements", label: "Endorsements" },
-  { href: "/events", label: "Events" },
-  { href: "/news", label: "News" },
   { href: "/voter-resources", label: "Voter Resources" },
   { href: "/volunteer", label: "Volunteer" },
-  { href: "/gallery", label: "Gallery" },
   { href: "/contact", label: "Contact" },
   { href: "/donate", label: "Donate" },
-  { href: "/qr", label: "QR Codes" },
-  { href: "/privacy", label: "Privacy Policy" },
 ];
 
 export default function Footer() {
@@ -123,7 +115,7 @@ export default function Footer() {
               <EmailSignup />
             </div>
             <p className="text-cream/50 text-xs font-body mt-3">
-              P.O. Box 74, Tougaloo, MS 39174
+              118 Bainbridge Crossing, Canton, MS 39046
             </p>
           </div>
         </div>
@@ -132,11 +124,11 @@ export default function Footer() {
         <div className="border-t border-white/10 py-6">
           <div className="text-center space-y-2">
             <p className="text-cream/40 text-[10px] font-body leading-relaxed">
-              Paid for by RCC for Chancery 2026, P.O. Box 74, Tougaloo, MS 39174. Sotderia Griffin, Treasurer.
+              Paid for by the Committee to Elect Rhonda C. Cooper Chancery Court Judge — Sotderia Griffin, Treasurer — 118 Bainbridge Crossing, Canton, MS 39046.
             </p>
             <p className="text-cream/40 text-xs font-body leading-relaxed">
-              This communication was prepared and distributed by the Committee to Elect Rhonda C. Cooper.
-              Approved by Rhonda C. Cooper, Candidate for Chancery Judge, 11th District, Subdistrict 2.
+              This communication was prepared and distributed by the Committee to Elect Rhonda C. Cooper Chancery Court Judge.
+              Approved by Rhonda C. Cooper, Candidate for Chancery Judge, 11th Chancery District, Subdistrict 2.
             </p>
             <p className="text-cream/40 text-xs font-body leading-relaxed">
               Contributions are not tax deductible. Mississippi law limits individual contributions to $2,500 per election cycle

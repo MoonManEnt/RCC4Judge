@@ -30,7 +30,7 @@ const FAQ_ITEMS: FAQItem[] = [
   },
   {
     question: "How can I contribute to the campaign?",
-    answer: "You can contribute online through our donation page. Mississippi law limits individual contributions to $2,500 per election cycle and corporate contributions to $1,000 per calendar year. All contributions go to RCC for Chancery 2026, not to the candidate personally. Please note that campaign contributions are not tax deductible.",
+    answer: "You can contribute online through our donation page. Mississippi law limits individual contributions to $2,500 per election cycle and corporate contributions to $1,000 per calendar year. All contributions go to the Committee to Elect Rhonda C. Cooper Chancery Court Judge, not to the candidate personally. Please note that campaign contributions are not tax deductible.",
   },
   {
     question: "Can I volunteer?",

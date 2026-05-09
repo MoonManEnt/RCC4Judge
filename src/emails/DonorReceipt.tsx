@@ -43,7 +43,7 @@ export default function DonorReceipt({
     <Html lang="en">
       <Head />
       <Preview>
-        Thank you for your {formattedAmount} contribution to RCC for Chancery 2026
+        Your {formattedAmount} contribution has been received — thank you.
       </Preview>
       <Body
         style={{
@@ -66,7 +66,7 @@ export default function DonorReceipt({
                 fontFamily: "Arial, Helvetica, sans-serif",
               }}
             >
-              RCC for Chancery 2026
+              Cooper for Chancery Judge
             </Text>
             <Text
               style={{
@@ -358,10 +358,11 @@ export default function DonorReceipt({
               tax deductible. Mississippi law limits individual contributions to
               $2,500 per election cycle (MS §23-15-1021) and corporate contributions
               to $1,000 per calendar year (MS §97-13-15). Per Mississippi Code of
-              Judicial Conduct Canon 5, contributions are solicited by RCC for
-              Chancery 2026 and not by Candidate Rhonda C. Cooper personally. Paid
-              for by RCC for Chancery 2026, P.O. Box 74, Tougaloo, MS 39174.
-              Sotderia Griffin, Treasurer.
+              Judicial Conduct Canon 5, contributions are solicited by the
+              Committee to Elect Rhonda C. Cooper Chancery Court Judge and not by
+              Candidate Rhonda C. Cooper personally. Paid for by the Committee to
+              Elect Rhonda C. Cooper Chancery Court Judge, 118 Bainbridge Crossing,
+              Canton, MS 39046. Sotderia Griffin, Treasurer.
             </Text>
           </Section>
         </Container>
@@ -384,12 +385,12 @@ export default function DonorReceipt({
                 lineHeight: "1.8",
               }}
             >
-              Rhonda C. Cooper for Chancery Judge — 11th District, Subdistrict 2
+              Rhonda C. Cooper for Chancery Judge — 11th Chancery District, Subdistrict 2
               <br />
-              rcc4judge.com | P.O. Box 74, Tougaloo, MS 39174
+              rcc4judge.com | 118 Bainbridge Crossing, Canton, MS 39046
               <br />
-              You are receiving this because you made a contribution to RCC for
-              Chancery 2026.
+              You are receiving this because you made a contribution to the
+              Committee to Elect Rhonda C. Cooper Chancery Court Judge.
             </Text>
           </Container>
         </Section>

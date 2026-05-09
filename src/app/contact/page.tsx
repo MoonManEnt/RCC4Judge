@@ -76,9 +76,10 @@ export default function ContactPage() {
                     <div>
                       <p className="font-body font-semibold text-forest text-sm">Mailing Address</p>
                       <p className="font-body text-charcoal-light text-sm">
-                        RCC for Chancery 2026<br />
-                        P.O. Box 74<br />
-                        Tougaloo, MS 39174
+                        Committee to Elect Rhonda C. Cooper<br />
+                        Chancery Court Judge<br />
+                        118 Bainbridge Crossing<br />
+                        Canton, MS 39046
                       </p>
                     </div>
                   </div>
@@ -124,8 +125,8 @@ export default function ContactPage() {
                 <div className="mt-10 p-6 bg-white rounded-2xl shadow-sm">
                   <h3 className="font-heading text-lg font-bold text-forest mb-3">Campaign Committee</h3>
                   <div className="space-y-2 font-body text-sm text-charcoal-light">
-                    <p><span className="text-forest font-semibold">Committee:</span> RCC for Chancery 2026</p>
-                    <p><span className="text-forest font-semibold">Treasurer:</span> On file with MS Secretary of State</p>
+                    <p><span className="text-forest font-semibold">Committee:</span> Committee to Elect Rhonda C. Cooper Chancery Court Judge</p>
+                    <p><span className="text-forest font-semibold">Treasurer:</span> Sotderia Griffin</p>
                     <p><span className="text-forest font-semibold">EIN:</span> 41-4342222</p>
                   </div>
                 </div>

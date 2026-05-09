@@ -4,7 +4,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Rhonda C. Cooper | RCC for Chancery 2026",
+  title: "About Rhonda C. Cooper",
   description:
     "Meet Attorney Rhonda C. Cooper — nearly 40 years of legal experience in estate planning, domestic relations, and real property. Millsaps College. University of Alabama School of Law. 2022 Leader in Law. Candidate for Chancery Judge, 11th District, Subdistrict 2.",
 };

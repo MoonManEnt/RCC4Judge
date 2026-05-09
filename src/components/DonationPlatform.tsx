@@ -159,7 +159,7 @@ export default function DonationPlatform() {
             <p className="text-cream/70 text-xs font-body leading-relaxed">
               Per Mississippi Code of Judicial Conduct Canon 5, judicial candidates may not personally solicit
               campaign contributions. All contributions are solicited by and made payable to the
-              campaign committee: <strong className="text-cream">RCC for Chancery 2026</strong>.
+              campaign committee: <strong className="text-cream">Committee to Elect Rhonda C. Cooper Chancery Court Judge</strong>.
             </p>
           </div>
         </div>
@@ -565,8 +565,8 @@ export default function DonationPlatform() {
               {/* Canon 5 */}
               <div className="mt-6 pt-6 border-t border-white/10">
                 <p className="text-cream/50 text-[10px] font-body leading-relaxed">
-                  Contributions are solicited by RCC for Chancery 2026 and not by the candidate personally,
-                  in compliance with Mississippi Code of Judicial Conduct Canon 5.
+                  Contributions are solicited by the Committee to Elect Rhonda C. Cooper Chancery Court Judge
+                  and not by the candidate personally, in compliance with Mississippi Code of Judicial Conduct Canon 5.
                 </p>
               </div>
             </div>
@@ -586,8 +586,8 @@ export default function DonationPlatform() {
             {/* Paid For By */}
             <div className="text-center">
               <p className="text-xs font-body text-mauve/50 leading-relaxed">
-                Paid for by RCC for Chancery 2026<br />
-                P.O. Box 74, Tougaloo, MS 39174
+                Paid for by the Committee to Elect Rhonda C. Cooper Chancery Court Judge<br />
+                118 Bainbridge Crossing, Canton, MS 39046
               </p>
             </div>
           </div>

@@ -78,7 +78,7 @@ export async function POST(request: Request) {
         <div style="font-family: Arial, sans-serif; max-width: 560px; margin: 0 auto;">
           <div style="background-color: #285238; padding: 24px 32px; border-radius: 0 0 8px 8px;">
             <p style="color: #BBCE8A; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; margin: 0 0 4px;">
-              RCC for Chancery 2026 — Website Contact
+              Cooper for Chancery Judge — Website Contact
             </p>
             <p style="color: #FFFFFF; font-size: 20px; font-weight: bold; margin: 0;">
               New Message Received

@@ -5,7 +5,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Voter Resources | RCC for Chancery 2026",
+  title: "Voter Resources",
   description:
     "Everything you need to vote in the 2026 Chancery Judge election. Registration info, absentee voting steps, polling locations, and key dates for Leake and Madison counties (Subdistrict 11-2).",
 };

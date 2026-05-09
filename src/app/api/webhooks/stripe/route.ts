@@ -119,7 +119,7 @@ export async function POST(request: Request) {
               transactionKey: config.transactionKey,
             },
             subscription: {
-              name: "RCC for Chancery 2026 — Monthly",
+              name: "Cooper for Chancery Judge — Monthly",
               paymentSchedule: {
                 interval: { length: "1", unit: "months" },
                 startDate: startDateStr,
@@ -211,7 +211,7 @@ export async function POST(request: Request) {
           from: fromAddress,
           to: [donorEmail],
           replyTo: process.env.CAMPAIGN_REPLY_TO ?? "Support@RCC4Judge.com",
-          subject: `Thank you for your ${isRecurring ? "monthly " : ""}contribution to RCC for Chancery 2026`,
+          subject: `Thank you for your ${isRecurring ? "monthly " : ""}contribution to the Committee to Elect Rhonda C. Cooper`,
           html: receiptHtml,
         })
       );

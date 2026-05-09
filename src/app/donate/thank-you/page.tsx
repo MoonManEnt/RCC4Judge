@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Thank You | RCC for Chancery 2026",
+  title: "Thank You",
   description:
-    "Your contribution to RCC for Chancery 2026 has been received.",
+    "Your contribution to the Committee to Elect Rhonda C. Cooper Chancery Court Judge has been received.",
 };
 
 export default function ThankYouPage() {
@@ -36,7 +36,7 @@ export default function ThankYouPage() {
         {/* Message */}
         <p className="font-body text-lg text-charcoal-light leading-relaxed mb-4 max-w-lg mx-auto">
           Your contribution to{" "}
-          <strong className="text-forest">RCC for Chancery 2026</strong> has
+          <strong className="text-forest">the Committee to Elect Rhonda C. Cooper Chancery Court Judge</strong> has
           been received. A receipt has been sent to your email address.
         </p>
         <p className="font-body text-base text-charcoal-light leading-relaxed mb-10 max-w-lg mx-auto">
@@ -63,10 +63,10 @@ export default function ThankYouPage() {
 
         {/* Legal */}
         <p className="mt-12 text-xs font-body text-mauve/50 max-w-md mx-auto leading-relaxed">
-          Paid for by RCC for Chancery 2026, P.O. Box 74, Tougaloo, MS 39174.
-          Sotderia Griffin, Treasurer. Contributions are not tax deductible. Per
-          Canon 5, contributions are solicited by the campaign committee, not by
-          Candidate Cooper personally.
+          Paid for by the Committee to Elect Rhonda C. Cooper Chancery Court Judge,
+          118 Bainbridge Crossing, Canton, MS 39046. Sotderia Griffin, Treasurer.
+          Contributions are not tax deductible. Per Canon 5, contributions are
+          solicited by the campaign committee, not by Candidate Cooper personally.
         </p>
       </div>
     </div>

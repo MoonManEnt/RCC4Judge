@@ -4,7 +4,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Know Your Court | RCC for Chancery 2026",
+  title: "Know Your Court",
   description:
     "Learn what Chancery Court does, how it affects your family, and why your vote for Chancery Judge matters. An educational resource for voters in the 11th Chancery District.",
 };

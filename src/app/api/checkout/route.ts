@@ -187,7 +187,7 @@ export async function POST(request: Request) {
               settingName: "hostedPaymentOrderOptions",
               settingValue: JSON.stringify({
                 show: true,
-                merchantName: "RCC for Chancery 2026",
+                merchantName: "Cooper for Chancery Judge",
               }),
             },
           ],
