@@ -76,10 +76,9 @@ export default function ContactPage() {
                     <div>
                       <p className="font-body font-semibold text-forest text-sm">Mailing Address</p>
                       <p className="font-body text-charcoal-light text-sm">
-                        Committee to Elect Rhonda C. Cooper<br />
-                        Chancery Court Judge<br />
-                        118 Bainbridge Crossing<br />
-                        Canton, MS 39046
+                        RCC for Chancery 2026<br />
+                        P.O. Box 74<br />
+                        Tougaloo, MS 39174
                       </p>
                     </div>
                   </div>
