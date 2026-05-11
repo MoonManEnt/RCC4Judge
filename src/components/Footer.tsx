@@ -5,8 +5,6 @@ import EmailSignup from "@/components/EmailSignup";
 const FOOTER_LINKS = [
   { href: "/about", label: "About Rhonda" },
   { href: "/know-your-court", label: "Know Your Court" },
-  { href: "/our-district", label: "Our District" },
-  { href: "/endorsements", label: "Endorsements" },
   { href: "/voter-resources", label: "Voter Resources" },
   { href: "/volunteer", label: "Volunteer" },
   { href: "/contact", label: "Contact" },
@@ -114,9 +112,6 @@ export default function Footer() {
               <p className="text-cream/70 text-xs font-body font-medium mb-1.5">Campaign Updates:</p>
               <EmailSignup />
             </div>
-            <p className="text-cream/50 text-xs font-body mt-3">
-              118 Bainbridge Crossing, Canton, MS 39046
-            </p>
           </div>
         </div>
 

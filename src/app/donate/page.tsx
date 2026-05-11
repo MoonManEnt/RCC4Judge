@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import FundraisingThermometer from "@/components/FundraisingThermometer";
 import FAQAccordion from "@/components/FAQAccordion";
 
 export const metadata: Metadata = {
@@ -165,21 +164,6 @@ export default function DonatePage() {
           platform trusted by thousands of campaigns. Your information is never
           shared with third parties.
         </p>
-      </section>
-
-      {/* Thermometer */}
-      <section className="bg-cream-dark/20 py-16">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-forest mb-2">
-              Campaign Fundraising Progress
-            </h2>
-            <p className="font-body text-charcoal-light">
-              Real-time progress toward our campaign goal.
-            </p>
-          </div>
-          <FundraisingThermometer />
-        </div>
       </section>
 
       {/* FAQ */}

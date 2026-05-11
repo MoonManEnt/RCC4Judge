@@ -344,7 +344,7 @@ export default function OurDistrictPage() {
                 <span className="text-amber">This District</span>
               </h2>
               <p className="font-body text-charcoal-light text-lg leading-relaxed mb-4">
-                For nearly four decades, Rhonda C. Cooper has practiced law across Leake and Madison counties.
+                For 38 years, Rhonda C. Cooper has practiced law across Leake and Madison counties.
                 She knows the communities, the families, and the challenges they face.
               </p>
               <p className="font-body text-charcoal-light text-lg leading-relaxed mb-4">

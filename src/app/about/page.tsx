@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About Rhonda C. Cooper",
   description:
-    "Meet Attorney Rhonda C. Cooper — nearly 40 years of legal experience in estate planning, domestic relations, and real property. Millsaps College. University of Alabama School of Law. 2022 Leader in Law. Candidate for Chancery Judge, 11th District, Subdistrict 2.",
+    "Meet Attorney Rhonda C. Cooper — 38 years of legal experience in estate planning, domestic relations, and real property. Millsaps College. University of Alabama School of Law. 2022 Leader in Law. Candidate for Chancery Judge, 11th District, Subdistrict 2.",
 };
 
 export default function AboutPage() {
@@ -29,7 +29,7 @@ export default function AboutPage() {
                 Rhonda C. Cooper, <span className="text-amber">Esq.</span>
               </h1>
               <p className="text-cream/80 font-body text-lg sm:text-xl mt-4 leading-relaxed animate-fade-in-up stagger-2">
-                Nearly four decades of legal practice. A career built not on ambition for the bench,
+                38 years of legal practice. A career built not on ambition for the bench,
                 but on service to the families who depend on it.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
@@ -81,7 +81,7 @@ export default function AboutPage() {
                 <div className="prose prose-lg max-w-none font-body text-charcoal-light space-y-5 leading-relaxed">
                   <p>
                     Some people run for judge because they want the title. Rhonda C. Cooper is running
-                    because she has spent nearly forty years doing the work — and she knows this court
+                    because she has spent 38 years doing the work — and she knows this court
                     deserves someone who has.
                   </p>
                   <p>

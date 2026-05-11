@@ -21,7 +21,7 @@ const PILLARS = [
   {
     title: "Competent",
     description:
-      "Possesses the knowledge and expertise of nearly 40 years of service to successfully resolve the family, land, estate, and other matters within the jurisdiction of the Chancery Court.",
+      "Possesses the knowledge and expertise of 38 years of service to successfully resolve the family, land, estate, and other matters within the jurisdiction of the Chancery Court.",
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
@@ -173,23 +173,16 @@ export default function Home() {
                 faced all too often — divorces, division of marital assets, child custody and support,
                 guardianships and conservatorships, wills and estates, and property rights and land disputes.
               </p>
-              <p className="text-charcoal-light font-body text-lg leading-relaxed mb-4">
+              <p className="text-charcoal-light font-body text-lg leading-relaxed mb-8">
                 When inside the courtroom for any of these matters, the judge&apos;s decision will affect
                 the future of the family.
-              </p>
-              <p className="text-charcoal-light font-body text-lg leading-relaxed mb-4">
-                The same judge has decided outcomes for families in Madison and Leake Counties for 20 years.
-              </p>
-              <p className="text-charcoal-light font-body text-lg leading-relaxed mb-8">
-                These communities now deserve a Chancery Judge who is responsible, competent, and compassionate
-                in serving every family and its members efficiently, fairly, and respectfully.
               </p>
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-6">
               <div className="p-6 bg-white rounded-2xl shadow-sm text-center hover-lift">
                 <div className="font-heading text-4xl font-bold text-forest mb-1">
-                  <CountUpNumber target={40} suffix="" />
+                  <CountUpNumber target={38} suffix="" />
                 </div>
                 <p className="text-mauve font-body text-sm">Years of Legal Experience</p>
               </div>

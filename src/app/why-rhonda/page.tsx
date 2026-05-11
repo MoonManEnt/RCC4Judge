@@ -133,7 +133,7 @@ export default function WhyRhondaPage() {
                   </h3>
                   <p className="font-body text-charcoal-light leading-relaxed">
                     New energy and a fresh perspective on the bench doesn&apos;t mean
-                    inexperience — it means nearly 40 years of legal practice from the side of
+                    inexperience — it means 38 years of legal practice from the side of
                     the people who actually appear in Chancery Court. That perspective matters.
                   </p>
                 </div>
