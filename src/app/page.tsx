@@ -203,16 +203,6 @@ export default function Home() {
                 <p className="text-cream/80 font-body text-sm">Election Day 2026</p>
               </div>
             </div>
-
-            <Link
-              href="/why-rhonda"
-              className="inline-flex items-center gap-2 text-forest font-body font-semibold hover:text-amber transition-colors"
-            >
-              Learn more about why this race matters
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </Link>
           </ScrollReveal>
         </div>
       </section>

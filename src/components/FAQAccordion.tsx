@@ -41,10 +41,6 @@ const FAQ_ITEMS: FAQItem[] = [
     answer: "No. Contributions to political campaigns are not tax deductible on federal or state income taxes. This is true for all political donations in the United States, regardless of the office, party, or candidate. The IRS explicitly excludes political contributions from the charitable deduction.",
   },
   {
-    question: "Who is the current judge in this seat?",
-    answer: "The current occupant of the seat now designated as Subdistrict 2 on the 11th Chancery Court has held the position for over 20 years. Rhonda Cooper believes that after more than two decades, the families of this district deserve a choice — and accountability on the bench.",
-  },
-  {
     question: "How can I stay updated on the campaign?",
     answer: "Sign up for email updates on our website, follow the campaign on social media, or visit our events page for upcoming community forums and meet-and-greets across Leake and Madison counties.",
   },

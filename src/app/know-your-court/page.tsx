@@ -47,14 +47,6 @@ const WHY_IT_MATTERS = [
     stat: "1 in 3",
     label: "Mississippi families will interact with Chancery Court at some point in their lives",
   },
-  {
-    stat: "20+",
-    label: "Years the current Subdistrict 2 seat has been held by the same judge",
-  },
-  {
-    stat: "4",
-    label: "Counties in Subdistrict 11-2: Leake County and Madison County precincts",
-  },
 ];
 
 export default function KnowYourCourtPage() {
@@ -145,11 +137,11 @@ export default function KnowYourCourtPage() {
             </h2>
             <p className="text-charcoal-light font-body text-lg max-w-2xl mx-auto">
               A Chancery Judge holds immense power over families&apos; lives. That power should be earned
-              through qualifications, character, and accountability — not assumed through lack of opposition.
+              through qualifications, character, and accountability.
             </p>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 max-w-sm mx-auto gap-8 mb-12">
             {WHY_IT_MATTERS.map((item, i) => (
               <ScrollReveal key={i} delay={i * 150}>
                 <div className="text-center p-8 bg-white rounded-2xl shadow-sm hover-lift">

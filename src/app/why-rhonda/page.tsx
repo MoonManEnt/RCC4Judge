@@ -33,10 +33,6 @@ export default function WhyRhondaPage() {
             It&apos;s Time for<br />
             <span className="text-amber">Accountability</span>
           </h1>
-          <p className="text-cream/80 font-body text-lg sm:text-xl max-w-2xl mt-4 leading-relaxed animate-fade-in-up stagger-2">
-            After more than 20 years without a real challenge, the families of the 11th Chancery District
-            deserve a judge who earns their trust — not one who takes it for granted.
-          </p>
         </div>
       </section>
 
@@ -87,11 +83,6 @@ export default function WhyRhondaPage() {
               </h2>
               <div className="space-y-5 font-body text-charcoal-light text-lg leading-relaxed">
                 <p>
-                  For over 20 years, the same judge has held this seat on the 11th Chancery Court.
-                  In that time, she has run unopposed, faced little public scrutiny, and operated
-                  without the accountability that every public servant should welcome.
-                </p>
-                <p>
                   Accountability is not adversarial — it is the foundation of public trust.
                   Every job requires it. Elected officials especially must earn the confidence
                   of the people they serve, not assume it.
@@ -107,16 +98,6 @@ export default function WhyRhondaPage() {
 
             <ScrollReveal delay={200}>
               <div className="space-y-6">
-                <div className="p-6 bg-white rounded-2xl border-l-4 border-amber">
-                  <h3 className="font-heading text-xl font-bold text-forest mb-2">
-                    Accountability
-                  </h3>
-                  <p className="font-body text-charcoal-light leading-relaxed">
-                    Every job needs accountability. After more than two decades without a serious
-                    challenger, the families of this district deserve a judge who earns their
-                    confidence at the ballot box — not one who coasts on the absence of competition.
-                  </p>
-                </div>
                 <div className="p-6 bg-white rounded-2xl border-l-4 border-forest">
                   <h3 className="font-heading text-xl font-bold text-forest mb-2">
                     Nonpartisan Justice
@@ -163,7 +144,7 @@ export default function WhyRhondaPage() {
                 </div>
                 <h3 className="font-heading text-2xl font-bold text-forest mb-3">Responsibility</h3>
                 <p className="font-body text-charcoal-light leading-relaxed">
-                  A Chancery Judge holds families&apos; futures in their hands. Rhonda will treat
+                  A Chancery Judge holds families&apos; futures in their hands. Cooper will treat
                   every case with the gravity it deserves — showing up prepared, making timely
                   decisions, and managing the docket efficiently so families aren&apos;t left waiting.
                 </p>
@@ -190,7 +171,7 @@ export default function WhyRhondaPage() {
                 <h3 className="font-heading text-2xl font-bold text-forest mb-3">Competence</h3>
                 <p className="font-body text-charcoal-light leading-relaxed">
                   Nearly 40 years of legal practice in the exact matters Chancery Court handles.
-                  Rhonda has the knowledge, the skill, and the judicial temperament to
+                  Cooper has the knowledge, the skill, and the judicial temperament to
                   deliver rulings that are fair, legally sound, and timely.
                 </p>
               </div>
